@@ -17,7 +17,9 @@ module.exports = {
         },
         ],
     run: async (client, interaction) => {
-        
+      try {
+
+    
     const user = interaction.options.getUser("user") || interaction.user
     
     const userdb = await client.userdb.findOne({
@@ -101,7 +103,13 @@ const avatar = user.avatarURL({ dynamic: true, format: "png", size: 1024 });
       );
       const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'image.png')
 
-   await interaction.reply({ files: [attachment] })     
+   await interaction.reply({ files: [attachment] })
+    
+  } catch(err) {
+    // handle errors
+    console.log(err)
+    interaction.reply("Imagem Não Suportada Favor Trocar Por Png ou jpg")
+  }
 
 }
 }

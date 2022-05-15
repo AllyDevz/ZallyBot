@@ -7,9 +7,9 @@ module.exports = {
     options: [
         {
          name: "background",
-         description: "digite o link da sua foto de fundo",
+         description: "digite o link da sua foto de fundo, Para alterna Para O padrao digite default",
          type: 3,
-         required: false
+         required: true
         },
         ],
     run: async (client, interaction) => {
@@ -27,8 +27,15 @@ module.exports = {
          userdb = await client.userdb.findOne({ userID: interaction.user.id })
      }
 function filtro(s){
-    if(s === null){
+    if(s === "default"){
         return "./vFqyhnK.png"
+    } else {
+        return s
+    }
+}
+function e(s){
+    if(s === "default"){
+        return "https://media.discordapp.net/attachments/975219630756986903/975260732990046248/vFqyhnK.png?width=683&height=442"
     } else {
         return s
     }
@@ -36,9 +43,10 @@ function filtro(s){
 userdb.economia.background = filtro(sobremim); userdb.save()
      const butao = new Discord.MessageActionRow() 
      interaction.reply({embeds: [new Discord.MessageEmbed()
-    .setTitle(`😉 Ta na mão chefe!`)
+    .setTitle(`Wallapaper Trocado`)
      .setColor("a5d7ff")
-     .setDescription(`> Seu Fundo foi alterado para: \`${filtro(sobremim)}\``)
+     .setImage(e(sobremim))
+     
      
           ]})
 

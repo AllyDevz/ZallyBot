@@ -23,6 +23,16 @@ module.exports =  {
         )
 
         interaction.reply({ embeds: [embed], components: [button] })
-    
+        const filter = (m) =>  interaction.user.id
+        const collector = interaction.channel.createMessageCollector({ filter, time: 5000 });
+        
+        collector.on('collect', m => {
+            console.log(`Collected ${m.content}`);
+            console.log(`Collected ${m}`);
+        });
+        
+        collector.on('end', collected => {
+            console.log(`Collected ${collected.size} items`);
+        });
     }
 }
