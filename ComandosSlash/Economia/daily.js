@@ -40,7 +40,7 @@ module.exports = {
     interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`💸 seu pagamento diario foi recebido`)
     .setColor("a5d7ff")
-    .setDescription(`verifique seu banco ${dinheiro}$`)
+    .setDescription(`verifique seu banco ${abreviar(dinheiro)}$`)
 ]})
     }
 };
@@ -53,3 +53,6 @@ function ms(ms) {
 
   return { days, hours: hours%24, minutes: minutes%60, seconds: seconds%60 }
 }
+function abreviar(number, precision=2) {
+    return number.toLocaleString('en-US', { notation: 'compact', maximumFractionDigits: precision })
+  }

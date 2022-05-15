@@ -70,8 +70,11 @@ if(quantia < 1 || isNaN(quantia) && quantia.toLowerCase() != "tudo"){
   interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`💸 Ta ná mão my friendo!`)
     .setColor("a5d7ff")
-    .setDescription(`Você acaba de transferir 🤑 \`${dinero}\` dinheiros para sua conta do banco!`)
+    .setDescription(`Você acaba de transferir 🤑 \`${abreviar(dinero)}\` dinheiros para sua conta do banco!`)
 ]})
 
     }
 };
+function abreviar(number, precision=2) {
+    return number.toLocaleString('en-US', { notation: 'compact', maximumFractionDigits: precision })
+  }
