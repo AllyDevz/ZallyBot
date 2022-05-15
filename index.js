@@ -8,20 +8,13 @@ const os = require('os');
 const client = new Discord.Client({ intents: 32767 });
 
 module.exports = client;
-const express = require("express");
-const app = express();
-const path = require("path");
-const router = express.Router();
+const express = require('express')
+const app = express()
 
-app.set("view engine", "pug");
-app.set("views", path.join(__dirname, "views"));
-
-const host = '0.0.0.0';
-const port = process.env.PORT || 3000;
-console.log("Running at Port 3000");
-app.listen(port, host, function() {
-    console.log("Server started.......");
-  });
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
+app.listen(3000)
 client.userdb = require("./Database/user.js")
 info = require("./Database/information.js")
 client.slashCommands = new Discord.Collection();
