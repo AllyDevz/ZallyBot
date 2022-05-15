@@ -100,6 +100,7 @@ const avatar = user.avatarURL({ dynamic: true, format: "png", size: 1024 });
         `Profile_${user.tag}_.png`
       );
       const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'image.png')
+
    await interaction.reply({ files: [attachment] })     
 
 }
