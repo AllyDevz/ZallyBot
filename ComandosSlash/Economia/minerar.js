@@ -18,8 +18,8 @@ module.exports = {
 ], ephemeral: true})
      }
       
-    if(Date.now() < 10000){
-      const calc = 10000 - Date.now()
+    if(Date.now() < 1000 * 60 * 00){
+      const calc = 1000 * 60 * 00 - Date.now()
       
          return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`🤔 Calma ae amigo...`)
