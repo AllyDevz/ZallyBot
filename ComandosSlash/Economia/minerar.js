@@ -18,7 +18,7 @@ module.exports = {
 ], ephemeral: true})
      }
       
-    if(Date.now() < 1000){
+    if(Date.now() < 10000){
       const calc = userdb.cooldowns.work - Date.now()
       
          return interaction.reply({embeds: [new Discord.MessageEmbed()
