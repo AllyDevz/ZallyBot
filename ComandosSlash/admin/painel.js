@@ -63,7 +63,7 @@ collector.on('collect', async i => {
  }
   if(i.values[0] == "menu1"){
    interaction.editReply({embeds: [new Discord.MessageEmbed()
-    .setTitle('🌐 Outros comandos:')
+    .setTitle('🌐 Lock/Unlock')
     .setColor("a5d7ff")
     .addFields(
 		{ name: '__Unlock__', value: 'abrir canal' },
@@ -74,7 +74,7 @@ collector.on('collect', async i => {
   const test = ""
   if(i.values[0] == "lock"){
     interaction.editReply({embeds: [new Discord.MessageEmbed()
-     .setTitle('Locked')
+     .setTitle('🔓Locked')
      .setColor("a5d7ff")
 
                ]})
