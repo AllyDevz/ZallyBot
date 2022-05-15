@@ -19,7 +19,7 @@ module.exports = {
      }
       
     if(Date.now() < 10000){
-      const calc = userdb.cooldowns.work - Date.now()
+      const calc = 10000 - Date.now()
       
          return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`🤔 Calma ae amigo...`)
