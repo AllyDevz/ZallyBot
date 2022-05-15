@@ -26,7 +26,7 @@ module.exports = {
     .setColor("a5d7ff")
     .setDescription(`Ainda falta ${ms(calc).hours}h ${ms(calc).minutes}m ${ms(calc).seconds}s para você trabalhar novamente.`)
 ], ephemeral: true})
-     }  
+     } else {  
       
     let frase,
         emprego;
@@ -87,7 +87,8 @@ module.exports = {
     .setTitle(`💸 Trabalho feito! `)
     .setColor("a5d7ff")
     .setDescription(`*Parabens** Você Minerou Shikimoney e ganhou ${dinheiro}`)
-]})
+    
+]})}
     }
 };
 
