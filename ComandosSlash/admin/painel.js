@@ -53,6 +53,13 @@ collector.on('collect', async i => {
     .setTitle('Unlocked')
     .setColor("a5d7ff")
     ]})
+    let ferinha_perm = interaction.member.permissions.has("MANAGE_GUILD");
+    let ferinha_perm_erro_msg = `:x: | ${interaction.author} Você não possui a permissão **Gerenciar Servidor**.`;
+    if (!ferinha_perm) return interaction.channel.send(ferinha_perm_erro_msg);
+       
+    await interaction.channel.permissionOverwrites.edit(interaction.guild.id, { SEND_MESSAGES: true })
+
+
  }
   if(i.values[0] == "menu1"){
    interaction.editReply({embeds: [new Discord.MessageEmbed()
@@ -75,10 +82,7 @@ collector.on('collect', async i => {
     let ferinha_perm_erro_msg = `:x: | ${interaction.author} Você não possui a permissão **Gerenciar Servidor**.`;
     if (!ferinha_perm) return interaction.channel.send(ferinha_perm_erro_msg);
        
-    await interaction.channel.permissionOverwrites.edit(interaction.guild.roles.cache.find(fera => fera.name.toLowerCase().trim() == "@everyone"),
-               {
-                   SEND_MESSAGES: true
-               });
+    await interaction.channel.permissionOverwrites.edit(interaction.guild.id, { SEND_MESSAGES: false })
                
        
    }
