@@ -55,7 +55,7 @@ collector.on('collect', async i => {
     ]})
     let ferinha_perm = interaction.member.permissions.has("MANAGE_GUILD");
     let ferinha_perm_erro_msg = `:x: | ${interaction.author} Você não possui a permissão **Gerenciar Servidor**.`;
-    if (!ferinha_perm) return interaction.channel.send(ferinha_perm_erro_msg);
+    if (!ferinha_perm) return interaction.reply({ferinha_perm_erro_msg, ephemeral: true});
        
     await interaction.channel.permissionOverwrites.edit(interaction.guild.id, { SEND_MESSAGES: true })
 
