@@ -6,7 +6,7 @@ module.exports = {
   run: async(client, interaction) =>{
    
   const embed = new Discord.MessageEmbed()
-    .setTitle('🤖 Ver todos os comandos do bot!')
+    .setTitle('🛑Ver todas as opçoes')
     .setColor("a5d7ff")
     .setDescription('Selecione uma categoria de comandos para ver.')
   
@@ -14,7 +14,7 @@ const row = new Discord.MessageActionRow()
 	.addComponents(
 	new Discord.MessageSelectMenu()
     .setCustomId('menu')
-	.setPlaceholder('selecione uma categoria de comandos.')
+	.setPlaceholder('selecione uma opçao')
 	.addOptions([
 		{
 			label: 'Lock',
