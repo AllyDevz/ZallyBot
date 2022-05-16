@@ -18,7 +18,7 @@ const row = new Discord.MessageActionRow()
 	.addOptions([
 		{
 			label: 'Lock',
-      emoji: '🤑',
+      emoji: '🔒',
 			value: 'lock',
 		},
 		{
@@ -28,7 +28,7 @@ const row = new Discord.MessageActionRow()
 		},
 		{
       label: 'Unlock',
-      emoji: '🎁',
+      emoji: '🔓',
       value: 'unlock',
   },
 	]),
@@ -50,7 +50,7 @@ collector.on('collect', async i => {
 
  if(i.values[0] == "unlock"){
    interaction.editReply({embeds: [new Discord.MessageEmbed()
-    .setTitle('Unlocked')
+    .setTitle('🔓Unlocked')
     .setColor("a5d7ff")
     ]})
     let ferinha_perm = interaction.member.permissions.has("MANAGE_GUILD");
@@ -74,7 +74,7 @@ collector.on('collect', async i => {
   const test = ""
   if(i.values[0] == "lock"){
     interaction.editReply({embeds: [new Discord.MessageEmbed()
-     .setTitle('🔓Locked')
+     .setTitle('🔒Locked')
      .setColor("a5d7ff")
 
                ]})
