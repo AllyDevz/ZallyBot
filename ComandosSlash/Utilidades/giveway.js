@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const ms = require('ms')
 module.exports = {
-    name: "giveway",
-    description: "alterar o Foto De Fundo do seu perfil",
+    name: "giveaway",
+    description: "Giveway realize sorteios",
     type: 'CHAT_INPUT',
     options: [
         {
@@ -68,7 +68,7 @@ module.exports = {
         m.react("🎉");
 
         setTimeout(() => {
-            if (m.reactions.cache.get("🎉").count <= 1) {
+            if (m.reactions.cache.get("🎉").count === 1) {
                 return canalsorteio.send({
                     content: `🎉   **GIVEAWAY TERMINADO**   🎉`, embeds: [finish]
                 })
