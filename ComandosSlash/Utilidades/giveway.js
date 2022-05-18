@@ -1,32 +1,31 @@
-const Discord = require('discord.js')
+const Discord = require("discord.js");
 const ms = require('ms')
-
 module.exports = {
-    name: 'giveway',
-    descriptin: 'Realize um sorteio',
+    name: "giveway",
+    description: "alterar o Foto De Fundo do seu perfil",
     type: 'CHAT_INPUT',
     options: [
         {
             name: 'tempo',
             description: 'Selecione a duração do sorteio (1d, 1h ou 1m, D = Dia / H = Hora / M = Minuto.)',
-            type: 'STRING',
+            type: 3,
             required: true
         },
         {
             name: 'canal',
             description: 'Selecione o canal que deseja realizar o sorteio',
-            type: 'CHANNEL',
+            type: 7,
             required: true
         },
         {
             name: 'premio',
             description: 'Escreva qual vai ser o premio do sorteio',
-            type: 'STRING',
+            type: 3,
             required: true
         }
     ],
-    run: async(client, interaction, args) => {
-
+    run: async (client, interaction) => {
+        
         let duracao = interaction.options.getSTRING('tempo');
         let canalsorteio = interaction.options.getCHANNEL('canal');
         let premio = interaction.options.getSRINTG('premio');
@@ -91,7 +90,6 @@ module.exports = {
         decisao.send({
             content: `<a:giveaway_blob:966290887283978270> Parabéns você ganhou o sorteio de ${premio}.`
         })
-        
-//----
-}
-}
+
+    }
+};
