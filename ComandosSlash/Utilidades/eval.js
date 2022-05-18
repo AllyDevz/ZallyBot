@@ -13,7 +13,7 @@ name: "eval",
            ],
   run: async(client, interaction, args) => {
     const { inspect } = require('util');
-    let command = args.join(" ");
+    let command = interaction.options.getString("codigo")
     let embed = new Discord.MessageEmbed();
     let ferinha_perm = interaction.member.permissions.has("MANAGE_GUILD");
     let ferinha_perm_erro_msg = `:x: | ${interaction.author} Você não possui a permissão **Gerenciar Servidor**.`;
