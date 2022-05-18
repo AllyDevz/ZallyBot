@@ -26,9 +26,9 @@ module.exports = {
     ],
     run: async (client, interaction) => {
         
-        let duracao = interaction.options.getSTRING('tempo');
-        let canalsorteio = interaction.options.getCHANNEL('canal');
-        let premio = interaction.options.getSRINTG('premio');
+        let duracao = interaction.options.getString('tempo');
+        let canalsorteio = interaction.options.getChannel('canal');
+        let premio = interaction.options.getString('premio');
 
 
         if (!interaction.member.permissions.has("ADMINISTRATOR")) return interaction.reply({
