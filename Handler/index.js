@@ -21,7 +21,7 @@ const SlashsArray = []
       
 
   if(!arquivo?.endsWith('.js')) return;
-
+  if(!arquivo.endsWith(".js")) return
       
 
   arquivo = require(`../ComandosSlash/${subpasta}/${arquivo}`);

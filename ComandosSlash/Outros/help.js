@@ -6,7 +6,8 @@ module.exports = {
   run: async(client, interaction) =>{
    
   const embed = new Discord.MessageEmbed()
-    .setTitle('🤖 Ver todos os comandos do bot!')
+    .setTitle(`${client.user.username}`)
+    .setThumbnail(client.user.avatarURL())
     .setColor("a5d7ff")
     .setDescription('Selecione uma categoria de comandos para ver.')
   
@@ -61,9 +62,10 @@ interaction.reply({embeds: [embed], components: [row], fetchReply: true}).then(m
 collector.on('collect', async i => {
 
   if(i.user.id != interaction.user.id) return i.reply({embeds: [new Discord.MessageEmbed()
-    .setTitle(`👨 Calma ae...`)
+    .setTitle(`${client.user.username}`)
+    .setThumbnail(client.user.avatarURL())
     .setColor("#7e008f")
-    .setDescription(`Só quem solicitou o menu pode usá-lo.`)
+    .setDescription(`Shiki: Muita calma hessa hora você não solicitou o comando`)
 ], ephemeral: true})
 
    i.deferUpdate()
@@ -71,6 +73,7 @@ collector.on('collect', async i => {
  if(i.values[0] == "economia"){
    interaction.editReply({embeds: [new Discord.MessageEmbed()
     .setTitle('🤑 Comandos de Economia:')
+    .setThumbnail(client.user.avatarURL())
     .setColor("#7e008f")
     .addFields(
 		{ name: '__Atm__', value: 'Ver quanto dinheiro você, ou outro usuário tem.' },
@@ -91,6 +94,7 @@ collector.on('collect', async i => {
   if(i.values[0] == "outros"){
    interaction.editReply({embeds: [new Discord.MessageEmbed()
     .setTitle('💫 Comandos')
+    .setThumbnail(client.user.avatarURL())
     .setColor("#7e008f")
     .addFields(
 		{ name: '__avatar__', value: 'Ver o Avatar de Alguem Mencionado' },
@@ -110,6 +114,7 @@ collector.on('collect', async i => {
   if(i.values[0] == "admin"){
     interaction.editReply({embeds: [new Discord.MessageEmbed()
      .setTitle('🌐 Administração')
+     .setThumbnail(client.user.avatarURL())
      .setColor("#7e008f")
      .addFields(
      { name: '__setwelcome__', value: 'Configurar welcome' },
@@ -141,6 +146,7 @@ collector.on('collect', async i => {
   if(i.values[0] == "Shikimori"){
     interaction.editReply({embeds: [new Discord.MessageEmbed()
      .setTitle('Shikimori')
+     .setThumbnail(client.user.avatarURL())
      .setColor("#7e008f")
      .addFields(
      { name: 'Shikimori ', value: 'Apelido: Mi-Chan\nMiccon Shikimori é a personagem principal. Ela é filha de Miyabi Shikimori e namorada de Yuu Izumi.\nShikimori é uma pessoa muito confiante, carinhosa e gentil. Ela também é uma pessoa muito competitiva. Geralmente, ela é muito fofa, mas de vez em quando seu lado legal mostra que é intimidante e incrível ao mesmo tempo. Além disso, ela ama muito Yuu Izumi e sempre cuida dele literalmente protegendo-o de todas as situações ruins que ele entra devido à sua má sorte. Ela não gosta de doces, mas quando Izumi oferece smores em um acampamento, ela os come e diz a ele que gostaria de comer isso todos os dias.' }
@@ -157,6 +163,7 @@ collector.on('collect', async i => {
     const pingDB = Math.round((sto[0] * 1e9 + sto[1]) / 1e6);
     interaction.editReply({embeds: [new Discord.MessageEmbed()
       .setColor("#7e008f")
+      .setThumbnail(client.user.avatarURL())
        .setTitle("🎾 ****»**** **PONG!**")
         .setDescription(`> **ping do bot** \`${client.ws.ping}\`**ms!**
 > **Mongodb:** \`${pingDB}\` **ms!**`)
