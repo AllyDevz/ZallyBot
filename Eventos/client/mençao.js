@@ -10,7 +10,14 @@ return userdb.economia.color
 }
 
 client.on("messageCreate", message => {
-
+  const user = message.author.id
+  async function color(){
+    const userdb = await client.userdb.findOne({
+      userID: user.id
+  }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+  
+  return userdb.economia.color
+  }
   if(message.author.bot) return;
   if(!message.guild) return;
   
@@ -23,10 +30,9 @@ client.on("messageCreate", message => {
     .setDescription(`> **Opa! Bão?** Me chamo \`${client.user.username}\`, se precisar de ajuda use /help para me adicionar em seu servidor\n __clique aqui para me adicionar__[Invite](https://discord.com/api/oauth2/authorize?client_id=962356709601460234&permissions=1103202674864&scope=applications.commands%20bot)`)
 
    message.reply({embeds: [embed]})
-  }
-});
 
-client.on("messageCreate", message => {
+
+
  
   if(message.author.bot) return;
   if(!message.guild) return;
@@ -53,10 +59,10 @@ client.on("messageCreate", message => {
      message.reply({embeds: [embed]})
     }
 
-});
 
 
-client.on("messageCreate", message => {
+
+
  
   if(message.author.bot) return;
   if(!message.guild) return;
@@ -71,4 +77,4 @@ client.on("messageCreate", message => {
 
    message.reply({embeds: [embed]})
   }
-});
+}});
