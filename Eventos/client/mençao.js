@@ -33,6 +33,18 @@ client.on("messageCreate", message => {
 
    message.reply({embeds: [embed]})
   }
+
+  if(message.content == `Kitsune`){
+  
+    const embed = new  Discord.MessageEmbed()
+      .setTitle(`${client.user.username}`)
+      .setColor(`a5d7ff`)
+      .setImage("https://media.discordapp.net/attachments/975196720667455538/977684063420842004/Shikimori.png?width=355&height=454")
+      .setDescription(`__Shikimori:__ **Curiosidade o meu criador originalmente criou a shadow e era a mesma personagem, ele tem a marca de uma mascara de kitsune, o jogo originalmente e touhou apenas pesquise**`)
+  
+     message.reply({embeds: [embed]})
+    }
+
 });
 
 
