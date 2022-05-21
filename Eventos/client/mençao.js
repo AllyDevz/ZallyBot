@@ -1,6 +1,6 @@
 const client = require("../../index");
 const Discord = require("discord.js")
-
+const color = "36393e"
 client.on("messageCreate", message => {
  
   if(message.author.bot) return;
@@ -27,7 +27,7 @@ client.on("messageCreate", message => {
   
   const embed = new  Discord.MessageEmbed()
     .setTitle(`${client.user.username}`)
-    .setColor(`a5d7ff`)
+    .setColor(color)
     .setThumbnail(client.user.avatarURL())
     .setDescription(`Claro Que Tem Meu Jovem`)
 
@@ -38,9 +38,9 @@ client.on("messageCreate", message => {
   
     const embed = new  Discord.MessageEmbed()
       .setTitle(`${client.user.username}`)
-      .setColor(`a5d7ff`)
+      .setColor(color)
       .setImage("https://media.discordapp.net/attachments/975196720667455538/977684063420842004/Shikimori.png?width=355&height=454")
-      .setDescription(`__Shikimori:__ **Curiosidade o meu criador originalmente criou a shadow e era a mesma personagem, ele tem a marca de uma mascara de kitsune, o jogo originalmente e touhou apenas pesquise**`)
+      .setDescription(`__Shikimori:__ **Curiosidade o meu criador originalmente criou a shadow e era a mesma personagem, ele tem a marca de uma mascara de kitsune, o jogo originalmente e touhou**`)
   
      message.reply({embeds: [embed]})
     }
@@ -57,7 +57,7 @@ client.on("messageCreate", message => {
   
   const embed = new  Discord.MessageEmbed()
     .setTitle(`${client.user.username}`)
-    .setColor(`a5d7ff`)
+    .setColor(color)
     .setThumbnail(client.user.avatarURL())
     .setDescription(`Oi?? Precisa de Ajuda Use /menu`)
 
