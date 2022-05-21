@@ -2,7 +2,8 @@ const client = require("../../index");
 const Discord = require("discord.js")
 
 client.on("messageCreate", message => {
-  const user = message.author.id
+  const user = message.user.id
+  console.log(user)
   async function color(){
     const userdb = await client.userdb.findOne({
       userID: user.id
