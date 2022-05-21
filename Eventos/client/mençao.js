@@ -1,13 +1,5 @@
 const client = require("../../index");
 const Discord = require("discord.js")
-const user = message.author.id
-async function color(){
-  const userdb = await client.userdb.findOne({
-    userID: user.id
-}) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
-
-return userdb.economia.color
-}
 
 client.on("messageCreate", message => {
   const user = message.author.id
