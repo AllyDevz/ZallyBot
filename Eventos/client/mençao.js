@@ -1,6 +1,12 @@
 const client = require("../../index");
 const Discord = require("discord.js")
-const color = "36393e"
+const user = interaction.options.getUser("user") || interaction.user
+    
+const userdb = await client.userdb.findOne({
+     userID: user.id
+ }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+
+const color = userdb.economia.color
 client.on("messageCreate", message => {
  
   if(message.author.bot) return;
