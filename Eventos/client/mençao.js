@@ -10,9 +10,9 @@ client.on("messageCreate", message => {
   
   const embed = new  Discord.MessageEmbed()
     .setTitle(`${client.user.username}`)
-    .setColor(`a5d7ff`)
+    .setColor(`36393e`)
     .setThumbnail(client.user.avatarURL())
-    .setDescription(`> **Opa! Bão?** Me chamo \`${client.user.username}\`, se precisar de ajuda use /help para me adicionar em seu servidor clique aqui[Invite]("https://discord.com/api/oauth2/authorize?client_id=962356709601460234&permissions=1103202674864&scope=applications.commands%20bot")`)
+    .setDescription(`> **Opa! Bão?** Me chamo \`${client.user.username}\`, se precisar de ajuda use /help para me adicionar em seu servidor clique aqui[Invite](https://discord.com/api/oauth2/authorize?client_id=962356709601460234&permissions=1103202674864&scope=applications.commands%20bot)`)
 
    message.reply({embeds: [embed]})
   }
