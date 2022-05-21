@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 module.exports = {
-  name: "painellock",
+  name: "color",
   description: "Ver a lista de comandos do bot",
   type: "CHAT_INPUT",
   run: async(client, interaction) =>{
@@ -8,7 +8,7 @@ module.exports = {
   const embed = new Discord.MessageEmbed()
     .setTitle('🛑Ver todas as opçoes')
     .setColor("a5d7ff")
-    .setDescription('Selecione uma categoria de comandos para ver.')
+    .setDescription('Selecione uma Cor Para Todas Embed')
   
 const row = new Discord.MessageActionRow()
 	.addComponents(
