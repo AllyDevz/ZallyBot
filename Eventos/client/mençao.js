@@ -1,14 +1,16 @@
 const client = require("../../index");
 const Discord = require("discord.js")
-const user = interaction.options.getUser("user") || interaction.user
-    
-const userdb = await client.userdb.findOne({
-     userID: user.id
- }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+const user = message.author.id
+async function color(){
+  const userdb = await client.userdb.findOne({
+    userID: user.id
+}) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
 
-const color = userdb.economia.color
+return userdb.economia.color
+}
+
 client.on("messageCreate", message => {
- 
+
   if(message.author.bot) return;
   if(!message.guild) return;
   
@@ -16,7 +18,7 @@ client.on("messageCreate", message => {
   
   const embed = new  Discord.MessageEmbed()
     .setTitle(`${client.user.username}`)
-    .setColor(`36393e`)
+    .setColor(color())
     .setThumbnail(client.user.avatarURL())
     .setDescription(`> **Opa! Bão?** Me chamo \`${client.user.username}\`, se precisar de ajuda use /help para me adicionar em seu servidor\n __clique aqui para me adicionar__[Invite](https://discord.com/api/oauth2/authorize?client_id=962356709601460234&permissions=1103202674864&scope=applications.commands%20bot)`)
 
@@ -33,7 +35,7 @@ client.on("messageCreate", message => {
   
   const embed = new  Discord.MessageEmbed()
     .setTitle(`${client.user.username}`)
-    .setColor(color)
+    .setColor(color())
     .setThumbnail(client.user.avatarURL())
     .setDescription(`Claro Que Tem Meu Jovem`)
 
@@ -44,7 +46,7 @@ client.on("messageCreate", message => {
   
     const embed = new  Discord.MessageEmbed()
       .setTitle(`${client.user.username}`)
-      .setColor(color)
+      .setColor(color())
       .setImage("https://media.discordapp.net/attachments/975196720667455538/977684063420842004/Shikimori.png?width=355&height=454")
       .setDescription(`__Shikimori:__ **Curiosidade o meu criador originalmente criou a shadow e era a mesma personagem, ele tem a marca de uma mascara de kitsune, o jogo originalmente e touhou**`)
   
@@ -63,7 +65,7 @@ client.on("messageCreate", message => {
   
   const embed = new  Discord.MessageEmbed()
     .setTitle(`${client.user.username}`)
-    .setColor(color)
+    .setColor(color())
     .setThumbnail(client.user.avatarURL())
     .setDescription(`Oi?? Precisa de Ajuda Use /menu`)
 
