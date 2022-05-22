@@ -37,7 +37,7 @@ client.on("messageCreate", async message => {
 
 client.on("messageCreate", async message => {
   const user = message
-  console.log(user)
+ 
   
     const userdb = await client.userdb.findOne({
       userID: user.author.id
@@ -63,7 +63,7 @@ client.on("messageCreate", async message => {
 
 client.on("messageCreate", async message => {
   const user = message
-  console.log(user)
+  
   
   const userdb = await client.userdb.findOne({
       userID: user.author.id
