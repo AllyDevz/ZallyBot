@@ -19,9 +19,10 @@ module.exports = {
         if(user === true){
             interaction.reply("Bot não Aceita Casamentos uma pena.. Tente achar alguem")
         } else {   
-     let userdb = await client.userdb.findOne({
-         userID: interaction.user.id
-     })
+    const userdb = await client.userdb.findOne({
+        userID: user.id
+    }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+
           
      if(!userdb){
          const newuser = new client.userdb({ userID: interaction.user.id })
@@ -46,19 +47,19 @@ module.exports = {
 
      if(interaction.user.id == user.id) return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`✋ Dá não filhão...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`**Calma!** Você pode se casar consigo mesmo.`)
 ], ephemeral: true})
 
     if(userdb.economia.marry.casado) return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`✋ Dá não filhão...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`**Calma!** Você já está casado com alguém.`)
 ], ephemeral: true})
 
     if(userdb2.economia.marry.casado) return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`✋ Dá não filhão...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`**Calma!** ${user} já está casado com alguém.`)
 ], ephemeral: true})
 
@@ -76,7 +77,7 @@ module.exports = {
 
    interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`💒 Casamentos 💍`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`Ei ${user}. ${interaction.user} quer se casar com você, aceitas?`)
 ], components: [butao], fetchReply: true}).then(msg =>{
     
@@ -86,7 +87,7 @@ collector.on('collect', async i => {
   
   if(i.user.id !=user.id) return i.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`👨 Calma ae...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`Só quem recebeu o pedido de casamento pode usar o botão.`)
 ], ephemeral: true})
 
@@ -113,7 +114,7 @@ collector.on('collect', async i => {
        
        interaction.editReply({embeds: [new Discord.MessageEmbed()
     .setTitle(`Ihul Parabens Pelo Casamento`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`${user} aceitou o pedido de casamento de ${interaction.user}! 🎉🎉🎉🎉🎉`)
 ], components: []})
    }
@@ -121,7 +122,7 @@ collector.on('collect', async i => {
    if(i.customId == "recusar"){
       interaction.editReply({embeds: [new Discord.MessageEmbed()
     .setTitle(`Puts Cara...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`${user} recusou o pedido de casamento de ${interaction.user}.`)
 ], components: []})
        

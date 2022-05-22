@@ -31,7 +31,7 @@ userdb.economia.sobremim = sobremim; userdb.save()
       
      interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`😉 Ta na mão chefe!`)
-     .setColor("a5d7ff")
+     .setColor(userdb.economia.color)
      .setDescription(`> Seu sobremim foi alterado para: \`${sobremim}\``)
           ]})
 

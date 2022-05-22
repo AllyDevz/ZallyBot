@@ -6,9 +6,10 @@ module.exports = {
     type: 'CHAT_INPUT',
     run: async (client, interaction) => {
      
-     let userdb = await client.userdb.findOne({
-         userID: interaction.user.id
-     })
+    const userdb = await client.userdb.findOne({
+            userID: user.id
+        }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+        
       
      if(!userdb){
          const newuser = new client.userdb({ userID: interaction.user.id })
@@ -22,7 +23,7 @@ module.exports = {
       
          return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`Vish`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`Ainda falta ${ms(calc).hours}h ${ms(calc).minutes}m ${ms(calc).seconds}s para você pegar o Pagamento novamente.`)
 ], ephemeral: true})
      }  
@@ -39,7 +40,7 @@ module.exports = {
      
     interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`💸 seu pagamento diario foi recebido`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`verifique seu banco ${abreviar(dinheiro)}$`)
 ]})
     }

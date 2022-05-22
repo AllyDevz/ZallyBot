@@ -85,7 +85,7 @@ module.exports = {
      
     interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`💸 Trabalho feito! `)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`**Ta na mão chefia!** Você ${frase} como ${emprego} e ganhou 🤑 ${dinheiro} dinheiros.`)
 ]})
     }

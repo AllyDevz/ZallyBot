@@ -19,19 +19,20 @@ module.exports = {
 if(quantia < 1 || isNaN(quantia) && quantia.toLowerCase() != "tudo"){
     return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`👨 Calma ae...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`Você deve especificar uma quantia válida acima de 0 para depositar, ou digitar \`tudo\` para depositar tudo que você tem na carteira.`)
 ], ephemeral: true})
 }
 
-  let userdb = await client.userdb.findOne({
-         userID: interaction.user.id
-     })
+const userdb = await client.userdb.findOne({
+    userID: user.id
+}) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+
  
  if(!userdb || userdb.economia.money == 0){
      return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`😢 Então amigo...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription("Você atualmente não tem dinheiro nenhum em conta. Use `/daily` para pegar seu prêmio diário, ou pegue um emprego em `/empregos` e use `/work` para trabalhar.")
 ], ephemeral: true})
  }
@@ -51,7 +52,7 @@ if(quantia < 1 || isNaN(quantia) && quantia.toLowerCase() != "tudo"){
  if(usermoney < quantia)
    return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`😢 Então amigo...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`Você não tem toda essa quantia para depositar no momento, atualmente você só tem ${usermoney} dinheiros.`)
 ], ephemeral: true})
 
@@ -69,7 +70,7 @@ if(quantia < 1 || isNaN(quantia) && quantia.toLowerCase() != "tudo"){
 
   interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`💸 Ta ná mão my friendo!`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`Você acaba de transferir 🤑 \`${abreviar(dinero)}\` dinheiros para sua conta do banco!`)
 ]})
 

@@ -13,7 +13,7 @@ module.exports = {
      if(!userdb || !userdb.economia.marry.casado){
          return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`✋ Calma ae filhão...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`Você não está casado com ninguém.`)
 ], ephemeral: true})
      }
@@ -34,7 +34,7 @@ module.exports = {
 
    interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`Divórcio 💔`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`${interaction.user}, tem certeza que deseja se divorciar de ${casado.username}?`)
 ], components: [butao], fetchReply: true}).then(msg =>{
     
@@ -44,7 +44,7 @@ collector.on('collect', async i => {
   
   if(i.user.id != interaction.user.id) return i.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`👨 Calma ae...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`Só quem solicitou o comando pode usar o botão.`)
 ], ephemeral: true})
 
@@ -71,7 +71,7 @@ collector.on('collect', async i => {
        
        interaction.editReply({embeds: [new Discord.MessageEmbed()
     .setTitle(`💔 Pelo visto o amor acabou...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`Você acaba de se divorciar de ${casado.username}.`)
 ], components: []})
    }
@@ -79,7 +79,7 @@ collector.on('collect', async i => {
    if(i.customId == "nao"){
       interaction.editReply({embeds: [new Discord.MessageEmbed()
     .setTitle(`😶 A vida continua...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`O divórcio foi cancelado.`)
 ], components: []})
        

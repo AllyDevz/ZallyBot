@@ -17,6 +17,10 @@ module.exports =  {
         const userId = interaction.member.user.id;
       
         const user = client.users.cache.find(user => user.id === userId)
+        const userdb = await client.userdb.findOne({
+          userID: user.id
+      }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+      
         function getUserFromMention(usuario) {
             if (!usuario){
               return user
@@ -48,7 +52,7 @@ module.exports =  {
         console.log(p)
         
         const embed = new Discord.MessageEmbed()
-        .setColor('#2f3136') //cor da embed
+        .setColor(userdb.economia.color) //cor da embed
         .setTitle('Me adicione!') //titulo da embed
         .setDescription(`Olá, \`${interaction.user.tag}\` eu sou o eu sou o ${client.user.username} , .`) //descrição da embed (escreve o que vc bem entender, para fazer paragrafo utilize \n)
         .setFooter({text: `Comando requisitado por: ${interaction.user.tag}`, iconURL: 'https://images-ext-1.discordapp.net/external/0F39bQul3cH-yQaSXxBQvbjhPN03VuIOgB14tkiUpvU/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/962356709601460234/33d7e1d2861f1e28a87e50e2db45d741.webp?width=442&height=442'}) //footer da embed

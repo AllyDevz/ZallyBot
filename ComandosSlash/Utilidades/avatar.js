@@ -16,6 +16,10 @@ module.exports = {
         const userId = interaction.member.user.id;
       
         const user = client.users.cache.find(user => user.id === userId)
+        const userdb = await client.userdb.findOne({
+          userID: user.id
+      }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+      
         function getUserFromMention(usuario) {
             if (!usuario){
               return user
@@ -36,7 +40,7 @@ module.exports = {
           const p = getUserFromMention(usuario)
         const embed = new MessageEmbed()
             .setTitle(`${p.username}'s Avatar`)
-            .setColor('BLUE')
+            .setColor(userdb.economia.color)
             .setImage(p.displayAvatarURL({
                 dynamic: true,
                 size: 1024

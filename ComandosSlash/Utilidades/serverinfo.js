@@ -7,7 +7,10 @@ module.exports = {
     description: "「🤔 informação」Veja as informaçãoes do servidor",
 
     run: async(client, interaction, args) => {
-
+        const userdb = await client.userdb.findOne({
+            userID: user.id
+        }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+        
         let server = interaction.guild;
 
         function nivel() {
@@ -22,7 +25,7 @@ module.exports = {
         }
 
     const retorno = new Discord.MessageEmbed()
-    .setColor("RANDOM")
+    .setColor(userdb.economia.color)
     .setTitle(server.name)
     .setThumbnail(server.iconURL({ dynamic: true}))
     .addField('**Nickname:**', `__${interaction.member.user.tag}__`, true)
