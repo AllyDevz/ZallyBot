@@ -4,11 +4,16 @@ module.exports = {
   description: "Ver a lista de comandos do bot",
   type: "CHAT_INPUT",
   run: async(client, interaction) =>{
-  const user = interaction
+  const userId = interaction.member.user.id;
+      
+  const user = client.users.cache.find(user => user.id === userId)
+
+      
   const userdb = await client.userdb.findOne({
-      userID: user.id
-  }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
-  
+        userID: user.id
+    }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+    
+    
   const embed = new Discord.MessageEmbed()
     .setTitle(`${client.user.username}`)
     .setThumbnail(client.user.avatarURL())
