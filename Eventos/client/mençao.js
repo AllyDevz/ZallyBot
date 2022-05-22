@@ -6,7 +6,7 @@ client.on("messageCreate", message => {
   console.log(user)
   async function color(){
     const userdb = await client.userdb.findOne({
-      userID: user.id
+      userID: user.author.id
   }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
   
   return userdb.economia.color
@@ -27,11 +27,11 @@ client.on("messageCreate", message => {
 });
 
 client.on("messageCreate", message => {
-  const user = message.user.id
+  const user = message
   console.log(user)
   async function color(){
     const userdb = await client.userdb.findOne({
-      userID: user.id
+      userID: user.author.id
   }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
   
   return userdb.economia.color
@@ -53,11 +53,11 @@ client.on("messageCreate", message => {
 
 
 client.on("messageCreate", message => {
-  const user = message.user.id
+  const user = message
   console.log(user)
   async function color(){
     const userdb = await client.userdb.findOne({
-      userID: user.id
+      userID: user.author.id
   }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
   
   return userdb.economia.color
