@@ -12,7 +12,7 @@ module.exports = {
   const embed = new Discord.MessageEmbed()
     .setTitle(`${client.user.username}`)
     .setThumbnail(client.user.avatarURL())
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription('Selecione uma categoria de comandos para ver.')
   
 const row = new Discord.MessageActionRow()
@@ -64,7 +64,11 @@ interaction.reply({embeds: [embed], components: [row], fetchReply: true}).then(m
   const collector = msg.createMessageComponentCollector({ idle: 1000 * 60 * 10 });
 
 collector.on('collect', async i => {
-
+  const user = interaction
+  const userdb = await client.userdb.findOne({
+      userID: user.id
+  }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+  
   if(i.user.id != interaction.user.id) return i.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`${client.user.username}`)
     .setThumbnail(client.user.avatarURL())
@@ -75,6 +79,16 @@ collector.on('collect', async i => {
    i.deferUpdate()
 
  if(i.values[0] == "economia"){
+  const userId = interaction.member.user.id;
+      
+  const user = client.users.cache.find(user => user.id === userId)
+
+    
+  const userdb = await client.userdb.findOne({
+      userID: user.id
+  }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+  
+  
    interaction.editReply({embeds: [new Discord.MessageEmbed()
     .setTitle('🤑 Comandos de Economia:')
     .setThumbnail(client.user.avatarURL())
@@ -96,6 +110,16 @@ collector.on('collect', async i => {
     ]})
  }
   if(i.values[0] == "outros"){
+    const userId = interaction.member.user.id;
+      
+    const user = client.users.cache.find(user => user.id === userId)
+
+      
+    const userdb = await client.userdb.findOne({
+        userID: user.id
+    }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+    
+    
    interaction.editReply({embeds: [new Discord.MessageEmbed()
     .setTitle('💫 Comandos')
     .setThumbnail(client.user.avatarURL())
@@ -109,6 +133,7 @@ collector.on('collect', async i => {
               ]})
   }
   if(i.values[0] == "end"){
+
     interaction.editReply({embeds: [new Discord.MessageEmbed()
      .setTitle('🧧 Encerrando Menu')
                ]}).then(msg => {
@@ -116,6 +141,16 @@ collector.on('collect', async i => {
             })
    }
   if(i.values[0] == "admin"){
+    const userId = interaction.member.user.id;
+      
+    const user = client.users.cache.find(user => user.id === userId)
+
+      
+    const userdb = await client.userdb.findOne({
+        userID: user.id
+    }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+    
+    
     interaction.editReply({embeds: [new Discord.MessageEmbed()
      .setTitle('🌐 Administração')
      .setThumbnail(client.user.avatarURL())
@@ -127,11 +162,16 @@ collector.on('collect', async i => {
                ]})
    }
   if(i.values[0] == "avatar"){
+    
     const userId = interaction.member.user.id;
       
     const user = client.users.cache.find(user => user.id === userId)
 
-
+      
+    const userdb = await client.userdb.findOne({
+        userID: user.id
+    }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+    
     
         interaction.editReply({embeds: [new Discord.MessageEmbed()
           .setTitle(`${user.username}'s Avatar`)
@@ -148,6 +188,16 @@ collector.on('collect', async i => {
    }
   const test = ""
   if(i.values[0] == "Shikimori"){
+    const userId = interaction.member.user.id;
+      
+    const user = client.users.cache.find(user => user.id === userId)
+
+      
+    const userdb = await client.userdb.findOne({
+        userID: user.id
+    }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+    
+        
     interaction.editReply({embeds: [new Discord.MessageEmbed()
      .setTitle('Shikimori')
      .setThumbnail(client.user.avatarURL())
@@ -158,6 +208,16 @@ collector.on('collect', async i => {
                ]})
    }
    if(i.values[0] == "Ping"){
+    const userId = interaction.member.user.id;
+      
+    const user = client.users.cache.find(user => user.id === userId)
+
+      
+    const userdb = await client.userdb.findOne({
+        userID: user.id
+    }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+    
+         
     const st = process.hrtime()   
     await client.userdb.findOne({
      userid: interaction.member.id,
