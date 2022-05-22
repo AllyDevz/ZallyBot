@@ -8,7 +8,7 @@ module.exports = {
   const embed = new Discord.MessageEmbed()
     .setTitle('🛑Ver todas as opçoes')
     .setColor("a5d7ff")
-    .setDescription('Selecione uma Cor Para Todas Embed')
+    .setDescription('Selecione uma Cor Para ')
   
 const row = new Discord.MessageActionRow()
 	.addComponents(
