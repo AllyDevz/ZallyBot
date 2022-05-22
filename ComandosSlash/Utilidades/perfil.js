@@ -106,7 +106,7 @@ const avatar = user.avatarURL({ dynamic: true, format: "png", size: 1024 });
    
    const embed = new Discord.MessageEmbed()
    .setTitle(`${client.user.username}`)
-   .setImage(attachment)
+   .setImage({ url: 'attachment://image.png' })
    .setColor(userdb.economia.color)
   await interaction.reply({ embeds: [embed] })  
   } catch(err) {
