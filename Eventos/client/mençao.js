@@ -1,6 +1,16 @@
 const client = require("../../index");
 const Discord = require("discord.js")
+client.on("messageCreate", async message => {
+  const user = message
+  if(message.author.bot) return;
+  if(user.author.username === "Axiore Community #fruit-stock"){
+    let channel = client.channels.cache.get("968325803765014538");
+    channel.send("**Shikimori avistou frutas**\n<@&977760883855994960>")
 
+  }
+
+  
+})
 client.on("messageCreate", async message => {
   const user = message
   console.log(user)
