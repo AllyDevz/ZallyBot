@@ -15,7 +15,7 @@ module.exports = {
     run: async (client, interaction) => {
         
      const sobremim = interaction.options.getString("background")
-     
+     const user = interaction
      const userdb = await client.userdb.findOne({
         userID: user.id
     }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}

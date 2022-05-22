@@ -84,7 +84,11 @@ module.exports = {
     const collector = msg.createMessageComponentCollector({ idle: 1000 * 60 * 10 });
 
 collector.on('collect', async i => {
-  
+    const userdb = await client.userdb.findOne({
+        userID: user.id
+    }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+    
+      
   if(i.user.id !=user.id) return i.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`👨 Calma ae...`)
     .setColor(userdb.economia.color)
@@ -94,6 +98,11 @@ collector.on('collect', async i => {
    collector.stop()
 
    if(i.customId == "aceitar"){
+    const userdb = await client.userdb.findOne({
+        userID: user.id
+    }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+    
+      
        
        await client.userdb.updateOne({
            userID: interaction.user.id
@@ -120,6 +129,11 @@ collector.on('collect', async i => {
    }
    
    if(i.customId == "recusar"){
+    const userdb = await client.userdb.findOne({
+        userID: user.id
+    }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+    
+      
       interaction.editReply({embeds: [new Discord.MessageEmbed()
     .setTitle(`Puts Cara...`)
     .setColor(userdb.economia.color)

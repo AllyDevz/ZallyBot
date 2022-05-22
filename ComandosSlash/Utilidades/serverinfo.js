@@ -7,6 +7,7 @@ module.exports = {
     description: "「🤔 informação」Veja as informaçãoes do servidor",
 
     run: async(client, interaction, args) => {
+        const user = interaction
         const userdb = await client.userdb.findOne({
             userID: user.id
         }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}

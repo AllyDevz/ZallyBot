@@ -15,6 +15,10 @@ module.exports = {
     run: async (client, interaction) => {
         
      let quantia = interaction.options.getString("quantia")
+     const user = interaction
+     const userdb = await client.userdb.findOne({
+         userID: user.id
+     }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
      
 if(quantia < 1 || isNaN(quantia) && quantia.toLowerCase() != "tudo"){
     return interaction.reply({embeds: [new Discord.MessageEmbed()
@@ -24,9 +28,6 @@ if(quantia < 1 || isNaN(quantia) && quantia.toLowerCase() != "tudo"){
 ], ephemeral: true})
 }
 
-const userdb = await client.userdb.findOne({
-    userID: user.id
-}) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
 
  
  if(!userdb || userdb.economia.money == 0){

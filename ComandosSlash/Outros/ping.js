@@ -5,10 +5,11 @@ module.exports = {
     description: "Veja o atual ping do bot.",
     type: 'CHAT_INPUT',
     run: async (client, interaction) => {
+    const user = interaction
     const userdb = await client.userdb.findOne({
-            userID: user.id
-        }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
-           
+        userID: user.id
+    }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
+    
    const st = process.hrtime()   
    await client.userdb.findOne({
     userid: interaction.member.id,
