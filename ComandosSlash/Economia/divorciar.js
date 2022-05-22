@@ -50,7 +50,7 @@ collector.on('collect', async i => {
     .setDescription(`Só quem solicitou o comando pode usar o botão.`)
 ], ephemeral: true})
 
-   collector.stop()
+   
 
    if(i.customId == "sim"){
        
