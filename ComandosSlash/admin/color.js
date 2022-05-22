@@ -36,7 +36,7 @@ const row = new Discord.MessageActionRow()
 
 interaction.reply({embeds: [embed], components: [row], fetchReply: true}).then(msg => {
 
-  const collector = msg.createMessageComponentCosllector({ idle: 1000 * 60 * 10 });
+  const collector = msg.createMessageComponentCollector({ idle: 1000 * 60 * 10 });
 
 collector.on('collect', async i => {
 
@@ -66,7 +66,6 @@ collector.on('collect', async i => {
              }
         const cor = "03fc41"
         userdb.economia.color = cor; userdb.save()
-        collector.end()
    }
   if(i.values[0] == "padrão"){
    interaction.editReply({embeds: [new Discord.MessageEmbed()
@@ -86,7 +85,6 @@ collector.on('collect', async i => {
             }
        const cor = "36393e"
        userdb.economia.color = cor; userdb.save()
-       collector.end()
   }
   const test = ""
   if(i.values[0] == "azul"){
@@ -108,11 +106,9 @@ collector.on('collect', async i => {
         const cor = "0352fc"
         userdb.economia.color = cor; userdb.save()
    }
-   collector.end()
 })//collector
- 
-
-})//.then
+  
+})//.thens
     
   }
 }
