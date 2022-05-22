@@ -6,11 +6,10 @@ module.exports = {
     type: 'CHAT_INPUT',
     run: async (client, interaction) => {
         
-  const user = interaction
-  const userdb = await client.userdb.findOne({
-      userID: user.id
-  }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
   
+  const userdb = await client.userdb.findOne({
+    userID: interaction.user.id
+})
           
      if(!userdb || !userdb.economia.marry.casado){
          return interaction.reply({embeds: [new Discord.MessageEmbed()
