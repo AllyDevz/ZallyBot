@@ -36,7 +36,7 @@ const row = new Discord.MessageActionRow()
 
 interaction.reply({embeds: [embed], components: [row], fetchReply: true}).then(msg => {
 
-  const collector = msg.createMessageComponentCollector({ idle: 1000 * 60 * 10 });
+  const collector = msg.createMessageComponentCosllector({ idle: 1000 * 60 * 10 });
 
 collector.on('collect', async i => {
 
