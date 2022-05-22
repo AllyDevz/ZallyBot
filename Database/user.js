@@ -16,7 +16,7 @@ const userset = new Schema({
       },
       banco: { type: Number, default: 0 },
       money: { type: Number, default: 0 },
-      mtc: { type: String, default: "Manutençao offline" },
+
       color: { type: String, default: "36393e"},
       sobremim: { type: String, default: "Use /sobremim para alterar este texto." },
       background: { type: String, default: "./vFqyhnK.png"}
