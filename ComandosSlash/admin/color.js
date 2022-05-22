@@ -31,6 +31,22 @@ const row = new Discord.MessageActionRow()
       emoji: '🟩',
       value: 'verde',
   },
+  {
+    label: 'Cor Roxa',
+    emoji: '🟪',
+    value: 'roxo',
+},
+{
+  label: 'Cor Amarela',
+  emoji: '🟨',
+  value: 'amarelo',
+},
+{
+  label: 'Cor Laranja',
+  emoji: '🍊',
+  value: 'laranja',
+},
+
 	]),
 			);
 
@@ -104,6 +120,86 @@ collector.on('collect', async i => {
                  userdb = await client.userdb.findOne({ userID: interaction.user.id })
              }
         const cor = "0352fc"
+        userdb.economia.color = cor; userdb.save()
+   }
+   if(i.values[0] == "roxo"){
+    interaction.editReply({embeds: [new Discord.MessageEmbed()
+     .setTitle('cor roxa')
+     .setColor("3300ff")
+ 
+               ]})
+         let userdb = await client.userdb.findOne({
+                 userID: interaction.user.id
+             })
+              
+         if(!userdb){
+                 const newuser = new client.userdb({ userID: interaction.user.id })
+                 await newuser.save();
+                 
+                 userdb = await client.userdb.findOne({ userID: interaction.user.id })
+             }
+        const cor = "3300ff"
+        userdb.economia.color = cor; userdb.save()
+   }
+
+   if(i.values[0] == "rosa"){
+    const cor = "f200ff"
+    interaction.editReply({embeds: [new Discord.MessageEmbed()
+     .setTitle('cor rosa')
+     .setColor(cor)
+ 
+               ]})
+         let userdb = await client.userdb.findOne({
+                 userID: interaction.user.id
+             })
+              
+         if(!userdb){
+                 const newuser = new client.userdb({ userID: interaction.user.id })
+                 await newuser.save();
+                 
+                 userdb = await client.userdb.findOne({ userID: interaction.user.id })
+             }
+        
+        userdb.economia.color = cor; userdb.save()
+   }
+   if(i.values[0] == "amarelo"){
+    const cor = "ffff00"
+    interaction.editReply({embeds: [new Discord.MessageEmbed()
+     .setTitle('cor amarela')
+     .setColor(cor)
+ 
+               ]})
+         let userdb = await client.userdb.findOne({
+                 userID: interaction.user.id
+             })
+              
+         if(!userdb){
+                 const newuser = new client.userdb({ userID: interaction.user.id })
+                 await newuser.save();
+                 
+                 userdb = await client.userdb.findOne({ userID: interaction.user.id })
+             }
+        
+        userdb.economia.color = cor; userdb.save()
+   }
+   if(i.values[0] == "laranja"){
+    const cor = "ff8c00"
+    interaction.editReply({embeds: [new Discord.MessageEmbed()
+     .setTitle('cor laranja')
+     .setColor(cor)
+ 
+               ]})
+         let userdb = await client.userdb.findOne({
+                 userID: interaction.user.id
+             })
+              
+         if(!userdb){
+                 const newuser = new client.userdb({ userID: interaction.user.id })
+                 await newuser.save();
+                 
+                 userdb = await client.userdb.findOne({ userID: interaction.user.id })
+             }
+        
         userdb.economia.color = cor; userdb.save()
    }
 })//collector
