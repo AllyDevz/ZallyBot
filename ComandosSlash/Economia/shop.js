@@ -70,10 +70,10 @@ module.exports = {
                 if (valor === "comida") {
 
                     if (carteira < 1000) {
-                        c.reply(`${interaction.user} Você não possui \`1000 moedas\` para comprar comida.`)
+                        c.channel.send(`${interaction.user} Você não possui \`1000 moedas\` para comprar comida.`)
                     } else {
 
-                        c.reply(`${interaction.user} Você comprou 1 comida por 1000 moedas!\nVeja seu inventário com \`/inventário\`.`);
+                        c.channel.send(`${interaction.user} Você comprou 1 comida por 1000 moedas!\nVeja seu inventário com \`/inventário\`.`);
                         db.add(`comida_${interaction.user.id}`, 1);
                         db.subtract(`carteira_${user.id}`, 1000)
 
@@ -82,10 +82,10 @@ module.exports = {
                 } else if (valor === "fafnir") {
 
                     if (ilulu < 10) {
-                        c.reply(`${interaction.user} Você não possui \`5000 moedas\` para comprar roupa.`)
+                        c.channel.send(`${interaction.user} Você não possui \`5000 moedas\` para comprar roupa.`)
                     } else {
 
-                        c.reply(`${interaction.user} Você comprou um Fafnir por 10 Ilulus!\nVeja seu inventário com \`/inventário\`.`);
+                        c.channel.send(`${interaction.user} Você comprou um Fafnir por 10 Ilulus!\nVeja seu inventário com \`/inventário\`.`);
                         await client.userdb.updateOne({
                             userID: interaction.user.id
                         }, { $set: {
@@ -97,10 +97,10 @@ module.exports = {
                 } else if (valor === "Ilulu") {
 
                     if (waifu < 5) {
-                        c.reply(`${interaction.user} Você não possui \`5 Waifus\` para comprar uma Ilulu`)
+                        c.channel.send(`${interaction.user} Você não possui \`5 Waifus\` para comprar uma Ilulu`)
                     } else {
 
-                        c.reply(`${interaction.user} Você comprou uma Ilulu por 5 waifus \nVeja seu inventário com \`/inventário\`.`);
+                        c.channel.send(`${interaction.user} Você comprou uma Ilulu por 5 waifus \nVeja seu inventário com \`/inventário\`.`);
                         await client.userdb.updateOne({
                             userID: interaction.user.id
                         }, { $set: {
