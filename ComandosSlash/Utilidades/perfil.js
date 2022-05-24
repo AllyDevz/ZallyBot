@@ -54,7 +54,7 @@ ctx.fillText(`${userdb.economia.sobremim.slice(0,64)}\n${userdb.economia.sobremi
       
 ctx.font = '23px Uniform';
 ctx.fillStyle = '#F8F8F8';
-ctx.fillText(`: ${abreviar(userdb.economia.rep)}`, 652, 203)
+ctx.fillText(`: ${abreviar(userdb.economia.rep)}`, 652, 202)
 ctx.fillText(`${abreviar(userdb.economia.money)}`, 717, 229)
 ctx.fillText(`${abreviar(userdb.economia.banco)}`, 690, 268)
 ctx.fillText(`${abreviar(userdb.economia.banco + userdb.economia.money)}`, 672, 312)
