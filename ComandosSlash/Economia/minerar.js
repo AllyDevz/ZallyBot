@@ -1,39 +1,11 @@
 const Discord = require("discord.js");
-const db = require("quick.db")
+
 module.exports = {
     name: "minerar",
     description: "minere shikicoins",
     type: 'CHAT_INPUT',
     run: async (client, interaction) => {
-      let timeout = 40000;
-
-      let user = interaction.user;
-      let guild = interaction.guild;
-
-      function ms(ms) {
-          const seconds = ~~(ms/1000)
-          const minutes = ~~(seconds/60)
-          const hours = ~~(minutes/60) 
-          const days = ~~(hours/24)
-          
-          return { days, hours: hours%24, minutes: minutes%60, seconds: seconds%60 }
-      
-      }
-
-      let author = await db.fetch(`work_${guild.id}_${user.id}`)  
-
-      if (author !== null && timeout - (Date.now() - author) > 0) {
-            
-          let time = ms(timeout - (Date.now() - author));
-
-          let error = new Discord.MessageEmbed()
-          .setTitle(`descanse`)
-          .setColor("RED")
-          .setDescription(`**Voce ja minerou demais! Aguarde \`${time.minutes} minutos e ${time.seconds} segundos\`**`)
-        
-           interaction.reply({embeds: [error]})
-
-      } else {     
+     
      let userdb = await client.userdb.findOne({
          userID: interaction.user.id
      })
@@ -105,7 +77,6 @@ module.exports = {
          userID: interaction.user.id
      }, { $set: {
          "economia.money": userdb.economia.money + dinheiro,
-         "cooldowns.work": Date.now() + userdb.economia.trabalho.cooldown
      }
      })
      
@@ -117,7 +88,6 @@ module.exports = {
     .setDescription(`*Parabens** Você Minerou Shikimoney e ganhou ${dinheiro}`)
     
 ]})}
-      }
     }
 };
 
