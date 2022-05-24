@@ -111,7 +111,8 @@ const avatar = user.avatarURL({ dynamic: true, format: "png", size: 1024 });
   } catch(err) {
     // handle errors
     console.log(err)
-    interaction.reply("Imagem Não Suportada Favor Trocar Por Png ou jpg")
+    userdb.economia.background = "https://media.discordapp.net/attachments/975219630756986903/975260732990046248/vFqyhnK.png?width=683&height=442"; userdb.save()
+    interaction.reply("Imagem Não Suportada, voltando para o default")
   }
 
 }
