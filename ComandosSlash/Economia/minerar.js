@@ -26,7 +26,7 @@ module.exports = {
             
           let time = ms(timeout - (Date.now() - author));
 
-          let error = new MessageEmbed()
+          let error = new Discord.MessageEmbed()
           .setTitle(`descanse`)
           .setColor("RED")
           .setDescription(`**Voce ja minerou demais! Aguarde \`${time.minutes} minutos e ${time.seconds} segundos\`**`)
