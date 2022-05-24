@@ -7,8 +7,8 @@ module.exports = {
     run: async (client, interaction) => {
       let timeout = 40000;
 
-      let user = message.author;
-      let guild = message.guild;
+      let user = interaction.user;
+      let guild = interaction.guild;
 
       function ms(ms) {
           const seconds = ~~(ms/1000)
