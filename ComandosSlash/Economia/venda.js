@@ -75,7 +75,7 @@ module.exports = {
 
                 } else if (valor === "fafnir") {
 
-                    if (ilulu < 10) {
+                    if (ilulu < 1) {
                         c.reply(`${interaction.user} Você não possui \`5000 Shikicoins\` para comprar roupa.`)
                     } else {
 
@@ -90,7 +90,7 @@ module.exports = {
                     }
                 } else if (valor === "Ilulu") {
 
-                    if (waifu < 5) {
+                    if (ilulu < 1) {
                         c.reply(`${interaction.user} Você não possui \`5 Waifus\` para comprar uma Ilulu`)
                     } else {
 
