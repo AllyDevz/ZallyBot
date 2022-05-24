@@ -16,7 +16,8 @@ const userset = new Schema({
       },
       banco: { type: Number, default: 0 },
       money: { type: Number, default: 0 },
-
+      waifu: { type: Number, default: 0 },
+      ilulu: { type: Number, default: 0 },
       color: { type: String, default: "36393e"},
       sobremim: { type: String, default: "Use /sobremim para alterar este texto." },
       background: { type: String, default: "./vFqyhnK.png"}
