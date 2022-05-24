@@ -116,7 +116,7 @@ module.exports = {
                     if (carteira < 6500) {
                         c.reply(`${interaction.user} Você não possui \`6500 moedas\` para comprar uma Waifu`)
                     } else {
-                        if (message.author.bot) return;
+                        
 
                         let embed = new Discord.MessageEmbed()
                         .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
