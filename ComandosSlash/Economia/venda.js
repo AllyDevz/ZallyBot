@@ -12,9 +12,9 @@ module.exports = {
 
         let embed = new Discord.MessageEmbed()
             .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
-            .setTitle("Shopping 🛒")
+            .setTitle("Vender 🛒")
             .setColor("RANDOM")
-            .setDescription(`Olá ${interaction.user}, veja abaixo os intens disponíveis para compra no shopping:\n
+            .setDescription(`Olá ${interaction.user}, veja abaixo os itens disponíveis para vender no ShikiVenda:\n
 > 👩‍💼 **Waifu**
 \`6500 Shikicoins\`
 

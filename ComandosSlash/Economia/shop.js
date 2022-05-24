@@ -12,9 +12,9 @@ module.exports = {
 
         let embed = new Discord.MessageEmbed()
             .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
-            .setTitle("Shopping 🛒")
+            .setTitle("ShikiShop 🛒")
             .setColor("RANDOM")
-            .setDescription(`Olá ${interaction.user}, veja abaixo os intens disponíveis para compra no shopping:\n
+            .setDescription(`Olá ${interaction.user}, veja abaixo os itens disponíveis para compra no ShikiShop:\n
 > 👩‍💼 **Waifu**
 \`6500 Shikicoins\`
 
@@ -51,6 +51,7 @@ module.exports = {
             );
 
         interaction.reply({ embeds: [embed], components: [ops] }).then(() => {
+            if (message.author.bot) return;
 
             let filtro = msg => msg.user.id === interaction.user.id;
             let coletor = interaction.channel.createMessageComponentCollector({ filter: filtro, time: 180000 });
@@ -82,10 +83,10 @@ module.exports = {
                 } else if (valor === "fafnir") {
 
                     if (ilulu < 10) {
-                        await c.followUp(`${interaction.user} Você não possui \`5000 moedas\` para comprar roupa.`)
+                        await c.reply(`${interaction.user} Você não possui \`5000 moedas\` para comprar roupa.`)
                     } else {
 
-                        c.followUp(`${interaction.user} Você comprou um Fafnir por 10 Ilulus!\nVeja seu inventário com \`/inventário\`.`);
+                        c.reply(`${interaction.user} Você comprou um Fafnir por 10 Ilulus!\nVeja seu inventário com \`/inventário\`.`);
                         await client.userdb.updateOne({
                             userID: interaction.user.id
                         }, { $set: {
@@ -97,10 +98,10 @@ module.exports = {
                 } else if (valor === "Ilulu") {
 
                     if (waifu < 5) {
-                        await c.followUp(`${interaction.user} Você não possui \`5 Waifus\` para comprar uma Ilulu`)
+                        await c.reply(`${interaction.user} Você não possui \`5 Waifus\` para comprar uma Ilulu`)
                     } else {
 
-                        await c.followUp(`${interaction.user} Você comprou uma Ilulu por 5 waifus \nVeja seu inventário com \`/inventário\`.`);
+                        await c.reply(`${interaction.user} Você comprou uma Ilulu por 5 waifus \nVeja seu inventário com \`/inventário\`.`);
                         await client.userdb.updateOne({
                             userID: interaction.user.id
                         }, { $set: {
@@ -113,8 +114,15 @@ module.exports = {
                 } else if (valor === "waifu") {
 
                     if (carteira < 6500) {
-                        c.followUp(`${interaction.user} Você não possui \`6500 moedas\` para comprar uma Waifu`)
+                        c.reply(`${interaction.user} Você não possui \`6500 moedas\` para comprar uma Waifu`)
                     } else {
+                        if (message.author.bot) return;
+
+                        let embed = new Discord.MessageEmbed()
+                        .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
+                        .setTitle("Compra realizada com sucesso! 🛒")
+                        .setColor("RANDOM")
+                        .setDescription(`${interaction.user} Você comprou 1 Waifu por 6500 moedas!\nVeja seu inventário com \`/inventário\`.`)                        
                         await client.userdb.updateOne({
                             userID: interaction.user.id
                         }, { $set: {
@@ -122,7 +130,7 @@ module.exports = {
                             "economia.waifu": userdb.economia.waifu + 1
                         }
                         })
-                        c.followUp(`${interaction.user} Você comprou 1 Waifu por 6500 moedas!\nVeja seu inventário com \`/inventário\`.`);
+                        c.reply({ embeds: [embed] });
 
 
                     } 
