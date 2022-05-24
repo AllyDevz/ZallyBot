@@ -64,10 +64,10 @@ module.exports = {
                 if (valor === "comida") {
 
                     if (carteira < 1000) {
-                        c.reply(`${interaction.user} Você não possui \`1000 moedas\` para comprar comida.`)
+                        await c.reply(`${interaction.user} Você não possui \`1000 moedas\` para comprar comida.`)
                     } else {
 
-                        c.reply(`${interaction.user} Você comprou 1 comida por 1000 moedas!\nVeja seu inventário com \`/inventário\`.`);
+                        await c.reply(`${interaction.user} Você comprou 1 comida por 1000 moedas!\nVeja seu inventário com \`/inventário\`.`);
                         db.add(`comida_${interaction.user.id}`, 1);
                         db.subtract(`carteira_${user.id}`, 1000)
 
@@ -79,7 +79,7 @@ module.exports = {
                         c.channel.send(`${interaction.user} Você não possui \`5000 Shikicoins\` para comprar roupa.`)
                     } else {
 
-                        c.channel.send(`${interaction.user} Você vendeu um Fafnir por $55k Ilulus! \nVeja seu inventário com \`/inventário\`. \nVeja seus Shikicoin com \`/atm\`.`);
+                        await  c.channel.send(`${interaction.user} Você vendeu um Fafnir por $55k Ilulus! \nVeja seu inventário com \`/inventário\`. \nVeja seus Shikicoin com \`/atm\`.`);
                         await client.userdb.updateOne({
                             userID: interaction.user.id
                         }, { $set: {
@@ -91,10 +91,10 @@ module.exports = {
                 } else if (valor === "Ilulu") {
 
                     if (ilulu < 1) {
-                        c.channel.send(`${interaction.user} Você não possui \`5 Waifus\` para comprar uma Ilulu`)
+                        await c.channel.send(`${interaction.user} Você não possui \`5 Waifus\` para comprar uma Ilulu`)
                     } else {
 
-                        c.channel.send(`${interaction.user} Você vendeu uma Ilulu por $22k Shikicoins \nVeja seu inventário com \`/inventário\`. \nVeja seus Shikicoin com \`/atm\`.`);
+                        await c.channel.send(`${interaction.user} Você vendeu uma Ilulu por $22k Shikicoins \nVeja seu inventário com \`/inventário\`. \nVeja seus Shikicoin com \`/atm\`.`);
                         await client.userdb.updateOne({
                             userID: interaction.user.id
                         }, { $set: {
@@ -107,7 +107,7 @@ module.exports = {
                 } else if (valor === "waifu") {
 
                     if (carteira < 6500) {
-                        c.channel.send(`${interaction.user} Você não possui \`6500 moedas\` para comprar uma Waifu`)
+                        await c.channel.send(`${interaction.user} Você não possui \`6500 moedas\` para comprar uma Waifu`)
                     } else {
                         await client.userdb.updateOne({
                             userID: interaction.user.id
@@ -116,7 +116,7 @@ module.exports = {
                             "economia.waifu": userdb.economia.waifu + 1
                         }
                         })
-                        c.channel.send(`${interaction.user} Você comprou 1 Waifu por 6500 moedas!\nVeja seu inventário com \`/inventário\`.`);
+                        await c.channel.send(`${interaction.user} Você comprou 1 Waifu por 6500 moedas!\nVeja seu inventário com \`/inventário\`.`);
 
 
                     } 
