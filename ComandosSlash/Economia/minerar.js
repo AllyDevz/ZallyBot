@@ -5,7 +5,35 @@ module.exports = {
     description: "minere shikicoins",
     type: 'CHAT_INPUT',
     run: async (client, interaction) => {
-     
+      let timeout = 40000;
+
+      let user = message.author;
+      let guild = message.guild;
+
+      function ms(ms) {
+          const seconds = ~~(ms/1000)
+          const minutes = ~~(seconds/60)
+          const hours = ~~(minutes/60) 
+          const days = ~~(hours/24)
+          
+          return { days, hours: hours%24, minutes: minutes%60, seconds: seconds%60 }
+      
+      }
+
+      let author = await db.fetch(`work_${guild.id}_${user.id}`)  
+
+      if (author !== null && timeout - (Date.now() - author) > 0) {
+            
+          let time = ms(timeout - (Date.now() - author));
+
+          let error = new MessageEmbed()
+          .setTitle(`descanse`)
+          .setColor("RED")
+          .setDescription(`**Voce ja minerou demais! Aguarde \`${time.minutes} minutos e ${time.seconds} segundos\`**`)
+        
+           interaction.reply({embeds: [error]})
+
+      } else {     
      let userdb = await client.userdb.findOne({
          userID: interaction.user.id
      })
@@ -89,6 +117,7 @@ module.exports = {
     .setDescription(`*Parabens** Você Minerou Shikimoney e ganhou ${dinheiro}`)
     
 ]})}
+      }
     }
 };
 
