@@ -15,11 +15,10 @@ module.exports = {
     run: async (client, interaction) => {
         
      const sobremim = interaction.options.getString("background")
-     const user = interaction
-     const userdb = await client.userdb.findOne({
-        userID: user.id
-    }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
-    
+     
+     let userdb = await client.userdb.findOne({
+         userID: interaction.user.id
+     })
       
      if(!userdb){
          const newuser = new client.userdb({ userID: interaction.user.id })
@@ -45,7 +44,7 @@ userdb.economia.background = filtro(sobremim); userdb.save()
      const butao = new Discord.MessageActionRow() 
      interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`Wallapaper Trocado`)
-     .setColor(userdb.economia.color)
+     .setColor("a5d7ff")
      .setImage(e(sobremim))
      
      
