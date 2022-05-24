@@ -20,9 +20,9 @@ const novoserver = new info({
   memoryporcent: getpercentage
 })
 
-let status = [ `${userdb.economia.mtc}`,
-      `utilizado por ${client.guilds.cache.size} servidores.`,
-      `Memória RAM utilizada em GB\`: \**${(usedMemory/ Math.pow(1024, 3)).toFixed(2)}`+`\nMemória RAM utilizada\`: \**${getpercentage}\**`],
+let status = [
+      `Shikiservers:${client.guilds.cache.size} `,
+      `Não sabe utilizar o bot? use /menu`],
     i = 0
   setInterval(() =>{
 client.user.setActivity(`${status[i++ % status.length]}`, { 

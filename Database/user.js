@@ -16,6 +16,7 @@ const userset = new Schema({
       },
       banco: { type: Number, default: 0 },
       money: { type: Number, default: 0 },
+      rep: { type: Number, default: 0 },
       waifu: { type: Number, default: 0 },
       ilulu: { type: Number, default: 0 },
       fafnir: { type: Number, default: 0 },
@@ -27,6 +28,7 @@ const userset = new Schema({
     trabalho: { type: String, default: 0 },
     work: { type: String, default: 0 },
     daily: { type: String, default: 0 },
+    reputacao:{ type: Number, default: 0 },
   },
 });
 

@@ -24,7 +24,7 @@ module.exports = {
     
     const userdb = await client.userdb.findOne({
          userID: user.id
-     }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png"}}
+     }) || { economia: { marry: { casado: false }, banco: 0, money: 0,rep: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png"}}
 
     const canvas = createCanvas(850, 550)
     const ctx = canvas.getContext("2d")
@@ -54,7 +54,7 @@ ctx.fillText(`${userdb.economia.sobremim.slice(0,64)}\n${userdb.economia.sobremi
       
 ctx.font = '23px Uniform';
 ctx.fillStyle = '#F8F8F8';
-ctx.fillText(`${abreviar(userdb.economia.money)}`, 717, 229)
+ctx.fillText(`${abreviar(userdb.economia.rep)}`, 653, 185)
 ctx.fillText(`${abreviar(userdb.economia.banco)}`, 690, 268)
 ctx.fillText(`${abreviar(userdb.economia.banco + userdb.economia.money)}`, 672, 312)
 
