@@ -51,7 +51,7 @@ module.exports = {
             );
 
         interaction.reply({ embeds: [embed], components: [ops] }).then(() => {
-            if (message.author.bot) return;
+            
 
             let filtro = msg => msg.user.id === interaction.user.id;
             let coletor = interaction.channel.createMessageComponentCollector({ filter: filtro, time: 180000 });
