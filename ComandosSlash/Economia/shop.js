@@ -32,7 +32,7 @@ module.exports = {
                             label: 'Waifu',
                             description: 'Clique aqui para comprar uma Waifu',
                             emoji: '👩‍💼',
-                            value: 'aparelhodigital',
+                            value: 'waifu',
                         },
                         {
                             label: 'Ilulu',
@@ -40,6 +40,13 @@ module.exports = {
                             emoji: '👩',
                             value: 'Ilulu',
                         }
+                        ,
+                        {
+                            label: 'Fafnir',
+                            description: 'Clique aqui para comprar um Fanfnir',
+                            emoji: '👩',
+                            value: 'fafnir',
+                        }                        
                     ])
             );
 
@@ -52,9 +59,11 @@ module.exports = {
                 const user = interaction.options.getUser("user") || interaction.user
                 const userdb = await client.userdb.findOne({
                     userID: user.id
-                }) || { economia: { banco: 0, money: 0}}
+                }) || { economia: { banco: 0, money: 0, ilulu: 0, fafnir: 0}}
                 let carteira = userdb.economia.money
                 let waifu = userdb.economia.waifu
+                let ilulu = userdb.economia.ilulu
+                let fafnir = userdb.economia.fafnir
                 let valor = c.values[0]
                 //c.deferUpdate()
 
@@ -70,16 +79,20 @@ module.exports = {
 
                     }
 
-                } else if (valor === "roupa") {
+                } else if (valor === "fafnir") {
 
-                    if (carteira < 5000) {
+                    if (ilulu < 10) {
                         c.reply(`${interaction.user} Você não possui \`5000 moedas\` para comprar roupa.`)
                     } else {
 
-                        c.reply(`${interaction.user} Você comprou 1 roupa por 5000 moedas!\nVeja seu inventário com \`/inventário\`.`);
-                        db.add(`roupa_${interaction.user.id}`, 1);
-                        db.subtract(`carteira_${user.id}`, 5000)
-
+                        c.reply(`${interaction.user} Você comprou um Fafnir por 10 Ilulus!\nVeja seu inventário com \`/inventário\`.`);
+                        await client.userdb.updateOne({
+                            userID: interaction.user.id
+                        }, { $set: {
+                            "economia.waifu": userdb.economia.waifu - 5,
+                            "economia.fafnir": userdb.economia.fafnir + 1
+                        }
+                        })
                     }
                 } else if (valor === "Ilulu") {
 
@@ -91,13 +104,13 @@ module.exports = {
                         await client.userdb.updateOne({
                             userID: interaction.user.id
                         }, { $set: {
-                            "economia.waifu": userdb.economia.money - 5,
-                            "economia.aparelhodigital": userdb.economia.ilulu + 1
+                            "economia.waifu": userdb.economia.waifu - 5,
+                            "economia.ilulu": userdb.economia.ilulu + 1
                         }
                         })
 
                     }
-                } else if (valor === "aparelhodigital") {
+                } else if (valor === "waifu") {
 
                     if (carteira < 6500) {
                         c.reply(`${interaction.user} Você não possui \`6500 moedas\` para comprar uma Waifu`)
@@ -106,7 +119,7 @@ module.exports = {
                             userID: interaction.user.id
                         }, { $set: {
                             "economia.money": userdb.economia.money - 6500,
-                            "economia.aparelhodigital": userdb.economia.waifu + 1
+                            "economia.waifu": userdb.economia.waifu + 1
                         }
                         })
                         c.channel.send(`${interaction.user} Você comprou 1 Waifu por 6500 moedas!\nVeja seu inventário com \`/inventário\`.`);

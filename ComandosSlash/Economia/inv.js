@@ -22,11 +22,11 @@ module.exports =  {
         if (!user) user = interaction.user;
         const userdb = await client.userdb.findOne({
             userID: user.id
-        }) || { economia: { banco: 0, money: 0}}
+        }) || { economia: { banco: 0, money: 0, ilulu: 0, fafnir: 0}}
         let carteira = userdb.economia.money
         let waifu = userdb.economia.waifu
         let ilulu = userdb.economia.ilulu
-
+        let fafnir = userdb.economia.fafnir
 
         let embed = new Discord.MessageEmbed()
         .setColor("RANDOM")
@@ -42,6 +42,11 @@ module.exports =  {
             {
                 name: `Ilulu:`,
                 value: `\`${ilulu}\``,
+                inline: true
+            },
+            {
+                name: `Fafnir:`,
+                value: `\`${fafnir}\``,
                 inline: true
             }
             
