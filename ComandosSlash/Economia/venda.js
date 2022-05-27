@@ -15,11 +15,12 @@ module.exports = {
             .setTitle("Vender 🛒")
             .setColor("RANDOM")
             .setDescription(`Olá ${interaction.user}, veja abaixo os itens disponíveis para vender no ShikiVenda:\n
-> 👩‍💼 **Waifu**
-\`6500 Shikicoins\`
 
-> 👩 **Ilulu**
+> <:ilulu_17:979775758874583142> **Ilulu**
 \`Valor de venda: 22.000$\`
+
+> <:faf:979807135993053286> **Fafnir**
+\`Valor de venda: 55.000$\`
 `);
 
         let ops = new Discord.MessageActionRow()
@@ -30,14 +31,14 @@ module.exports = {
                     .addOptions([
                         {
                             label: 'Ilulu',
-                            description: 'Clique aqui para comprar uma Ilulu',
+                            description: 'Clique aqui para vender uma Ilulu',
                             emoji: '👩',
                             value: 'Ilulu',
                         }
                         ,
                         {
                             label: 'Fafnir',
-                            description: 'Clique aqui para comprar um Fanfnir',
+                            description: 'Clique aqui para vender um Fanfnir',
                             emoji: '👩',
                             value: 'fafnir',
                         }                        
@@ -76,7 +77,7 @@ module.exports = {
                 } else if (valor === "fafnir") {
 
                     if (ilulu < 1) {
-                        c.channel.send(`${interaction.user} Você não possui \`5000 Shikicoins\` para comprar roupa.`)
+                        c.channel.send(`${interaction.user} Você não possui 1 ilulu para vender`)
                     } else {
 
                         await  c.channel.send(`${interaction.user} Você vendeu um Fafnir por $55k Ilulus! \nVeja seu inventário com \`/inventário\`. \nVeja seus Shikicoin com \`/atm\`.`);

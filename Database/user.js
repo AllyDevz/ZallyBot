@@ -22,6 +22,7 @@ const userset = new Schema({
       fafnir: { type: Number, default: 0 },
       color: { type: String, default: "36393e"},
       sobremim: { type: String, default: "Use /sobremim para alterar este texto." },
+      premium: { type: String, default: "usuario comum" },
       background: { type: String, default: "./vFqyhnK.png"}
   },
   cooldowns: {

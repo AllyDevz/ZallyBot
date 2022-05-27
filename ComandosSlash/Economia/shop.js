@@ -44,9 +44,15 @@ module.exports = {
                         {
                             label: 'Fafnir',
                             description: 'Clique aqui para comprar um Fanfnir',
-                            emoji: '👩',
+                            emoji: '🕵🏻',
                             value: 'fafnir',
-                        }                        
+                        },
+                        {
+                            label: 'Cor Personalizada',
+                            description: 'Troque 5 fafnir por Cores Personalizadas na embed',
+                            emoji: '👑',
+                            value: 'premiun',
+                        }                                                
                     ])
             );
 
@@ -128,6 +134,29 @@ module.exports = {
                         }, { $set: {
                             "economia.money": userdb.economia.money - 6500,
                             "economia.waifu": userdb.economia.waifu + 1
+                        }
+                        })
+                        c.reply({ embeds: [embed] });
+
+
+                    } 
+
+                }else if (valor === "premium") {
+
+                    if (fafnir < 6) {
+                        c.reply(`${interaction.user} Você não possui 6 Fafnis para comprar o premium`)
+                    } else {
+                        
+
+                        let embed = new Discord.MessageEmbed()
+                        .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
+                        .setTitle("Compra realizada com sucesso! 🛒")
+                        .setColor("RANDOM")
+                        .setDescription(`${interaction.user} Você comprou o premium para sempre \nbeneficios: cores personalizadas, ainda desenvolvendo...`)                        
+                        await client.userdb.updateOne({
+                            userID: interaction.user.id
+                        }, { $set: {
+                            "economia.premium": "ispremium"
                         }
                         })
                         c.reply({ embeds: [embed] });
