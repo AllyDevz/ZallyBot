@@ -74,17 +74,23 @@ module.exports = {
                 let valor = c.values[0]
                 //c.deferUpdate()
 
-                if (valor === "comida") {
+                if (valor === "premium") {
 
-                    if (carteira < 1000) {
-                        await c.channel.send(`${interaction.user} Você não possui \`1000 moedas\` para comprar comida.`)
+                    if (fafnir < 6) {
+                        c.reply(`${interaction.user} Você não possui 6 Fafnis para comprar o premium`)
                     } else {
+                        
 
-                        await c.channel.send(`${interaction.user} Você comprou 1 comida por 1000 moedas!\nVeja seu inventário com \`/inventário\`.`);
-                        db.add(`comida_${interaction.user.id}`, 1);
-                        db.subtract(`carteira_${user.id}`, 1000)
+                        let embed = new Discord.MessageEmbed()
+                        .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
+                        .setTitle("Compra realizada com sucesso! 🛒")
+                        .setColor("RANDOM")
+                        .setDescription(`${interaction.user} Você comprou o premium para sempre \nbeneficios: cores personalizadas, ainda desenvolvendo...`)                        
+                        userdb.economia.premium = "ispremium"; userdb.save()
+                        c.reply({ embeds: [embed] });
 
-                    }
+
+                    } 
 
                 } else if (valor === "fafnir") {
 
@@ -141,25 +147,7 @@ module.exports = {
 
                     } 
 
-                }else if (valor === "premium") {
-
-                    if (fafnir < 6) {
-                        c.reply(`${interaction.user} Você não possui 6 Fafnis para comprar o premium`)
-                    } else {
-                        
-
-                        let embed = new Discord.MessageEmbed()
-                        .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
-                        .setTitle("Compra realizada com sucesso! 🛒")
-                        .setColor("RANDOM")
-                        .setDescription(`${interaction.user} Você comprou o premium para sempre \nbeneficios: cores personalizadas, ainda desenvolvendo...`)                        
-                        userdb.economia.premium = "ispremium"; userdb.save()
-                        c.reply({ embeds: [embed] });
-
-
-                    } 
-
-                }
+                } 
                 
             })
 
