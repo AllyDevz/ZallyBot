@@ -12,7 +12,6 @@ module.exports = {
         },
         ],  
   run: async(client, interaction) =>{
-    try {
        const usuario = interaction.user;
        const userdb = await client.userdb.findOne({
         userID: usuario.id
@@ -32,16 +31,12 @@ module.exports = {
     .setTitle('<:Shiki:979703866763407381> Sua cor foi salva com sucesso')
     .setColor("a5d7ff")
   if (userdb.economia.premium === "ispremium"){
-  const sobremim = interaction.options.getString("cor")
-  userdb.economia.sobremim = cor; userdb.save()
+  const cor = interaction.options.getString("cor")
+  userdb.economia.color = cor; userdb.save()
   interaction.reply({ embeds: [embed] })
   } else
   {
     interaction.reply("Voce precisa comprar o premium para utilizar este comando")
   }
-    } catch(err) {
-        // handle errors
-        console.log(err)
-      }  
   }
 }
