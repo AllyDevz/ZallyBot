@@ -7,7 +7,7 @@ module.exports = {
     type: "CHAT_INPUT",
 
     run: async (client, interaction, args) => {
-
+        try {
         let user = interaction.user;
 
         let embed = new Discord.MessageEmbed()
@@ -170,6 +170,9 @@ module.exports = {
 
         })
 
-
+    } catch(err) {
+        // handle errors
+        console.log(err)
+      }
     }
 }

@@ -12,6 +12,7 @@ module.exports = {
         },
         ],  
   run: async(client, interaction) =>{
+    try {
        const usuario = interaction.user;
        const userdb = await client.userdb.findOne({
         userID: usuario.id
@@ -38,5 +39,9 @@ module.exports = {
   {
     interaction.reply("Voce precisa comprar o premium para utilizar este comando")
   }
+    } catch(err) {
+        // handle errors
+        console.log(err)
+      }  
   }
 }
