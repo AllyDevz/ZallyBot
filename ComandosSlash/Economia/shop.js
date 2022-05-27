@@ -51,7 +51,7 @@ module.exports = {
                             label: 'Cor Personalizada',
                             description: 'Troque 5 fafnir por Cores Personalizadas na embed',
                             emoji: '👑',
-                            value: 'premiun',
+                            value: 'premium',
                         }                                                
                     ])
             );
