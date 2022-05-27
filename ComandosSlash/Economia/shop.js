@@ -153,12 +153,7 @@ module.exports = {
                         .setTitle("Compra realizada com sucesso! 🛒")
                         .setColor("RANDOM")
                         .setDescription(`${interaction.user} Você comprou o premium para sempre \nbeneficios: cores personalizadas, ainda desenvolvendo...`)                        
-                        await client.userdb.updateOne({
-                            userID: interaction.user.id
-                        }, { $set: {
-                            "economia.premium": "ispremium"
-                        }
-                        })
+                        userdb.economia.premium = "ispremium"; userdb.save()
                         c.reply({ embeds: [embed] });
 
 
