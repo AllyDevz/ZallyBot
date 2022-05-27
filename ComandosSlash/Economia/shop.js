@@ -75,7 +75,9 @@ module.exports = {
                 //c.deferUpdate()
 
                 if (valor === "premium") {
-
+                    if(userdb.economia.premium === "ispremium"){
+                        interaction.channel.send(`${interaction.user} Você ja possui o premium`)
+                    } else {
                     if (fafnir < 6) {
                         c.reply(`${interaction.user} Você não possui 6 Fafnis para comprar o premium`)
                     } else {
@@ -89,7 +91,7 @@ module.exports = {
                         userdb.economia.premium = "ispremium"; userdb.save()
                         c.reply({ embeds: [embed] });
 
-
+}
                     } 
 
                 } else if (valor === "fafnir") {
