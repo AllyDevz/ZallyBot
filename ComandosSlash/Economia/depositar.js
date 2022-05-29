@@ -15,25 +15,23 @@ module.exports = {
     run: async (client, interaction) => {
         
      let quantia = interaction.options.getString("quantia")
-     const user = interaction
-     const userdb = await client.userdb.findOne({
-         userID: user.id
-     }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
      
 if(quantia < 1 || isNaN(quantia) && quantia.toLowerCase() != "tudo"){
     return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`👨 Calma ae...`)
-    .setColor(userdb.economia.color)
+    .setColor("a5d7ff")
     .setDescription(`Você deve especificar uma quantia válida acima de 0 para depositar, ou digitar \`tudo\` para depositar tudo que você tem na carteira.`)
 ], ephemeral: true})
 }
 
-
+  let userdb = await client.userdb.findOne({
+         userID: interaction.user.id
+     })
  
  if(!userdb || userdb.economia.money == 0){
      return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`😢 Então amigo...`)
-    .setColor(userdb.economia.color)
+    .setColor("a5d7ff")
     .setDescription("Você atualmente não tem dinheiro nenhum em conta. Use `/daily` para pegar seu prêmio diário, ou pegue um emprego em `/empregos` e use `/work` para trabalhar.")
 ], ephemeral: true})
  }
@@ -52,9 +50,9 @@ if(quantia < 1 || isNaN(quantia) && quantia.toLowerCase() != "tudo"){
 
  if(usermoney < quantia)
    return interaction.reply({embeds: [new Discord.MessageEmbed()
-    .setTitle(`😢 Então amigo...`)
+    .setTitle(`<:Shiki_2:979704140252999720> Shikibanco`)
     .setColor(userdb.economia.color)
-    .setDescription(`Você não tem toda essa quantia para depositar no momento, atualmente você só tem ${usermoney} dinheiros.`)
+    .setDescription(`**Você não tem toda essa quantia para depositar no momento**, __atualmente você só tem ${usermoney} Shikicoins.__`)
 ], ephemeral: true})
 
   dinero = quantia
@@ -70,9 +68,9 @@ if(quantia < 1 || isNaN(quantia) && quantia.toLowerCase() != "tudo"){
     })
 
   interaction.reply({embeds: [new Discord.MessageEmbed()
-    .setTitle(`💸 Ta ná mão my friendo!`)
+    .setTitle(`<:Shiki_2:979704140252999720> Shikibanco`)
     .setColor(userdb.economia.color)
-    .setDescription(`Você acaba de transferir 🤑 \`${abreviar(dinero)}\` dinheiros para sua conta do banco!`)
+    .setDescription(`**Você acaba de depositar**  <:Shiki_2:979704140252999720>\n__\`${abreviar(dinero)}\` Shikicoins da sua conta do banco!__`)
 ]})
 
     }

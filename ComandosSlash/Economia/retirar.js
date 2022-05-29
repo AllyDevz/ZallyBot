@@ -33,7 +33,7 @@ if(quantia < 1 || isNaN(quantia) && quantia.toLowerCase() != "tudo"){
  if(!userdb || usermoney == 0){
      return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`😢 Então amigo...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription("Você atualmente não tem dinheiro algum na sua conta do banco para retirada.")
 ], ephemeral: true})
  }
@@ -51,7 +51,7 @@ if(quantia < 1 || isNaN(quantia) && quantia.toLowerCase() != "tudo"){
  if(usermoney < quantia)
    return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`😢 Então amigo...`)
-    .setColor("a5d7ff")
+    .setColor(userdb.economia.color)
     .setDescription(`Você não tem toda essa quantia para retirar no momento, no seu banco atualmente só tem ${usermoney} dinheiros.`)
 ], ephemeral: true})
 
@@ -68,9 +68,9 @@ if(quantia < 1 || isNaN(quantia) && quantia.toLowerCase() != "tudo"){
     })
 
   interaction.reply({embeds: [new Discord.MessageEmbed()
-    .setTitle(`💸 Ta ná mão my friendo!`)
-    .setColor("a5d7ff")
-    .setDescription(`Você acaba de retirar  🤑 \`${abreviar(dinero)}\` dinheiros da sua conta do banco!`)
+    .setTitle(`<:Shiki_2:979704140252999720> Shikibanco`)
+    .setColor(userdb.economia.color)
+    .setDescription(`**Você acaba de retirar**  <:Shiki_2:979704140252999720>\n__\`${abreviar(dinero)}\` Shikicoins da sua conta do banco!__`)
 ]})
 
     }

@@ -28,6 +28,7 @@ const userset = new Schema({
   cooldowns: {
     trabalho: { type: String, default: 0 },
     work: { type: String, default: 0 },
+    minerar: { type: String, default: 0 },
     daily: { type: String, default: 0 },
     reputacao:{ type: Number, default: 0 },
   },

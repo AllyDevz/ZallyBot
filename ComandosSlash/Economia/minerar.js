@@ -18,8 +18,8 @@ module.exports = {
 ], ephemeral: true})
      }
       
-    if(Date.now() < 1000 * 60 * 00){
-      const calc = 1000 * 60 * 00 - Date.now()
+    if(Date.now() < 0000 * 60 * 00){
+      const calc = 0000 * 60 * 00 - Date.now()
       
          return interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`🤔 Calma ae amigo...`)
@@ -28,64 +28,32 @@ module.exports = {
 ], ephemeral: true})
      } else {  
       
-    let frase,
-        emprego;
-          
-    switch (userdb.economia.trabalho .trampo){
-      
-  case "lixeiro":
-    emprego = "🗑️ lixeiro"
-    frase = ["juntou 20 sacos lixos", "dirigiu o caminhão de lixo por 2 horas"]
-  break;
-  
-  case "pizza":
-    emprego = "🍕 entregador de pizza"
-    frase = ["entregou 8 pizzas", "trabalhou por 3 horas"]
-  break;
-  
-  case "frentista":
-    emprego = "⛽ frentista"
-    frase = ["abasteceu 28 carros", "trocou o óleo de 8 caminhões"]
-  break;
-  
-  case "caminhoneiro":
-    emprego = "🚛 caminhoneiro"
-    frase = ["uma carga de Rondônia levou até Porto velho", "fez 2 entregas em 1 dia"]
-  break;
-  
-  case "sedex":
-    emprego = "📦 entregador do sedex"
-    frase = ["entegou 20 pacotes"]
-  break;
-  
-  case "pescador":
-    emprego = "🎣 pescador"
-    frase = ["pescou 20 bagres", "pescou um peixe lendário no laguinho do seu Zé"]
-  break;
-  
-  case "ti":
-    emprego = "💻 técnico de ti"
-    frase = ["arrumou 7 computadores de pessoas que clicaram em mães solteias", "desenvolveu um software para poder abrir links porno na sua empresa."]
-  break;
-  }
-      
-      const mxmn = 2000
-      
-      const dinheiro = Math.floor(Math.random() * mxmn) + mxmn
 
-     await client.userdb.updateOne({
-         userID: interaction.user.id
-     }, { $set: {
-         "economia.money": userdb.economia.money + dinheiro,
-     }
-     })
-     
-    frase = frase[Math.floor(Math.random() * frase.length)]
+      
+      if(Date.now() < userdb.cooldowns.minerar){
+        const calc = userdb.cooldowns.minerar - Date.now()
+        
+           return interaction.reply({embeds: [new Discord.MessageEmbed()
+      .setTitle(`Vish`)
+      .setColor(userdb.economia.color)
+      .setDescription(`Ainda falta ${ms(calc).hours}h ${ms(calc).minutes}m ${ms(calc).seconds}s para você minerar shikicoins novamente.`)
+  ], ephemeral: true})
+       }  
+        
+        const dinheiro = Math.floor(Math.random() * 5000) + 5000
+  
+       await client.userdb.updateOne({
+           userID: interaction.user.id
+       }, { $set: {
+           "economia.money": userdb.economia.money + dinheiro,
+           "cooldowns.minerar": Date.now() + 10000
+       }
+       })
      
     interaction.reply({embeds: [new Discord.MessageEmbed()
-    .setTitle(`💸 Trabalho feito! `)
-    .setColor("a5d7ff")
-    .setDescription(`*Parabens** Você Minerou Shikimoney e ganhou ${dinheiro}`)
+
+    .setColor(userdb.economia.color)
+    .setDescription(`**Parabens** __Você Minerou Shikimoney e ganhou ${dinheiro} Shikicoins__`)
     
 ]})}
     }
