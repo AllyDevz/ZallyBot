@@ -36,7 +36,7 @@ module.exports = {
            return interaction.reply({embeds: [new Discord.MessageEmbed()
       .setTitle(`Vish`)
       .setColor(userdb.economia.color)
-      .setDescription(`Ainda falta ${ms(calc).hours}h ${ms(calc).minutes}m ${ms(calc).seconds}s para você minerar shikicoins novamente.`)
+      .setDescription(`Ainda falta ${ms(calc).hours}h ${ms(calc).minutes}m ${ms(calc).seconds}s para você minerar shikicoins<:ShikiCoin:980533707330953248> novamente.`)
   ], ephemeral: true})
        }  
         

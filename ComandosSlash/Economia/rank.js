@@ -12,9 +12,9 @@ module.exports = {
       userdb = userdb.slice(0,10)
       
      interaction.reply({embeds: [new Discord.MessageEmbed()
-     .setTitle(`📊 • Rank dos mais ricos da Economia!`)
+     .setTitle(`<:ShikiCoin:980533707330953248> • Rank dos mais ricos da Economia!`)
      .setColor("a5d7ff")
-     .setDescription(`> ${userdb.map((user, i) => `#${i+1} | 👥**${client.users.cache.get(user.userID).tag || `sumido#0000`}** (💸${abreviar(user.economia.money + user.economia.banco)})`).join("\n> ") }`)
+     .setDescription(`> ${userdb.map((user, i) => `#${i+1} | 👥**${client.users.cache.get(user.userID).tag || `sumido#0000`}** (<:ShikiCoin:980533707330953248>${abreviar(user.economia.money + user.economia.banco)})`).join("\n> ") }`)
           ]})
 
     }

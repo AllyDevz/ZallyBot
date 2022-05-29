@@ -73,8 +73,8 @@ module.exports = {
 
 interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`💸 Dinheiro rolando!`)
-    .setColor("a5d7ff")
-    .setDescription(`**Hey** ${user}! ${interaction.user} quer lhe tranferir 💰 \`${quantia}\` dinheiros para você.
+    .setColor(userdb.economia.color)
+    .setDescription(`**Hey** ${user}! ${interaction.user} __quer lhe tranferir <:ShikiCoin:980533707330953248> \`${quantia}\` ShikiCoins para você.__
 > *Para concluir a transação os 2 usuários devem clicar na reação.*`)
 ], fetchReply: true}).then(msg =>{
     
@@ -99,7 +99,7 @@ collector.on('collect', (reaction) => {
 	    return interaction.channel.send({embeds: [new Discord.MessageEmbed()
     .setTitle(`💸 Dinero acabou...`)
     .setColor("a5d7ff")
-    .setDescription(`Infelizmente ${interaction.user} não tem mais essa quantia de dinheiro para lhe pagar...`)
+    .setDescription(`Infelizmente ${interaction.user} não tem mais essa quantia de shikicois<:ShikiCoin:980533707330953248> para lhe pagar...`)
 ]})
 	}
 	    
@@ -108,9 +108,9 @@ collector.on('collect', (reaction) => {
 	    userdb2.economia.money = userdb2.economia.money + quantia; userdb2.save();
 	
 	interaction.channel.send({embeds: [new Discord.MessageEmbed()
-    .setTitle(`💸 Dinheiro rolou!`)
+    .setTitle(`<:ShikiCoin:980533707330953248>`)
     .setColor("a5d7ff")
-    .setDescription(`A transição de ${quantia} dinheiros de ${interaction.user} para ${user} foi feita com sucesso!`)
+    .setDescription(`A transição de ${quantia} shikicoins<:ShikiCoin:980533707330953248> de ${interaction.user} para ${user} foi feita com sucesso!`)
 ]})
 
 	}
