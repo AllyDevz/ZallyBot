@@ -36,7 +36,7 @@ client.on("message", async message => {
   
   console.log(data)
   if(data.message == 0) return message.inlineReply('erro no sistema.');
-          message.inlineReply(`${data.message}`);
+          message.channel.send(`${data.message}`);
       });
 
   }
