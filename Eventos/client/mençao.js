@@ -11,6 +11,37 @@ client.on("messageCreate", async message => {
 
   
 })
+client.on("message", async message => {
+
+  if (message.channel.name == "chatbot") {
+  if (message.author.bot) return;
+  message.content = message.content.replace(/@(everyone)/gi, "everyone").replace(/@(here)/gi, "here");
+  
+  if (message.content.includes(`@`)) {
+  return message.channel.send(`**❌ Por Favor, Não Mencione Ninguem**`);
+   }
+  
+    message.channel.startTyping();
+  if (!message.content) return
+  
+  const translate = require("@iamtraction/google-translate");
+  const fetch = require('node-fetch');
+  
+        const translated = await translate(message.content, { to: 'en' });
+  
+   message.channel.send("Por Favor Escreva Algo");
+  fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${encodeURIComponent(translated.text)}&botname=${client.user.username}&ownername=Shikimori`)
+      .then(res => res.json())
+      .then(async data => {
+  const translat = await translate(data.message, { to: 'pt' });
+  
+  if(translat.text.length == 0) return message.inlineReply('erro no sistema.');
+          message.inlineReply(`${translat.text}`);
+      });
+        message.channel.stopTyping();
+  }
+  });
+
 client.on("messageCreate", async message => {
   const user = message
   
