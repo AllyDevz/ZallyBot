@@ -21,7 +21,7 @@ client.on("message", async message => {
   return message.channel.send(`**❌ Por Favor, Não Mencione Ninguem**`);
    }
   
-    message.channel.startTyping();
+ 
   if (!message.content) return
   
   
@@ -38,7 +38,7 @@ client.on("message", async message => {
   if(data.message == 0) return message.inlineReply('erro no sistema.');
           message.inlineReply(`${data.message}`);
       });
-        message.channel.stopTyping();
+
   }
   });
 
