@@ -30,7 +30,7 @@ client.on("message", async message => {
   const translated = message.content
   
    message.channel.send("Por Favor Escreva Algo");
-  fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${encodeURIComponent(translated.text)}&botname=${client.user.username}&ownername=Shikimori`)
+  fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${message.content}&botname=${client.user.username}&ownername=Shikimori`)
       .then(res => res.json())
       .then(async data => {
   
