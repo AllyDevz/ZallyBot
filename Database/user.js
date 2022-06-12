@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const userset = new Schema({
   userID: { type: String },
   db: {type: String},
-
+  banimentos: { type: Number, default: 0 },
   economia: {
       trabalho: {
           maxmoney: { type: Number },
