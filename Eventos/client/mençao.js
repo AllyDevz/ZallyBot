@@ -24,19 +24,19 @@ client.on("message", async message => {
     message.channel.startTyping();
   if (!message.content) return
   
-  const translate = require("@iamtraction/google-translate");
+  
   const fetch = require('node-fetch');
   
-        const translated = await translate(message.content, { to: 'en' });
+  const translated = message.content
   
    message.channel.send("Por Favor Escreva Algo");
   fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${encodeURIComponent(translated.text)}&botname=${client.user.username}&ownername=Shikimori`)
       .then(res => res.json())
       .then(async data => {
-  const translat = await translate(data.message, { to: 'pt' });
   
-  if(translat.text.length == 0) return message.inlineReply('erro no sistema.');
-          message.inlineReply(`${translat.text}`);
+  
+  if(data.message == 0) return message.inlineReply('erro no sistema.');
+          message.inlineReply(`${data.message}`);
       });
         message.channel.stopTyping();
   }
