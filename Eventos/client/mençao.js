@@ -28,7 +28,8 @@ client.on("message", async message => {
   const fetch = require('node-fetch');
   
   const translated = message.content
-  
+  const { translate } = require('free-translate');
+  const translatedText = await translate(message.content, { from: 'pt', to: 'en' });
   
   fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${message.content}&name=Shikimori&user=1`)
       .then(res => res.json())
@@ -36,7 +37,8 @@ client.on("message", async message => {
   
   console.log(data)
   if(data.message == 0) return message.inlineReply('erro no sistema.');
-          message.channel.send(`${data.message}`);
+  const translatedText = await translate(data.message, { from: 'en', to: 'pt' });
+          message.channel.send(`${translatedText}`);
       });
 
   }
