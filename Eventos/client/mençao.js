@@ -29,12 +29,12 @@ client.on("message", async message => {
   
   const translated = message.content
   
-   message.channel.send("Por Favor Escreva Algo");
-  fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${message.content}&botname=${client.user.username}&ownername=Shikimori`)
+  
+  fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${message.content}&name=Shikimori&user=1`)
       .then(res => res.json())
       .then(async data => {
   
-  
+  console.log(data)
   if(data.message == 0) return message.inlineReply('erro no sistema.');
           message.inlineReply(`${data.message}`);
       });
