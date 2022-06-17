@@ -11,6 +11,21 @@ client.on("messageCreate", async message => {
 
   
 })
+client.on("ready", async message => {
+function displayHello(){
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+//console.log(time)
+if(time === "10:4:1"){
+  let channel = client.channels.cache.get("977025660893683732");
+  channel.send("BOM DIA!!!!")
+}
+}
+setInterval(displayHello, 1000);
+
+})
 client.on("message", async message => {
 
   if (message.channel.name == "chatbot") {
@@ -26,19 +41,24 @@ client.on("message", async message => {
   
   
   const fetch = require('node-fetch');
-  
+  const translate = require("@iamtraction/google-translate");
   const translated = message.content
-  const { translate } = require('free-translate');
-  const translatedText = await translate(message.content, { from: 'pt', to: 'en' });
-  
-  fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${message.content}&name=Shikimori&user=1`)
+  const trad = await translate(message.content, {
+    to: "en",
+});
+console.log(trad)
+  fetch(`http://api.brainshop.ai/get?bid=163212&key=kbwpNZrWl37IghzO&uid=[uid]&msg=${trad.text}`)
       .then(res => res.json())
       .then(async data => {
   
   console.log(data)
-  if(data.message == 0) return message.inlineReply('erro no sistema.');
-  const translatedText = await translate(data.message, { from: 'en', to: 'pt' });
-          message.channel.send(`${translatedText}`);
+  if(data.message == 0) return message.channel.send('erro no sistema.');
+  const t = data
+  const parse = JSON.parse(JSON.stringify(data))
+  const trad1 = await translate(parse.cnt, {
+    to: "pt",
+});   
+          message.channel.send(`${trad1.text}`);
       });
 
   }
