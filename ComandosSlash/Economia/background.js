@@ -14,7 +14,7 @@ module.exports = {
         ],
     run: async (client, interaction) => {
         
-     let attachment = interaction.options.getATTACHMENT('background')
+     let attachment = interaction.options.getAttachment('background')
      if(attachment.contentType === 'image/png' || !attachment.contentType.includes('image')) return interaction.reply(':QdW_meltedo: | Meu profile só suporta imagens...')
      if(attachment.height !== 720 || attachment.width !== 1280) return interaction.reply(':QdW_meltedo: | O Background precisa ser no tamanho `1280x720`!')
      let img = new MessageAttachment(attachment.proxyURL)
