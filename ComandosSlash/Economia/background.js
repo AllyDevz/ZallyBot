@@ -6,11 +6,11 @@ module.exports = {
     type: 'CHAT_INPUT',
     options: [
         {
-            type: 'ATTACHMENT',
-            name: 'imagem',
-            description: 'não envie arquivos .png ou que não é imagem!',
-            required: true
-            }
+         name: "background",
+         description: "não e permitido .jpg",
+         type: 11,
+         required: true
+        },
         ],
     run: async (client, interaction) => {
         
