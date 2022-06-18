@@ -47,7 +47,7 @@ client.on("message", async message => {
     to: "en",
 });
 console.log(trad)
-  fetch(`http://api.brainshop.ai/get?bid=163212&key=kbwpNZrWl37IghzO&uid=[uid]&msg=${trad.text}`)
+  fetch(`http://api.brainshop.ai/get?bid=163212&key=kbwpNZrWl37IghzO&uid=${message.author.id}&msg=${trad.text}`)
       .then(res => res.json())
       .then(async data => {
   
