@@ -6,16 +6,18 @@ module.exports = {
     type: 'CHAT_INPUT',
     options: [
         {
-         name: "background",
-         description: "digite o link da sua foto de fundo, Para alterna Para O padrao digite default",
-         type: 3,
-         required: true
-        },
+            type: 'ATTACHMENT',
+            name: 'imagem',
+            description: 'não envie arquivos .png ou que não é imagem!',
+            required: true
+            }
         ],
     run: async (client, interaction) => {
         
-     const sobremim = interaction.options.getString("background")
-     
+     let attachment = interaction.options.getAttachment('imagem')
+     if(attachment.contentType === 'image/png' || !attachment.contentType.includes('image')) return interaction.reply(':QdW_meltedo: | Meu profile só suporta imagens...')
+     if(attachment.height !== 720 || attachment.width !== 1280) return interaction.reply(':QdW_meltedo: | O Background precisa ser no tamanho `1280x720`!')
+     let img = new MessageAttachment(attachment.proxyURL)
      let userdb = await client.userdb.findOne({
          userID: interaction.user.id
      })
@@ -40,12 +42,12 @@ function e(s){
         return s
     }
 }
-userdb.economia.background = filtro(sobremim); userdb.save()
+userdb.economia.background = filtro(img); userdb.save()
      const butao = new Discord.MessageActionRow() 
      interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`Wallapaper Trocado`)
      .setColor("a5d7ff")
-     .setImage(e(sobremim))
+     .setImage(e(img))
      
      
           ]})
