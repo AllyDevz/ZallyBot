@@ -29,9 +29,9 @@ module.exports = {
             ╭━═[🎫𝓐𝓽𝓶 𝓩𝓪𝓵𝓵𝔂🎫]═━━⪨
             
         🎱𝓔𝓶𝓹𝓻𝓮𝓰𝓸𝓼:${userdb.economia.trabalho.trampo} 
-        💸 𝓭𝓲𝓷𝓱𝓮𝓲𝓻𝓸: ${(userdb.economia.money).toLocaleString('pt-BR')}
-        🏦 𝓓𝓲𝓷𝓱𝓮𝓲𝓻𝓸 𝓷𝓸 𝓫𝓪𝓷𝓬𝓸 ${(userdb.economia.banco).toLocaleString('pt-BR')}
-        💱 𝓓𝓲𝓷𝓱𝓮𝓲𝓻𝓸 𝓽𝓸𝓽𝓪𝓵: ${(userdb.economia.money + userdb.economia.banco).toLocaleString('pt-BR')}
+        💸 𝓭𝓲𝓷𝓱𝓮𝓲𝓻𝓸: ${(userdb.economia.money).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+        🏦 𝓓𝓲𝓷𝓱𝓮𝓲𝓻𝓸 𝓷𝓸 𝓫𝓪𝓷𝓬𝓸 ${(userdb.economia.banco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+        💱 𝓓𝓲𝓷𝓱𝓮𝓲𝓻𝓸 𝓽𝓸𝓽𝓪𝓵: ${(userdb.economia.money + userdb.economia.banco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
               
             ╰━━━━━━━━━━━━━━━━━━━━━━⪨
 `
