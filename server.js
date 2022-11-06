@@ -6,7 +6,11 @@ http        = require('http');
 director    = require('director');
 cool        = require('cool-ascii-faces');
 bot         = require('./index.js');
+const os = require('os');
 info = require("./Database/information.js")
+let usedMemory = os.totalmem() -os.freemem(), totalMemory = os.totalmem();
+let  getpercentage = 
+((usedMemory/totalMemory) * 100).toFixed(2) + '%'
 router = new director.http.Router({
   '/' : {
     post: bot.respond,
@@ -41,9 +45,20 @@ function ping() {
 }
 
 function statuspage() {
-  this.res.writeHead(200);
-  const big = "<h1 style=`text-align:center`>AllyDevz Status Page<h1>"
 
-  this.res.end(big);
+
+    let usedMemory = os.totalmem() -os.freemem(), totalMemory = os.totalmem();
+    let  getpercentage = 
+    ((usedMemory/totalMemory) * 100).toFixed(2) + '%'
+    test = `
+            online
+`
+  this.res.end(test);
+  
+
+  this.res.writeHead(200);
+  //const big = "<h1 style=`text-align:center`>AllyDevz Status Page<h1>"
+
+  //this.res.end(big);
   
 }
