@@ -68,11 +68,6 @@ const row = new Discord.MessageActionRow()
             emoji: '💻',
 			value: 'ti',
 		},
-    {
-      label: 'ShikiEco',
-            emoji: '🍘',
-      value: 'shikieco',
-    },
 	]),
 			);
 
