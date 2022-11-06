@@ -1,4 +1,9 @@
 {
- "BotToken": "OTYyMzU2NzA5NjAxNDYwMjM0.YlGWhw.S1R91U5VpRnyWU99Ca11-h5S0lM",
- "MongoURL": "mongodb+srv://allyson1:all150913a@cluster0.i8sgi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "token": "",
+    "client": {
+        "id": "925040326006157383",
+        "secret": "n_ryeQKU-WpoTQIVWHdQ85JNqP_CEcEK"
+    },
+    "port": 80,
+    "dbd_license": "76d960f4-8e61-4b32-b2b4-eea821311b3b"
 }

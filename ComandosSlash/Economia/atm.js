@@ -22,14 +22,23 @@ module.exports = {
             const user = interaction.options.getUser("user") || interaction.user
             const userdb = await client.userdb.findOne({
                 userID: user.id
-            }) || { economia: { banco: 0, money: 0}}
-             
+            }) || { economia: { banco: 0, money: 0}, color:"36393e"}
+            atmb = `
+            
+            
+            ╭━═[🎫𝓐𝓽𝓶 𝓩𝓪𝓵𝓵𝔂🎫]═━━⪨
+            
+        🎱𝓔𝓶𝓹𝓻𝓮𝓰𝓸𝓼:${userdb.economia.trabalho.trampo} 
+        💸 𝓭𝓲𝓷𝓱𝓮𝓲𝓻𝓸: ${userdb.economia.money}
+        🏦 𝓓𝓲𝓷𝓱𝓮𝓲𝓻𝓸 𝓷𝓸 𝓫𝓪𝓷𝓬𝓸 ${userdb.economia.banco}
+        💱 𝓓𝓲𝓷𝓱𝓮𝓲𝓻𝓸 𝓽𝓸𝓽𝓪𝓵: ${userdb.economia.money + userdb.economia.banco}
+              
+            ╰━━━━━━━━━━━━━━━━━━━━━━⪨
+`
             interaction.reply({embeds: [new Discord.MessageEmbed()
-            .setTitle(`${user.username}`)
-            .setColor("a5d7ff")
-            .setDescription(`> 💸 Dinheiro: ${userdb.economia.money}
-       > 🏦 Dinheiro no banco: ${userdb.economia.banco}
-       > 💱 Dinheiro total: ${userdb.economia.money + userdb.economia.banco}`)
+            .setTitle(`𝓷𝓸𝓶𝓮:${user.username}`)
+            .setColor(userdb.economia.color)
+            .setDescription(`${atmb}`)
                  ]})  
         }
      }

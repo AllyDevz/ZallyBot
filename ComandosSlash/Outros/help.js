@@ -93,25 +93,31 @@ collector.on('collect', async i => {
       userID: user.id
   }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"36393e"}}
   
+  atmb = `
+            
+            
+  ╭━═[🎇𝓩𝓪𝓵𝓵𝔂 𝓜𝓮𝓷𝓾🎇]═━━⪨
   
+  __Atm__: Ver quanto dinheiro você, ou outro usuário tem.
+  __Casar__: value: Casar com o amor da sua vida! Ou não...
+  __Daily__ Pegar seu prêmio diário de dinheiros.
+  __Depositar__ Depositar o dinheiro que você tem na mão no banco
+  __Divorciar__: Se divorciar no corno que te chifrou.
+  __Empregos__: Ver os empregos disponíveis e pega-los
+  __Pay__: Transferir alguma quantia para alguém.
+  __Perfil__: 'Ver o seu perfil ou de algum outro usuário.
+  __Rank__: Ver as pessoas mais ricas da economia do bot.
+  __Retirar__: Retirar o dinheiro do banco para as mãos.
+  __Sobremim__: Alterar o conteúdo do seu sobremim do perfil.
+  __Work__: Trabalhar no seu emprego pego no /Empregos.
+    
+  ╰━━━━━━━━━━━━━━━━━━━━━━⪨
+`
    interaction.editReply({embeds: [new Discord.MessageEmbed()
-    .setTitle('🤑 Comandos de Economia:')
+    .setTitle('𝓩𝓪𝓵𝓵𝔂 𝓜𝓮𝓷𝓾')
     .setThumbnail(client.user.avatarURL())
     .setColor(userdb.economia.color)
-    .addFields(
-		{ name: '__Atm__', value: 'Ver quanto dinheiro você, ou outro usuário tem.' },
-		{ name: '__Casar__', value: 'Casar com o amor da sua vida! Ou não...' },
-    { name: '__Daily__', value: 'Pegar seu prêmio diário de dinheiros.' },
-		{ name: '__Depositar__', value: 'Depositar o dinheiro que você tem na mão no banco' },
-    		{ name: '__Divorciar__', value: 'Se divorciar no corno que te chifrou.'},
-		{ name: '__Empregos__', value: 'Ver os empregos disponíveis e pega-los' },
-    { name: '__Pay__', value: 'Transferir alguma quantia para alguém.' },
-		{ name: '__Perfil__', value: 'Ver o seu perfil ou de algum outro usuário.' },
-    { name: '__Rank__', value: 'Ver as pessoas mais ricas da economia do bot.' },
-		{ name: '__Retirar__', value: 'Retirar o dinheiro do banco para as mãos.' },
-    { name: '__Sobremim__', value: 'Alterar o conteúdo do seu sobremim do perfil.' },
-		{ name: '__Work__', value: 'Trabalhar no seu emprego pego no /Empregos.' },
-	)
+    .setDescription(atmb)
     ]})
  }
   if(i.values[0] == "outros"){

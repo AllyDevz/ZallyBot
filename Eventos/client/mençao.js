@@ -1,16 +1,6 @@
 const client = require("../../index");
 const Discord = require("discord.js")
-client.on("messageCreate", async message => {
-  const user = message
-  if(message.author.bot) return;
-  if(user.author.username === "Axiore Community #fruit-stock"){
-    let channel = client.channels.cache.get("968325803765014538");
-    channel.send("**Shikimori avistou frutas**\n<@&977760883855994960>")
 
-  }
-
-  
-})
 client.on("ready", async message => {
 function displayHello(){
 var today = new Date();
@@ -127,7 +117,7 @@ client.on("messageCreate", async message => {
   if(message.author.bot) return;
   if(!message.guild) return;
   
-  if(message.content == `Shiki`){
+  if(message.content == `Zally`){
   
   const embed = new  Discord.MessageEmbed()
     .setTitle(`${client.user.username}`)

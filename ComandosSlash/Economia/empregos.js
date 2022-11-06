@@ -28,9 +28,9 @@ const row = new Discord.MessageActionRow()
 	.setPlaceholder('selecione algum emprego')
 	.addOptions([
 		{
-			label: 'lixeiro',
-            emoji: '🗑️',
-			value: 'lixeiro',
+			label: 'uber',
+            emoji: '🚗',
+			value: 'uber',
 		},
 		{
 	    	label: 'entregador de pizza',
@@ -109,8 +109,8 @@ collector.on('collect', async i => {
   
   switch (button) {
       
-  case "lixeiro":
-    trabalho = "lixeiro"
+  case "uber":
+    trabalho = "uber"
     cooldown = 1000 * 60 * 45
     maxmoney = 1000
   break;
@@ -175,9 +175,9 @@ collector.on('collect', async i => {
   if(i.componentType == 'SELECT_MENU')  {
   const select = i.values[0]
 
-    if(select == 'lixeiro'){
+    if(select == 'uber'){
         
-      interaction.editReply({embeds: [msgembed("🗑️", "lixeiro", "45m", 1)], components: [row, button("lixeiro")]})
+      interaction.editReply({embeds: [msgembed("🚗", "uber", "45m", 1)], components: [row, button("uber")]})
       
     }
     
@@ -315,9 +315,9 @@ collector.on('collect', async i => {
   .setPlaceholder('selecione algum emprego')
   .addOptions([
    {
-     label: 'lixeiro',
-           emoji: '🗑️',
-     value: 'lixeiro',
+     label: 'uber',
+           emoji: '🚗',
+     value: 'uber',
    },
    {
        label: 'entregador de pizza',
@@ -391,8 +391,8 @@ collector.on('collect', async i => {
   
   switch (button) {
      
-  case "lixeiro":
-   trabalho = "lixeiro"
+  case "uber":
+   trabalho = "uber"
    cooldown = 1000 * 60 * 45
    maxmoney = 1000
   break;
@@ -453,9 +453,9 @@ collector.on('collect', async i => {
   if(i.componentType == 'SELECT_MENU')  {
   const select = i.values[0]
   
-   if(select == 'lixeiro'){
+   if(select == 'uber'){
        
-     interaction.editReply({embeds: [msgembed("🗑️", "lixeiro", "45m", 1)], components: [row, button("lixeiro")]})
+     interaction.editReply({embeds: [msgembed("🚗", "uber", "45m", 1)], components: [row, button("uber")]})
      
    }
    

@@ -21,7 +21,7 @@ const novoserver = new info({
 })
 
 let status = [
-      `Shikiservers:${client.guilds.cache.size} `,
+      `${client.guilds.cache.size} servidores `,
       `Não sabe utilizar o bot? use /menu`],
     i = 0
   setInterval(() =>{
