@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 module.exports = {
     name: "minerar",
-    description: "minere shikicoins",
+    description: "minerar moedas",
     type: 'CHAT_INPUT',
     run: async (client, interaction) => {
      
@@ -12,7 +12,7 @@ module.exports = {
       
      if(!userdb || !userdb.economia.trabalho.trampo){
          return interaction.reply({embeds: [new Discord.MessageEmbed()
-    .setTitle(`✋ Dá não filhão...`)
+    .setTitle(`✋ Vish voce esta sem emprego...`)
     .setColor("a5d7ff")
     .setDescription(`**Calma!** Você ainda não tem um emprego, digite /empregos para ver a lista de empregos e escolher algum.`)
 ], ephemeral: true})
@@ -22,7 +22,7 @@ module.exports = {
       const calc = 0000 * 60 * 00 - Date.now()
       
          return interaction.reply({embeds: [new Discord.MessageEmbed()
-    .setTitle(`🤔 Calma ae amigo...`)
+    .setTitle(`💎 Aguarde mais um pouco D:`)
     .setColor("a5d7ff")
     .setDescription(`Ainda falta ${ms(calc).hours}h ${ms(calc).minutes}m ${ms(calc).seconds}s para você trabalhar novamente.`)
 ], ephemeral: true})
@@ -36,7 +36,7 @@ module.exports = {
            return interaction.reply({embeds: [new Discord.MessageEmbed()
       .setTitle(`Vish`)
       .setColor(userdb.economia.color)
-      .setDescription(`Ainda falta ${ms(calc).hours}h ${ms(calc).minutes}m ${ms(calc).seconds}s para você minerar shikicoins<:ShikiCoin:980533707330953248> novamente.`)
+      .setDescription(`Ainda falta ${ms(calc).hours}h ${ms(calc).minutes}m ${ms(calc).seconds}s para você minerar Moedas novamente.`)
   ], ephemeral: true})
        }  
         
@@ -53,7 +53,7 @@ module.exports = {
     interaction.reply({embeds: [new Discord.MessageEmbed()
 
     .setColor(userdb.economia.color)
-    .setDescription(`**Parabens** __Você Minerou Shikimoney e ganhou ${dinheiro} Shikicoins__`)
+    .setDescription(`**Parabens** __Você Minerou ouro e trocou por > ${dinheiro} moedas__`)
     
 ]})}
     }
