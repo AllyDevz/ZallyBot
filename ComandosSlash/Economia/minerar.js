@@ -53,7 +53,7 @@ module.exports = {
     interaction.reply({embeds: [new Discord.MessageEmbed()
 
     .setColor(userdb.economia.color)
-    .setDescription(`**Parabens** __Você Minerou ouro e trocou por > ${(dinheiro).toLocaleString('pt-BR')} moedas__`)
+    .setDescription(`**Parabens** __Você Minerou ouro e trocou por > $${(dinheiro).toLocaleString('pt-BR')} moedas__`)
     
 ]})}
     }
