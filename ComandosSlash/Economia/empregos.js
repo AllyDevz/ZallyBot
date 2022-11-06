@@ -15,11 +15,17 @@ module.exports = {
          
          userdb = await client.userdb.findOne({ userID: interaction.user.id })
      }
-   
+     empregos2 = `
+            
+            
+     ╭━═[🎫𝓩𝓪𝓵𝓵𝔂🎫]═━━⪨
+     𝓢𝓮𝓵𝓮𝓬𝓲𝓸𝓷𝓮 𝓾𝓶 𝓮𝓶𝓹𝓻𝓮𝓰𝓸 𝓹𝓪𝓻𝓪 𝓿𝓮𝓻 𝓲𝓷𝓯𝓸𝓻𝓶𝓪çõ𝓮𝓼 𝓮 𝓹𝓮𝓰𝓪-𝓵𝓸\n𝒞𝒶𝒹𝒶 𝐸𝓂𝓅𝓇𝑒𝑔𝑜 𝓉𝑒𝓂 𝓊𝓂 𝒸𝑜𝑜𝓁𝒹𝑜𝓌𝓃 𝑒 𝓆𝓊𝒶𝓃𝓉𝒾𝒶 𝒹𝑒 𝒹𝒾𝓃𝒽𝑒𝒾𝓇𝑜 𝑔𝒶𝓃𝒽𝒶 𝒹𝒾𝒻𝑒𝓇𝑒𝓃𝓉𝑒𝓈, 𝓆𝓊𝒶𝓃𝓉𝑜 𝓂𝒶𝒾𝑜𝓇 𝑜 𝒹𝒾𝓃𝒽𝑒𝒾𝓇𝑜 𝑔𝒶𝓃𝒽𝑜, 𝓂𝒶𝒾𝓈 𝓉𝑒𝓂𝓅𝑜 𝒹𝑒 𝒸𝑜𝑜𝓁𝒹𝑜𝓌𝓃 𝓋𝒶𝒾 𝑒𝓍𝒾𝓈𝓉𝒾𝓇.
+     ╰━━━━━━━━━━━━━━━━━━━━━━⪨
+`
   const embed = new Discord.MessageEmbed()
-    .setTitle('🤑 Escolha o melhor trabalho pra você!')
+    .setTitle('𝒮𝑒𝓁𝑒𝒸𝒾𝑜𝓃𝑒 𝓊𝓂 𝑒𝓂𝓅𝓇𝑒𝑔𝑜')
     .setColor("a5d7ff")
-    .setDescription('Selecione um emprego para ver informações e pega-lo\nCada Emprego tem um cooldown e quantia de dinheiro ganha diferentes, quanto maior o dinheiro ganho, mais tempo de cooldown vai existir.')
+    .setDescription(empregos2)
   
 const row = new Discord.MessageActionRow()
 	.addComponents(
