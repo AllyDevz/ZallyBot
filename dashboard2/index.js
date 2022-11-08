@@ -138,7 +138,23 @@ module.exports = client => {
           Guild: client.guilds.cache.size,
         });
     })
-
+    app.get("/pfstgs", (req, res) => {
+      res.render("config", {
+        req: req,
+        user: req.isAuthenticated() ? req.user : null,
+        //guild: client.guilds.cache.get(req.params.guildID),
+        botClient: client,
+        Permissions: Permissions,
+        bot: settings.website,
+        callback: settings.config.callback,
+        categories: client.categories, 
+        commands: client.commands,
+        BotConfig: BotConfig,
+        BotFilters: BotFilters,
+        BotEmojis: BotEmojis,
+        Guild: client.guilds.cache.size,
+      });
+  })
 
     // When the commands page is loaded, render it with those settings
     app.get("/commands", (req, res) => {
