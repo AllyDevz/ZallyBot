@@ -56,6 +56,18 @@
           </div>
 
           <div class="buttons">
+            <li class="nav-item" >
+                <% if(user && user.id) { %>
+                    
+                    <button class="btn" 
+                    style="letter-spacing: 0.1em;font-weight: 800;width: 60%;"
+                    onclick="location.href='/logout'" type="button"><img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png", style="width: 50px;margin-bottom:3%;"alt="LOGO"> <%= user.username %> <br> LOGOUT!</button>
+                <% }else { %>
+                    <button class="btn" 
+                    style="letter-spacing: 0.1em;font-weight: 750;width: 100%;"
+                    onclick="location.href='/login'" type="button"><span class="iconify" data-icon="simple-icons:discord"></span> Login</button>
+                <% }%>
+            </li>
             <a href="#" class="btn">Learn More</a>
             <a href="#" class="btn">Try It!</a>
           </div>
@@ -70,7 +82,10 @@
 
     <div class="mobile-navmenu">
       <div class="logo">LB.</div>
-
+      <a class="navbar-brand" href="/" style="text-decoration: none;color:white">
+        <img src="<%= botClient.user.displayAvatarURL({size: 4096}) %>" alt="Logo" 
+        class="d-inline-block align-top"
+        >
       <div class="menu-icons">
         <img class="menu-icon" src="images/menu-icon.png" alt="" />
         <img class="close-icon" src="images/close-icon.png" alt="" />
