@@ -4,10 +4,12 @@ const config = require("./Config.json")
 
 const mongo = require("mongoose");
 const os = require('os');
-
+const Enmap = require("enmap");
 const client = new Discord.Client({ intents: 32767 });
-
+const settings = require(`./botconfig/settings.json`);
 module.exports = client;
+client.settings = new Enmap({ name: "settings",dataDir: "./databases/settings"});
+client.infos = new Enmap({ name: "infos", dataDir: "./databases/infos"});
 
 client.userdb = require("./Database/user.js")
 info = require("./Database/information.js")
