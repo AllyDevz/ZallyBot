@@ -343,27 +343,9 @@ module.exports = client => {
     app.get("/userpage", checkAuth, async (req,res, message) => {
       if(!req.isAuthenticated() || !req.user) 
       return res.redirect("/?error=" + encodeURIComponent("Login First!"));
-      if(!req.user.guilds)
-      return res.redirect("/?error=" + encodeURIComponent("Unable to get your Guilds!"));
-      res.render("fortniteshop", {
+      res.render("perfil", {
         req: req,
         user: req.isAuthenticated() ? req.user : null,
-        //guild: client.guilds.cache.get(req.params.guildID),
-        
-        botClient: client,
-        Permissions: Permissions,
-        bot: settings.website,
-        callback: settings.config.callback,
-        categories: client.categories, 
-        commands: client.commands, 
-        BotConfig: BotConfig,
-        name: "Dashboard Slortez",
-        BotFilters: BotFilters,
-        BotEmojis: BotEmojis,
-        Guild: client.guilds.cache.size,
-        im: settings.imagem,
-        comentario: top1,
-
       });
     })
     app.get("/userpage", checkAuth, async (req,res, message) => {
