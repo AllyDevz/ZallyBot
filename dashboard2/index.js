@@ -314,12 +314,12 @@ module.exports = client => {
 
 
     //Queue Dashes
-    app.get("/patch", checkAuth, async (req,res, message) => {
+
+    app.get("/profile", checkAuth, async (req,res, message) => {
       if(!req.isAuthenticated() || !req.user) 
       return res.redirect("/?error=" + encodeURIComponent("Login First!"));
       if(!req.user.guilds)
-      return res.redirect("/?error=" + encodeURIComponent("Unable to get your Guilds!"));
-      res.render("patch", {
+      res.render("perfil", {
         req: req,
         user: req.isAuthenticated() ? req.user : null,
         //guild: client.guilds.cache.get(req.params.guildID),
@@ -340,33 +340,7 @@ module.exports = client => {
 
       });
     })
-    app.get("/countdown", checkAuth, async (req,res, message) => {
-      if(!req.isAuthenticated() || !req.user) 
-      return res.redirect("/?error=" + encodeURIComponent("Login First!"));
-      if(!req.user.guilds)
-      return res.redirect("/?error=" + encodeURIComponent("Unable to get your Guilds!"));
-      res.render("countdown", {
-        req: req,
-        user: req.isAuthenticated() ? req.user : null,
-        //guild: client.guilds.cache.get(req.params.guildID),
-        
-        botClient: client,
-        Permissions: Permissions,
-        bot: settings.website,
-        callback: settings.config.callback,
-        categories: client.categories, 
-        commands: client.commands, 
-        BotConfig: BotConfig,
-        name: "Dashboard Slortez",
-        BotFilters: BotFilters,
-        BotEmojis: BotEmojis,
-        Guild: client.guilds.cache.size,
-        im: settings.imagem,
-        comentario: top1,
-
-      });
-    })
-    app.get("/fortniteshop", checkAuth, async (req,res, message) => {
+    app.get("/userpage", checkAuth, async (req,res, message) => {
       if(!req.isAuthenticated() || !req.user) 
       return res.redirect("/?error=" + encodeURIComponent("Login First!"));
       if(!req.user.guilds)
@@ -390,6 +364,16 @@ module.exports = client => {
         im: settings.imagem,
         comentario: top1,
 
+      });
+    })
+    app.get("/userpage", checkAuth, async (req,res, message) => {
+      if(!req.isAuthenticated() || !req.user) 
+      return res.redirect("/?error=" + encodeURIComponent("Login First!"));
+      res.render("settings", {
+        user: req.userInfos,
+        translate: req.translate,
+        printDate: req.printDate,
+        currentURL: `${req.client.config.dashboard.baseURL}/${req.originalUrl}`
       });
     })
     /**
@@ -419,6 +403,6 @@ module.exports = client => {
     const PORT = process.env.PORT || 3000;
     http.listen(PORT, () => {
         
-        console.log(`[${settings.website.domain}]: HTTP-Website running on ${PORT} port.`)
+        console.log(`[${settings.website.domain}]: HTTP-Website running on ${settings.config.http.port} port.`)
     });
 }
