@@ -12,7 +12,10 @@ module.exports = client;
 client.userdb = require("./Database/user.js")
 info = require("./Database/information.js")
 client.slashCommands = new Discord.Collection();
-
+client.on("ready", () => {
+    require("./dashboard2/index.js")(client);
+    console.log("Loading")
+  })
 require("./Handler")(client);
 
 mongo.connect("mongodb+srv://AllyDevz:all150913a@cluster0.i8sgi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
@@ -27,7 +30,10 @@ mongo.connect("mongodb+srv://AllyDevz:all150913a@cluster0.i8sgi.mongodb.net/myFi
 client.login("OTI1MDQwMzI2MDA2MTU3Mzgz.GrhY5W.yYRgdgwSSjFWc-G3OQOb3yqh4-hUjOuK0-vDdI");
 
 
-
+client.on("disconnect", () => client.logger.log("Bot is disconnecting...", "warn"))
+	.on("reconnecting", () => client.logger.log("Bot reconnecting...", "log"))
+	.on("error", (e) => client.logger.log(e, "error"))
+	.on("warn", (info) => client.logger.log(info, "warn"));
 
 
 setInterval(() =>{

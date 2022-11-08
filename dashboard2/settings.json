@@ -1,0 +1,14 @@
+{
+    "website" : {
+      "support": "https://discord.gg/VNA8fkMYG8",
+      "domain": "https://zallybot.herokuapp.com/"
+    },
+    "config": {
+        "http": {
+          "port": 80
+        },
+        "callback": "https://zallybot.herokuapp.com/callback",
+        "clientID": "925040326006157383",
+        "secret": "lERo4OBdIt70qEKCmjUxG9i8WQbYlfKW"
+    }
+  }
