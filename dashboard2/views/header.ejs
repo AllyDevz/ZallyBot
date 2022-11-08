@@ -1,132 +1,118 @@
-<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="icon" type="image/png" href="<%= botClient.user.displayAvatarURL({size: 128}) %>">
-<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="nav-container">
+      <nav>
+        <div class="logo">LB.</div>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+        <div class="menu-items">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Contact</a>
 
-<!-- nav -->
-<nav class="sidebar">
-    <div class="nav-header">
-      <div class="logo-wrap">
-        <a class="logo-icon" href="http://www.mediahawkz.com/"><img alt="logo-icon" src="http://mediahawkz.com/assets/images/favicons/apple-icon-72x72.png" width="40"></a>
-        <a class="logo-text" href="http://www.mediahawkz.com/">MediahawkZ</a>
-      </div>
-  
-      <div class="nav-search">
-        <div class="search">
-          <i class="material-icons">search</i>
-          <input type="search" name="search" placeholder="Search">
+          <div class="social">
+            <a href="#">
+              <img src="images/facebook.png" alt="" />
+            </a>
+
+            <a href="#">
+              <img src="images/instagram.png" alt="" />
+            </a>
+
+            <a href="#">
+              <img src="images/twitter.png" alt="" />
+            </a>
+          </div>
         </div>
-      </div>
+      </nav>
     </div>
-    <ul class="nav-categories ul-base">
-      <li><a href="http://www.mediahawkz.com/topic/technology">Technology</a></li>
-      <li><a href="http://www.mediahawkz.com/topic/science">Science</a></li>
-      <li><a href="http://www.mediahawkz.com/topic/speak-up">Speak up</a></li>
-      <li><a href="http://www.mediahawkz.com/topic/general">General</a></li>
-      <li><a href="http://www.mediahawkz.com/topic/lifestyle">Lifestyle</a></li>
-      <li><a href="http://www.mediahawkz.com/topic/world">World</a></li>
-      <li><a href="http://www.mediahawkz.com/topic/business">Business</a></li>
-      <li><a href="http://www.mediahawkz.com/topic/entertainment">Entertainment</a></li>
-      <li><a href="http://www.mediahawkz.com/topic/sports">Sports</a></li>
-    </ul>
-    <ul class="social ul-base">
-      <li><a href="https://twitter.com/MediahawkZ" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
-      <li><a href="https://www.facebook.com/mediahawkz" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-      <li><a href="https://plus.google.com/+MediahawkzIndia" class="google-plus" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-      <li><a href="http://www.mediahawkz.com/rss" class="rss" target="_blank"><i class="fa fa-rss"></i></a></li>
-    </ul>
-    <div class="copyright">
-      <span>&copy; 2016 <a href="http://www.mediahawkz.com" class="link">MediahawkZ.com</a> Made in India</span>
-      <span>Designed by <a href="https://twitter.com/rkchauhan01" target="_blank">Ravikumar Chauhan</a></span>
-    </div>
-  </nav><!-- @end nav -->
-  
-  <!-- header -->
-  <header>
-    <div class="header-inner clearfix">
-      <div class="nav-btn nav-slider">
-        <i class="material-icons">menu</i>
-      </div>
-      <div class="header-logo">
-        <a href="http://www.mediahawkz.com/"><img alt="logo" src="http://mediahawkz.com/assets/images/logos/logo-v2-1.png"></a>
-      </div>
-      <div class="header-categories">
-        <ul class="ul-base">
-          <li class="dropdown">
-            <a class="dropdown-toggle" href="#"><span>Categories</span> <i class="material-icons">keyboard_arrow_down</i></a>
-            <ul class="dropdown-menu ul-base">
-              <li><a href="http://www.mediahawkz.com/topic/technology">Technology</a></li>
-              <li><a href="http://www.mediahawkz.com/topic/science">Science</a></li>
-              <li><a href="http://www.mediahawkz.com/topic/speak-up">Speak up</a></li>
-              <li><a href="http://www.mediahawkz.com/topic/general">General</a></li>
-              <li><a href="http://www.mediahawkz.com/topic/lifestyle">Lifestyle</a></li>
-              <li><a href="http://www.mediahawkz.com/topic/world">World</a></li>
-              <li><a href="http://www.mediahawkz.com/topic/business">Business</a></li>
-              <li><a href="http://www.mediahawkz.com/topic/entertainment">Entertainment</a></li>
-              <li><a href="http://www.mediahawkz.com/topic/sports">Sports</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <div class="header-search">
-        <div class="search">
-          <i class="material-icons">search</i>
-          <input type="search" name="search" placeholder="Search">
-        </div>
-      </div>
-      <div class="header-menu">
-        <ul class="ul-base">
-          <li><a href="https://twitter.com/MediahawkZ" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="https://www.facebook.com/mediahawkz" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="https://plus.google.com/+MediahawkzIndia" class="google-plus" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-          <li><a href="http://www.mediahawkz.com/rss" class="rss" target="_blank"><i class="fa fa-rss"></i></a></li>
-          <li><a href="http://www.mediahawkz.com/admin">Login</a></li>
-        </ul>
-      </div>
-    </div>
-  </header><!-- @end header -->
-  
-  <!-- Main content -->
-  <main role="main"></main><!-- @end main -->
-  
-  <!-- Footer -->
-  <footer></footer><!-- @end footer -->
-  
-  <div class="overlay"></div>
-    </nav>
 
+    <!-- End of nav menu -->
+
+    <div class="header-wrapper">
+      <header class="my-header">
+        <div class="text-content">
+          <h1>Interview Preparation Guide</h1>
+
+          <div class="sub-heading">
+            <p>
+              Do you want to ace your next interview? Try our interactive guide.
+            </p>
+            <p>Mock interviews with our experts will boost your confidence.</p>
+          </div>
+
+          <div class="buttons">
+            <a href="#" class="btn">Learn More</a>
+            <a href="#" class="btn">Try It!</a>
+          </div>
+        </div>
+
+        <div class="image">
+          <img src="images/hero-image.png" alt="" />
+          <div class="image-bg"></div>
+        </div>
+      </header>
+    </div>
+
+    <div class="mobile-navmenu">
+      <div class="logo">LB.</div>
+
+      <div class="menu-icons">
+        <img class="menu-icon" src="images/menu-icon.png" alt="" />
+        <img class="close-icon" src="images/close-icon.png" alt="" />
+      </div>
+    </div>
+
+    <div class="mobile-menu-items">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+
+      <div class="social">
+        <a href="#">
+          <img src="images/facebook.png" alt="" />
+        </a>
+
+        <a href="#">
+          <img src="images/instagram.png" alt="" />
+        </a>
+
+        <a href="#">
+          <img src="images/twitter.png" alt="" />
+        </a>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
 <script>
-$('.dropdown-toggle').on('click', function(e) {
-  e.stopPropagation();
-  e.preventDefault();
+    const mobileNavmenu = document.querySelector(".mobile-navmenu");
+const menuIcon = document.querySelector(".mobile-navmenu .menu-icon");
+const closeIcon = document.querySelector(".mobile-navmenu .close-icon");
 
-  var self = $(this);
-  if(self.is('.disabled, :disabled')) {
-    return false;
-  }
-  self.parent().toggleClass("open");
+menuIcon.addEventListener("click", () => {
+  mobileNavmenu.classList.add("active");
 });
 
-$(document).on('click', function(e) {
-  if($('.dropdown').hasClass('open')) {
-    $('.dropdown').removeClass('open');
-  }
+closeIcon.addEventListener("click", () => {
+  mobileNavmenu.classList.remove("active");
 });
-
-$('.nav-btn.nav-slider').on('click', function() {
-  $('.overlay').show();
-  $('nav').toggleClass("open");
-});
-
-$('.overlay').on('click', function() {
-  if($('nav').hasClass('open')) {
-    $('nav').removeClass('open');
-  }
-  $(this).hide();
-});
-
     const urlParams = new URLSearchParams(window.location.search);
     let myParam = urlParams.get('error');
     if(myParam) alert(myParam);
@@ -135,7 +121,263 @@ $('.overlay').on('click', function() {
 </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="./style.css">
+<style>
+body {
+  margin: 0;
+}
 
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.nav-container nav {
+  background: #293241;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 48px;
+  box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.4);
+  border-radius: 0 0 20px 20px;
+  box-sizing: border-box;
+}
+
+.nav-container nav .logo {
+  font-size: 30px;
+  font-weight: 900;
+  color: #f8f9fa;
+}
+
+.nav-container .menu-items {
+  display: flex;
+  align-items: center;
+}
+
+.nav-container .menu-items > a {
+  color: #f8f9fa;
+  margin: 0 24px;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-container .menu-items > a:hover::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: #f8f9fa;
+  bottom: -13px;
+  left: 0;
+}
+
+.nav-container .social {
+  background: #c1fdff;
+  padding: 4px 16px;
+  border-radius: 20px;
+}
+
+.nav-container .social img {
+  vertical-align: middle;
+  transition: all 500ms;
+}
+
+.nav-container .social img:hover {
+  transform: scale(1.1);
+}
+
+.nav-container .social a {
+  margin: 0 16px;
+  text-decoration: none;
+}
+
+/* Header */
+
+.header-wrapper {
+  background-image: radial-gradient(
+    circle 860px at 11.8% 33.5%,
+    rgba(240, 30, 92, 1) 0%,
+    rgba(244, 49, 74, 1) 30.5%,
+    rgba(249, 75, 37, 1) 56.1%,
+    rgba(250, 88, 19, 1) 75.6%,
+    rgba(253, 102, 2, 1) 100.2%
+  );
+}
+
+.my-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+}
+
+.my-header h1 {
+  font-size: 65px;
+  font-weight: 900;
+  margin: 0;
+  color: #e0fbfc;
+  margin-top: 50px;
+}
+
+.my-header .sub-heading {
+  background: #073b4c;
+  padding: 18px 32px;
+  margin: 24px 0;
+  border-radius: 20px;
+}
+
+.my-header .sub-heading p {
+  font-size: 18px;
+  color: #e0fbfc;
+}
+
+.my-header .btn {
+  text-decoration: none;
+  background: #e0fbfc;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 900;
+  color: #073b4c;
+  display: inline-block;
+  margin-top: 8px;
+  margin-right: 20px;
+  box-shadow: 0 4px 24px -8px rgba(0, 0, 0, 0.3);
+  transition: all 500ms;
+}
+
+.my-header .btn:hover {
+  transform: scale(1.1);
+}
+
+.my-header .image img {
+  height: 600px;
+  vertical-align: middle;
+  z-index: 100;
+  position: relative;
+}
+
+.my-header .image {
+  align-self: flex-end;
+  position: relative;
+}
+
+.my-header .image .image-bg {
+  position: absolute;
+  height: 500px;
+  width: 430px;
+  background: rgba(225, 255, 255, 0.9);
+  left: -14px;
+  top: 22px;
+  transform: rotateZ(5deg);
+  border-radius: 20px;
+}
+
+/* Hidden Items */
+
+.mobile-navmenu,
+.mobile-menu-items {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .nav-container,
+  .my-header .image {
+    display: none;
+  }
+
+  .my-header h1 {
+    font-size: 50px;
+  }
+
+  .my-header {
+    padding: 32px;
+    height: unset;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+
+  .my-header p {
+    line-height: 1.8;
+  }
+
+  .mobile-navmenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background: #e0fbfc;
+    box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  }
+
+  .mobile-navmenu .logo {
+    font-size: 28px;
+    font-weight: 900;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .mobile-navmenu .menu-icons img {
+    vertical-align: middle;
+  }
+
+  .mobile-navmenu .menu-icons .close-icon {
+    display: none;
+  }
+
+  .mobile-navmenu.active .menu-icons .close-icon {
+    display: block;
+  }
+
+  .mobile-navmenu.active .menu-icons .menu-icon {
+    display: none;
+  }
+
+  .mobile-menu-items {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: -100vh;
+    background: #c1fdff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 500ms ease-in-out;
+  }
+
+  .mobile-navmenu.active + .mobile-menu-items {
+    top: 0;
+  }
+
+  .mobile-menu-items a {
+    margin: 8px 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+    color: #073b4c;
+    font-weight: 900;
+  }
+
+  .mobile-menu-items img {
+    margin: 16px;
+    height: 36px;
+  }
+}
+
+
+
+</style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
