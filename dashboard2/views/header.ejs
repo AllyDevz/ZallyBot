@@ -48,7 +48,8 @@
     <div class="header-wrapper">
       <header class="my-header">
         <div class="text-content">
-          <h1>Interview Preparation Guide</h1>
+            <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png", style="width: 50px;margin-bottom:3%; border-radius: 50%;">
+          <h1>ZallyBot</h1>
 
           <div class="sub-heading">
             <p>
@@ -58,20 +59,8 @@
           </div>
 
           <div class="buttons">
-            <li class="nav-item" >
-                <% if(user && user.id) { %>
-                    
-                    <button class="btn" 
-                    style="letter-spacing: 0.1em;font-weight: 800;width: 60%;"
-                    onclick="location.href='/logout'" type="button"><img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png", style="width: 50px;margin-bottom:3%; border-radius: 50%;"alt="LOGO"> • <%= user.username %> • LOGOUT!</button>
-                <% }else { %>
-                    <button class="btn" 
-                    style="letter-spacing: 0.1em;font-weight: 750;width: 100%;"
-                    onclick="location.href='/login'" type="button"><span class="iconify" data-icon="simple-icons:discord"></span> Login</button>
-                <% }%>
-            </li>
-            <a href="#" class="btn">Learn More</a>
-            <a href="#" class="btn">Try It!</a>
+            <a href="https://discord.com/api/oauth2/authorize?client_id=925040326006157383&permissions=1627189456086&scope=bot%20applications.commands" class="btn">Invite</a>
+            <a href="#" class="btn">Configurar</a>
           </div>
         </div>
 
@@ -83,7 +72,7 @@
     </div>
 
     <div class="mobile-navmenu">
-      <div class="logo">LB.</div>
+      <div class="logo">ZallyBot Site</div>
       <a class="navbar-brand" href="/" style="text-decoration: none;color:white">
         <img src="<%= botClient.user.displayAvatarURL({size: 4096}) %>" alt="Logo" 
         class="d-inline-block align-top"
