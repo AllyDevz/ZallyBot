@@ -122,9 +122,12 @@ module.exports = client => {
 
     //When the website is loaded on the main page, render the main page + with those variables
     app.get("/", (req, res) => {
+      if(!req.isAuthenticated() || !req.user) 
+      return res.redirect("/loginpage");
         res.render("index", {
           req: req,
           user: req.isAuthenticated() ? req.user : null,
+          
           //guild: client.guilds.cache.get(req.params.guildID),
           botClient: client,
           Permissions: Permissions,
@@ -158,6 +161,8 @@ module.exports = client => {
 
     // When the commands page is loaded, render it with those settings
     app.get("/commands", (req, res) => {
+      if(!req.isAuthenticated() || !req.user) 
+      return res.redirect("/loginpage");
       res.render("commands", {
         req: req,
         user: req.isAuthenticated() ? req.user : null,
@@ -333,7 +338,7 @@ module.exports = client => {
 
     app.get("/profile", checkAuth, async (req,res, message) => {
       if(!req.isAuthenticated() || !req.user) 
-      return res.redirect("/?error=" + encodeURIComponent("Login First!"));
+      return res.redirect("/loginpage");
       if(!req.user.guilds)
       res.render("perfil", {
         req: req,
@@ -358,7 +363,7 @@ module.exports = client => {
     })
     app.get("/userpage", checkAuth, async (req,res, message) => {
       if(!req.isAuthenticated() || !req.user) 
-      return res.redirect("/?error=" + encodeURIComponent("Login First!"));
+      return res.redirect("/loginpage");
       res.render("perfil", {
         req: req,
         user: req.isAuthenticated() ? req.user : null,
@@ -366,7 +371,7 @@ module.exports = client => {
     })
     app.get("/userpage", checkAuth, async (req,res, message) => {
       if(!req.isAuthenticated() || !req.user) 
-      return res.redirect("/?error=" + encodeURIComponent("Login First!"));
+      return res.redirect("/loginpage");
       res.render("settings", {
         user: req.userInfos,
         translate: req.translate,
