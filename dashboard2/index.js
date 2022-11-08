@@ -13,7 +13,6 @@ const BotFilters = require("../botconfig/filters.json");
 const BotEmojis = require("../botconfig/emojis.json");
 const BotEmbed = require("../botconfig/embed.json");
 
-const w = require("waifu-allydev-v4")
 
 
 
@@ -404,26 +403,7 @@ module.exports = client => {
       //console.log(await api.sfw.waifu());
       db.set('waifu', `${await api.sfw.waifu()}`)
     }
-    app.get("/api/waifu", function (request, response) {
-      hello()
-      const waifu = db.get("waifu")
-      console.log(waifu)
-      let separar = "}"
-      let separar2 = "{"
-      let sep = `"`
-      response.send(`${separar2}${sep}waifu${sep}: ${sep}${waifu}${sep} ${separar}`)
-      return response.redirect(waifu)
-    });
-    app.get("/api/waifu/direct", (req, res) => {
-      hello()
-      const waifu = db.get("waifu")
-      let separar = "}"
-      let separar2 = "{"
-      let sep = `"`
-      res.send(`<script>window.location.href=${sep}${waifu}${sep}</script>`)
-      
-      
-    });
+
     app.use((req, res, next) => {
         res.status(404).send(
             "<h1>Page not found on the server</h1>")
@@ -436,7 +416,9 @@ module.exports = client => {
     console.log("Received request")
 });
     const http = require(`http`).createServer(app);
-    http.listen(settings.config.http.port, () => {
-        console.log(`[${settings.website.domain}]: HTTP-Website running on ${settings.config.http.port} port.`)
+    const PORT = process.env.PORT || 3000;
+    http.listen(PORT, () => {
+        
+        console.log(`[${settings.website.domain}]: HTTP-Website running on ${PORT} port.`)
     });
 }
