@@ -25,17 +25,19 @@
           <a href="#">Contact</a>
 
           <div class="social">
-            <a href="#">
-              <img src="images/facebook.png" alt="" />
+            <% if(user && user.id) { %>
+            <a>
+                <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png", style="width: 50px;margin-bottom:3%; border-radius: 50%;"alt="LOGO">
             </a>
-
-            <a href="#">
-              <img src="images/instagram.png" alt="" />
-            </a>
-
-            <a href="#">
-              <img src="images/twitter.png" alt="" />
-            </a>
+                    
+                <button class="btn" 
+                style="letter-spacing: 0.1em;font-weight: 800;width: 60%;"
+                onclick="location.href='/logout'" type="button"><img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png", style="width: 50px;margin-bottom:3%; border-radius: 50%;"alt="LOGO"> • <%= user.username %> • LOGOUT!</button>
+            <% }else { %>
+                <button class="btn" 
+                style="letter-spacing: 0.1em;font-weight: 750;width: 100%;"
+                onclick="location.href='/login'" type="button"><span class="iconify" data-icon="simple-icons:discord"></span> Login</button>
+            <% }%>
           </div>
         </div>
       </nav>
@@ -61,7 +63,7 @@
                     
                     <button class="btn" 
                     style="letter-spacing: 0.1em;font-weight: 800;width: 60%;"
-                    onclick="location.href='/logout'" type="button"><img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png", style="width: 50px;margin-bottom:3%;"alt="LOGO"> <%= user.username %> <br> LOGOUT!</button>
+                    onclick="location.href='/logout'" type="button"><img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png", style="width: 50px;margin-bottom:3%; border-radius: 50%;"alt="LOGO"> • <%= user.username %> • LOGOUT!</button>
                 <% }else { %>
                     <button class="btn" 
                     style="letter-spacing: 0.1em;font-weight: 750;width: 100%;"
@@ -140,7 +142,9 @@ closeIcon.addEventListener("click", () => {
 body {
   margin: 0;
 }
-
+.devz {
+  border-radius: 50%;
+}
 .nav-container {
   position: fixed;
   top: 0;
