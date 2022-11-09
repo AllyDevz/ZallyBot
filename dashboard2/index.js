@@ -191,6 +191,8 @@ module.exports = client => {
         bancy: banco,
         todo: total,
         grana: money,
+        re: rep,
+        usuario: nome,
         desc: sobre,
         botClient: client,
         Permissions: Permissions,
