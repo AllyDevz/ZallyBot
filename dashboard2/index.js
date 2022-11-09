@@ -176,6 +176,9 @@ module.exports = client => {
     app.get("/pfstgs", checkAuth, async (req,res) => {
       const useid = req.user.id
       const usename = req.user.username
+      const userdb = await app.userdb.findOne({
+        userID: useid
+    }) || { economia: { banco: 0, money: 0}, color:"36393e"}
       const avatar = `https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}.png`
       if(!req.isAuthenticated() || !req.user) 
       return res.redirect("/?error=" + encodeURIComponent("Login First!"));
@@ -185,6 +188,7 @@ module.exports = client => {
           //guild: client.guilds.cache.get(req.params.guildID),
           name: usename,
           id: useid, 
+          economiagrana: userdb.economia.money,
           avata: avatar,
           botClient: client,
           Permissions: Permissions,
