@@ -9,6 +9,7 @@
         <title>Perfil</title>
     <body>
         <div id="gradient"></div>
+        <button onclick="redirect()"> Voltar Para Pagina Principal </button>
         <div id="card">
           <img src="https://i.imgur.com/F1pB0AH.png"/>
           <h2>nome:<%= usuario %></h2>
@@ -114,5 +115,10 @@
         
         
         </style>
+        <script>
+            function redirect() {   
+                window.location.href = "http://zallybot.herokuapp.com";  
+}   
+        </script>
     </body>
 </html>
