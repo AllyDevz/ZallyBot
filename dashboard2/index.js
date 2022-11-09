@@ -61,8 +61,8 @@ module.exports = client => {
     app.use(passport.session());
 
 
-    app.set('view engine', 'ejs');
-    app.set('views', path.join(__dirname, './views', {async: true}))
+    app.set('view engine', 'ejs', {async: true});
+    app.set('views', path.join(__dirname, './views'))
 
 
     //Those for app.use(s) are for the input of the post method (updateing settings)
