@@ -27,7 +27,8 @@ module.exports =  {
                 userID: url
             }) || { economia: { banco: 0, money: 0},usuario: { type: String, default: "Usuario Não Registrado" }}
             interaction.reply({ embeds: [embed], components: [button] })
-
+            teste.economia.registro = "true", teste.save()
+            teste.economia.usuario = `${interaction.username}`, teste.save()
         }
         
 
