@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-info = require(".../Database/user.js")
+info = require("../../Database/user.js")
 module.exports =  {
     name: "registrar",
     description: "Se registrar no site",
