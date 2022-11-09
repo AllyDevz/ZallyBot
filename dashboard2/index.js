@@ -141,7 +141,7 @@ module.exports = client => {
           Guild: client.guilds.cache.size,
         });
     })
-    app.get("/pfstgs", (req, res) => {
+    app.get("/pfstgs", async (req, res) => {
       res.render("config", {
         req: req,
         user: req.isAuthenticated() ? req.user : null,
