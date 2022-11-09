@@ -123,7 +123,7 @@ module.exports = client => {
     //When the website is loaded on the main page, render the main page + with those variables
     app.get("/", (req, res) => {
       if(!req.isAuthenticated() || !req.user) 
-      return res.redirect("/loginpage");
+      return res.redirect("/login");
         res.render("index", {
           req: req,
           user: req.isAuthenticated() ? req.user : null,
@@ -146,7 +146,7 @@ module.exports = client => {
     // When the commands page is loaded, render it with those settings
     app.get("/commands", (req, res) => {
       if(!req.isAuthenticated() || !req.user) 
-      return res.redirect("/loginpage");
+      return res.redirect("/login");
       res.render("commands", {
         req: req,
         user: req.isAuthenticated() ? req.user : null,
@@ -174,14 +174,17 @@ module.exports = client => {
 
     // Dashboard endpoint.
     app.get("/pfstgs", checkAuth, async (req,res) => {
-      const user1 = req.user
+      const useid = req.user.id
+      const usename = req.user.username
       if(!req.isAuthenticated() || !req.user) 
       return res.redirect("/?error=" + encodeURIComponent("Login First!"));
         res.render("config", {
           req: req,
           user: req.isAuthenticated() ? req.user : null,
           //guild: client.guilds.cache.get(req.params.guildID),
-          ally: user1,
+          userid: user1,
+          name: usename,
+          id: useid, 
           botClient: client,
           Permissions: Permissions,
           bot: settings.website,
