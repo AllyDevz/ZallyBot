@@ -163,6 +163,8 @@ collector.on('collect', async i => {
       userID: interaction.user.id
   },{ $set: {
           "cooldowns.trabalho": Date.now() + 604800000,
+          "economia.registro": "true",
+          "economia.usuario": interaction.user.tag,
           "economia.trabalho":{
             maxmoney: maxmoney,
             trampo: trabalho,
