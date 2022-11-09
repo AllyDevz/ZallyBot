@@ -182,7 +182,6 @@ module.exports = client => {
           req: req,
           user: req.isAuthenticated() ? req.user : null,
           //guild: client.guilds.cache.get(req.params.guildID),
-          userid: user1,
           name: usename,
           id: useid, 
           botClient: client,
