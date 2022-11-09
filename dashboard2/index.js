@@ -180,7 +180,7 @@ module.exports = client => {
       const money = teste.economia.money     
       const sobre = teste.economia.sobremim 
       const total = (money + banco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
-      const reput = teste.economia.sobremim
+      const reput = teste.economia.rep
       const nome = teste.economia.usuario
       console.log(teste)
       res.render("dc", {
