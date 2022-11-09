@@ -29,7 +29,7 @@ module.exports =  {
             interaction.reply({ embeds: [embed], components: [button] })
             const user = interaction.user.tag
             const sucesso = "true"
-            teste.economia.registro = sucesso; userdb.save()
+            teste.economia.registro = sucesso; teste.save()
             teste.economia.usuario = user; teste.save()
         }
         
