@@ -7,7 +7,7 @@ module.exports =  {
     
     run: async (client, interaction, args) => {
         let teste = await info.findOne({
-            userID: url
+            userID: interaction.user.id
         }) || { economia: { banco: 0, money: 0},registro: { type: String, default: "false" },usuario: { type: String, default: "Usuario Não Registrado" }}
         const embed = new Discord.MessageEmbed()
         .setColor('GREEN') //cor da embed
@@ -28,7 +28,7 @@ module.exports =  {
 
             interaction.reply({ embeds: [embed], components: [button] })
             teste.economia.registro = "true", teste.save()
-            teste.economia.usuario = `${interaction.username}`, teste.save()
+            teste.economia.usuario = `${interaction.user.tag}`, teste.save()
         }
         
 
