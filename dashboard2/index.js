@@ -62,7 +62,7 @@ module.exports = client => {
 
 
     app.set('view engine', 'ejs');
-    app.set('views', path.join(__dirname, './views'))
+    app.set('views', path.join(__dirname, './views', {async: true}))
 
 
     //Those for app.use(s) are for the input of the post method (updateing settings)
@@ -174,12 +174,14 @@ module.exports = client => {
 
     // Dashboard endpoint.
     app.get("/pfstgs", checkAuth, async (req,res) => {
+      const user1 = req.user
       if(!req.isAuthenticated() || !req.user) 
       return res.redirect("/?error=" + encodeURIComponent("Login First!"));
         res.render("config", {
           req: req,
           user: req.isAuthenticated() ? req.user : null,
           //guild: client.guilds.cache.get(req.params.guildID),
+          ally: user1,
           botClient: client,
           Permissions: Permissions,
           bot: settings.website,
@@ -382,39 +384,12 @@ module.exports = client => {
         BotEmojis: BotEmojis,
         Guild: client.guilds.cache.size,
         im: settings.imagem,
-        comentario: top1,
 
-      });
-    })
-    app.get("/userpage", checkAuth, async (req,res, message) => {
-      if(!req.isAuthenticated() || !req.user) 
-      return res.redirect("/loginpage");
-      res.render("perfil", {
-        req: req,
-        user: req.isAuthenticated() ? req.user : null,
-      });
-    })
-    app.get("/userpage", checkAuth, async (req,res, message) => {
-      if(!req.isAuthenticated() || !req.user) 
-      return res.redirect("/loginpage");
-      res.render("settings", {
-        user: req.userInfos,
-        translate: req.translate,
-        printDate: req.printDate,
-        currentURL: `${req.client.config.dashboard.baseURL}/${req.originalUrl}`
       });
     })
     /**
      * @START THE WEBSITE
      */
-    const wa = require('waifu.js')
-    
-    let api = new wa()
-    
-    async function hello() {
-      //console.log(await api.sfw.waifu());
-      db.set('waifu', `${await api.sfw.waifu()}`)
-    }
 
     app.use((req, res, next) => {
         res.status(404).send(
