@@ -61,7 +61,7 @@ module.exports = client => {
     app.use(passport.session());
 
 
-    app.set('view engine', 'ejs', {async: true});
+    app.set('view engine', 'ejs');
     app.set('views', path.join(__dirname, './views'))
 
 
