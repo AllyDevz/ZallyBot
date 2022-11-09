@@ -13,7 +13,7 @@ const BotFilters = require("../botconfig/filters.json");
 const BotEmojis = require("../botconfig/emojis.json");
 const BotEmbed = require("../botconfig/embed.json");
 
-info = require("./Database/info.js")
+info = require("../Database/user.js")
 
 
 module.exports = client => {
