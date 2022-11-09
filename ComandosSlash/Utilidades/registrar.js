@@ -27,8 +27,10 @@ module.exports =  {
         } else {
 
             interaction.reply({ embeds: [embed], components: [button] })
-            teste.economia.registro = "true", teste.save()
-            teste.economia.usuario = `${interaction.user.tag}`, teste.save()
+            const user = interaction.user.tag
+            const sucesso = "true"
+            teste.economia.registro = sucesso; userdb.save()
+            teste.economia.usuario = user; teste.save()
         }
         
 
