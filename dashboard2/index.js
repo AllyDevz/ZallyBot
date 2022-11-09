@@ -145,6 +145,7 @@ module.exports = client => {
       res.render("config", {
         req: req,
         user: req.isAuthenticated() ? req.user : null,
+        async: true,
         //guild: client.guilds.cache.get(req.params.guildID),
         botClient: client,
         Permissions: Permissions,
