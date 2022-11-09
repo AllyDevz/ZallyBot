@@ -13,7 +13,7 @@ const BotFilters = require("../botconfig/filters.json");
 const BotEmojis = require("../botconfig/emojis.json");
 const BotEmbed = require("../botconfig/embed.json");
 
-
+info = require("./Database/info.js")
 
 
 module.exports = client => {
@@ -171,12 +171,37 @@ module.exports = client => {
         res.redirect(`/`);
       });
     });
-
+    app.get('/dc/:url(*)', async function (req, res) {
+      var url = req.params.url;
+      let teste = await info.findOne({
+                  userID: url
+              }) || { economia: { banco: 0, money: 0}, color:"36393e"}
+      const banco = teste.economia.banco 
+      const money = teste.economia.money       
+      console.log(teste)
+      res.render("dc", {
+        req: req,
+        user: req.isAuthenticated() ? req.user : null,
+        //guild: client.guilds.cache.get(req.params.guildID),
+        id: url, 
+        bancy: banco,
+        grana: money,
+        botClient: client,
+        Permissions: Permissions,
+        bot: settings.website,
+        callback: settings.config.callback,
+        categories: client.categories, 
+        commands: client.commands, 
+        BotConfig: BotConfig,
+        BotFilters: BotFilters,
+        BotEmojis: BotEmojis,
+      });
+    });
     // Dashboard endpoint.
     app.get("/pfstgs", checkAuth, async (req,res) => {
       const useid = req.user.id
       const usename = req.user.username
-      const userdb = await app.userdb.findOne({
+      const userdb = await info.findOne({
         userID: useid
     }) || { economia: { banco: 0, money: 0}, color:"36393e"}
       const avatar = `https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}.png`
