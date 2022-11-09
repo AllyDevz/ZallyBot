@@ -191,7 +191,7 @@ module.exports = client => {
           BotEmojis: BotEmojis,
         });
     })
-    app.get("/pfstgs", checkAuth, async (req,res) => {
+    app.get("/dashboard", checkAuth, async (req,res) => {
       if(!req.isAuthenticated() || !req.user) 
       return res.redirect("/?error=" + encodeURIComponent("Login First!"));
       if(!req.user.guilds)
