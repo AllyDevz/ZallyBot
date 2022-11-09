@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
 body {
-    background-image: url("https://i.imgur.com/uBSEaBG.jpg");
+    background-image: url("..\views\images\backgroud.jpg");
     background-color: #1c1c1c;
     height: 5000px;
     background-position: center;
