@@ -141,24 +141,7 @@ module.exports = client => {
           Guild: client.guilds.cache.size,
         });
     })
-    app.get("/pfstgs", async (req, res) => {
-      res.render("config", {
-        req: req,
-        user: req.isAuthenticated() ? req.user : null,
-        async: true,
-        //guild: client.guilds.cache.get(req.params.guildID),
-        botClient: client,
-        Permissions: Permissions,
-        bot: settings.website,
-        callback: settings.config.callback,
-        categories: client.categories, 
-        commands: client.commands,
-        BotConfig: BotConfig,
-        BotFilters: BotFilters,
-        BotEmojis: BotEmojis,
-        Guild: client.guilds.cache.size,
-      });
-  })
+
 
     // When the commands page is loaded, render it with those settings
     app.get("/commands", (req, res) => {
@@ -190,7 +173,25 @@ module.exports = client => {
     });
 
     // Dashboard endpoint.
-    app.get("/dashboard", checkAuth, async (req,res) => {
+    app.get("/pfstgs", checkAuth, async (req,res) => {
+      if(!req.isAuthenticated() || !req.user) 
+      return res.redirect("/?error=" + encodeURIComponent("Login First!"));
+        res.render("config", {
+          req: req,
+          user: req.isAuthenticated() ? req.user : null,
+          //guild: client.guilds.cache.get(req.params.guildID),
+          botClient: client,
+          Permissions: Permissions,
+          bot: settings.website,
+          callback: settings.config.callback,
+          categories: client.categories, 
+          commands: client.commands, 
+          BotConfig: BotConfig,
+          BotFilters: BotFilters,
+          BotEmojis: BotEmojis,
+        });
+    })
+    app.get("/pfstgs", checkAuth, async (req,res) => {
       if(!req.isAuthenticated() || !req.user) 
       return res.redirect("/?error=" + encodeURIComponent("Login First!"));
       if(!req.user.guilds)
@@ -210,7 +211,6 @@ module.exports = client => {
           BotEmojis: BotEmojis,
         });
     })
-
     // Settings endpoint.
     app.get("/dashboard/:guildID", checkAuth, async (req, res) => {
       // We validate the request, check if guild exists, member is in guild and if member has minimum permissions, if not, we redirect it back.
