@@ -8,43 +8,112 @@
         <link rel="stylesheet" href="/index.css">
         <title>Perfil</title>
     <body>
-        <!--HEADER-->
+        <div id="gradient"></div>
+        <div id="card">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/43604/profile/profile-512_1.jpg"/>
+          <h2>nome:<%= id %></h2>
+          <p>Dinheiro: <%= grana %></p>
+          <p>Banco: <%= bancy %></p>
+          <p>Total: <%= todo %></p>
+          <p>Descriçao: <%= desc %></p>
+          <span class="left bottom">Descriçao: <%= desc %></span>
+          <span class="right bottom">adress: Czech Republic</span>
+        </div>
         
-        <!--MAIN BODY-->
-      <section>
-        <div class="d-flex justify-content-center head">
-            <h1><b>Perfil</b></h1>
-        </div>
-        <div class="d-flex justify-content-center">
-            <p style="font-style: italic;">Configure seu perfil no bot</p>
-        </div>
-
-                </div>
-          </div>
-      </section>
-      <!-- FOOTER-->
-
-      <div class="card card-style1 border-0">
-        <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="dxz.png" style="border-radius: 50%;">
-                </div>
-                <div class="col-lg-6 px-xl-10">
-                    <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
-                        <h3 class="h2 text-white mb-0"><%= id %></h3>
-                        
-                    </div>
-                    <ul class="list-unstyled mb-1-9">
-                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Dinheiro:</span> <%= grana %></li>
-                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Banco:</span> <%= bancy %>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    </section>
-       <!--JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        
+        <style>
+        body {
+          margin: 0 auto;
+          padding: 0;
+          background: #222;
+        }
+        
+        .left {
+          left: 25px;
+        }
+        
+        .right {
+          right: 25px;
+        }
+        
+        .center {
+          text-align: center;
+        }
+        
+        .bottom {
+          position: absolute;
+          bottom: 25px;
+        }
+        
+        #gradient {
+          background: #999955;
+          background-image: linear-gradient(#DAB046 20%, #D73B25 20%, #D73B25 40%, #C71B25 40%, #C71B25 60%, #961A39 60%, #961A39 80%, #601035 80%);
+          margin: 0 auto;
+          margin-top: 100px;
+          width: 100%;
+          height: 150px;
+        }
+        
+        #gradient:after {
+          content: "";
+          position: absolute;
+          background: #E9E2D0;
+          left: 50%;
+          margin-top: -67.5px;
+          margin-left: -270px;
+          padding-left: 20px;
+          border-radius: 5px;
+          width: 520px;
+          height: 275px;
+          z-index: -1;
+        }
+        
+        #card {
+          position: absolute;
+          width: 450px;
+          height: 225px;
+          padding: 25px;
+          padding-top: 0;
+          padding-bottom: 0;
+          left: 50%;
+          top: 67.5px;
+          margin-left: -250px;
+          background: #E9E2D0;
+          box-shadow: -20px 0 35px -25px black, 20px 0 35px -25px black;
+          z-index: 5;
+        }
+        
+        #card img {
+          width: 150px;
+          float: left;
+          border-radius: 5px;
+          margin-right: 20px;
+          -webkit-filter: sepia(1);
+          -moz-filter: sepia(1);
+          filter: sepia(1);
+        }
+        
+        #card h2 {
+          font-family: courier;
+          color: #333;
+          margin: 0 auto;
+          padding: 0;
+          font-size: 15pt;
+        }
+        
+        #card p {
+          font-family: courier;
+          color: #555;
+          font-size: 13px;
+        }
+        
+        #card span {
+          font-family: courier;
+        }
+        
+        
+        
+        
+        </style>
     </body>
 </html>

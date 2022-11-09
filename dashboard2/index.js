@@ -175,9 +175,13 @@ module.exports = client => {
       var url = req.params.url;
       let teste = await info.findOne({
                   userID: url
-              }) || { economia: { banco: 0, money: 0}, color:"36393e"}
+              }) || { economia: { banco: 0, money: 0}, color:"36393e",sobremim: { type: String, default: "Para Altera o Texto va no seu servidor onde esta o bot e dige /sobremim" },rep: { type: Number, default: 0 },usuario: { type: String, default: "Usuario Não Registrado" }}
       const banco = teste.economia.banco 
-      const money = teste.economia.money       
+      const money = teste.economia.money     
+      const sobre = teste.economia.sobremim 
+      const total = (money + banco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+      const rep = teste.economia.sobremim
+      const nome = teste.economia.usuario
       console.log(teste)
       res.render("dc", {
         req: req,
@@ -185,7 +189,9 @@ module.exports = client => {
         //guild: client.guilds.cache.get(req.params.guildID),
         id: url, 
         bancy: banco,
+        todo: total,
         grana: money,
+        desc: sobre,
         botClient: client,
         Permissions: Permissions,
         bot: settings.website,

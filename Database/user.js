@@ -14,7 +14,9 @@ const userset = new Schema({
         casado: { type: Boolean, default: false },
         com: { type: String }
       },
+      registro: { type: String, default: "false" },
       banco: { type: Number, default: 0 },
+      usuario: { type: String, default: "Usuario Não Registrado" },
       money: { type: Number, default: 0 },
       rep: { type: Number, default: 0 },
       waifu: { type: Number, default: 0 },
