@@ -182,6 +182,7 @@ module.exports = client => {
       const total = (money + banco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
       const reput = teste.economia.rep
       const nome = teste.economia.usuario
+
       console.log(teste)
       res.render("dc", {
         req: req,
@@ -213,6 +214,9 @@ module.exports = client => {
         userID: useid
     }) || { economia: { banco: 0, money: 0}, color:"36393e"}
       const avatar = `https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}.png`
+      async function changewallpaper(w){
+        userdb.economia.background = w; userdb.save()
+      } 
       if(!req.isAuthenticated() || !req.user) 
       return res.redirect("/?error=" + encodeURIComponent("Login First!"));
         res.render("config", {
@@ -224,6 +228,7 @@ module.exports = client => {
           economiagrana: userdb.economia.money,
           avata: avatar,
           botClient: client,
+          wall: userdb.economia.background,
           Permissions: Permissions,
           bot: settings.website,
           callback: settings.config.callback,
