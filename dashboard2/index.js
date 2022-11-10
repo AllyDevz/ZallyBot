@@ -319,6 +319,7 @@ module.exports = client => {
       const user2 = (`${req.user.id}`)
       const avatar = `https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}.png`
       if(req.body.wallpaper) userdb.economia.background = req.body.wallpaper; userdb.save()
+      if(req.body.nome) userdb.economia.usuario = req.body.nome; userdb.save()
       // We render template using the absolute path of the template and the merged default data with the additional data provided.
       res.render("config",  {
         
