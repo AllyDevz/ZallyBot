@@ -182,7 +182,7 @@ module.exports = client => {
       const total = (money + banco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
       const reput = teste.economia.rep
       const nome = teste.economia.usuario
-
+      
       console.log(teste)
       res.render("dc", {
         req: req,
@@ -191,6 +191,7 @@ module.exports = client => {
         id: url, 
         bancy: banco,
         todo: total,
+        wall: userdb.economia.background,
         grana: money,
         rea: reput,
         usuario: nome,
