@@ -1,0 +1,9 @@
+<input id="new" type=”number”>
+<button  onclick="searchURL()">pesquisar usuario</button>
+<script>
+function searchURL() {
+   const test = document.getElementById("new").value
+   console.log(test)
+   window.location = 'https://zallybot.herokuapp.com/dc/search/' + test
+}
+</script>
