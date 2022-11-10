@@ -1,63 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!--Meta Tags-->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+<head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">        
         <link rel="stylesheet" href="/index.css">
-        <title>Perfil</title>
-    <body>
-        <!--HEADER-->
-        
-        <!--MAIN BODY-->
-      <section>
-        <div class="d-flex justify-content-center head">
-            <h1><b>Perfil</b></h1>
-        </div>
-        <div class="d-flex justify-content-center">
-            <p style="font-style: italic;">Configure seu perfil no bot</p>
-        </div>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
 
-                </div>
-          </div>
-      </section>
-      <!-- FOOTER-->
+.price {
+  color: grey;
+  font-size: 22px;
+}
 
-      <div class="card card-style1 border-0">
-        <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="<%= avata %>" style="border-radius: 50%;">
-                </div>
-                <div class="col-lg-6 px-xl-10">
-                    <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
-                        <h3 class="h2 text-white mb-0"><%= name %></h3>
-                        
-                    </div>
-                    <ul class="list-unstyled mb-1-9">
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center">Configurar Perfil</h2>
+
+<div class="card">
+  <img src="<%= avata %>" alt="ZallyBot" style="width:100%">
+  <h1><%= name %></h1>
                     <form method="POST">
-                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Dinheiro:</span> <%= economiagrana %></li>
+                                            <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Dinheiro:</span> <%= economiagrana %></li>
+<br>
+                                            <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Banco:</span> <%= bancy %></li>
+                                            <br>
+                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Descriçao:</span></span><br> <%= desc %></li>
+                        
                         
                         <p style="font-style: italic;" class="disabled">Set Wallpaper.</p>
                         <input style="margin-top: -10px;" type="text" class="form-control" name="wallpaper" value="<%= wall %>" placeholder="Put Link Wallpaper">  
                     
                     <br>
-                    
+                    <p>
                     <button type="submit" class="btn btn-success text-white" style="font-size: 20px;">
                         <i class="iconify" data-icon="cil:save"></i> Save Settings
-                    </button>   
-                </form>                             
-                
+                    </button>   </p>
+                </form>         
 
-<!-- FOOTER -->
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    </section>
-       <!--JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    </body>
+</div>
+
+</body>
 </html>
