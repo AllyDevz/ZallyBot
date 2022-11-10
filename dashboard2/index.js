@@ -309,6 +309,39 @@ module.exports = client => {
       );
     });
 
+    app.post("/pfstgs", checkAuth, async (req, res) => {
+      // We validate the request, check if guild exists, member is in guild and if member has minimum permissions, if not, we redirect it back.
+      const useid = req.user.id
+      const usename = req.user.username
+      const userdb = await info.findOne({
+        userID: useid
+    }) || { economia: { banco: 0, money: 0}, color:"36393e"}
+      const user2 = (`${req.user.id}`)
+      if(req.body.wallpaper) userdb.economia.background = req.body.wallpaper; userdb.save()
+      // We render template using the absolute path of the template and the merged default data with the additional data provided.
+      res.render("settings",  {
+        
+          req: req,
+          user: req.isAuthenticated() ? req.user : null,
+          //guild: client.guilds.cache.get(req.params.guildID),
+          name: usename,
+          id: useid, 
+          economiagrana: userdb.economia.money,
+          avata: avatar,
+          botClient: client,
+          wall: userdb.economia.background,
+          Permissions: Permissions,
+          bot: settings.website,
+          callback: settings.config.callback,
+          categories: client.categories, 
+          commands: client.commands, 
+          BotConfig: BotConfig,
+          BotFilters: BotFilters,
+          BotEmojis: BotEmojis,
+        }
+      );
+    });
+
 
     // Settings endpoint.
     app.post("/dashboard/:guildID", checkAuth, async (req, res) => {
