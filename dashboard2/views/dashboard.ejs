@@ -48,13 +48,13 @@
               .forEach(guild => {
               %>
                 <div class="card text-white bg-dark mb-3">
-                <%- guild.icon ? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}" class="card-img-top" style="max-width: 250px;width: 250px;">` : `<img src="https://i.imgur.com/POGCA7y.png" class="card-img-top" style="max-width: 250px;width: 250px;">` %>
+                <%- guild.icon ? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}" class="card-img-top" style="max-width: 250px;width: 250px;">` : `<img src="https://cdn.discordapp.com/avatars/925040326006157383/e58d2727286a0a263743eb3831ea288f.png?size=1024" class="card-img-top" style="max-width: 250px;width: 250px;">` %>
                   <div class="card-img-overlay text-grey h-100 d-flex flex-column justify-content-end" style="background:#000000b0;max-width: 250px;width: 250px;">
                     <h5 class="card-title text-primary" style="font-size: 25px;"><%= guild.name %></h5>
                     <% if (botClient.guilds.cache.get(guild.id)) { %>
                       <p class="card-text" style="font-size: 12px;font-style: italic;color: #b3b3b3">Edit <b><%= guild.name %></b>'Click no Botão para configurar!</p>
                       <a style="font-size: 25px;"
-                      href="<%- bot.domain %>/dashboard/<%- guild.id %>" 
+                      href="<%- bot.domain %>dashboard/<%- guild.id %>" 
                       class="mt-auto btn btn-lg btn-block btn-success">Edit Settings</a>
                     <% } else { %>
                       <p class="card-text" style="font-size: 12px;font-style: italic;color: #b3b3b3">Invite me to <b><%= guild.name %></b> Click no Botão para configurar!</p>
