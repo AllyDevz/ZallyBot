@@ -1,4 +1,3 @@
-<%- include('header'); -%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,79 +6,57 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">        
         <link rel="stylesheet" href="/index.css">
-        <title>Dashboard</title>
-        <meta name="description" content="Sh  adow Slortez Dashboard">
-            <meta property="og:title" content="Slortez Dashboard">
-            <meta property="og:type" content="article">
-            <meta property="og:url" content="https://noice.allysonluiz1.repl.co/">
-            <meta property="og:image" content="https://cdn.discordapp.com/attachments/885348891820707871/909593147535945818/unknown.png">
-            <meta property="og:site_name" content="Shadow Slortez Dashboard">
-            <meta property="fb:admins" content="100001589384006">
-            <meta property="fb:app_id" content="1778569572376490">
-            <meta property="og:description" content="Shadow Slortez">
-            <meta name="twitter:card" content="summary_large_image">
-            <meta name="twitter:site" content="@Allyson.S16#5586">
-            <meta name="twitter:creator" content="@Allyson.S16#5586">
-            <meta name="twitter:title" content="Check out this T-Rex dinosaur game Gihz do quadro branco">
-            <meta name="twitter:description" content="Criador AllyStudiokkk">
-            <meta name="twitter:image:src" content="https://cdn.discordapp.com/attachments/885348891820707871/909593147535945818/unknown.png">                
-    </head>
+        <title>Perfil</title>
     <body>
         <!--HEADER-->
         
         <!--MAIN BODY-->
       <section>
         <div class="d-flex justify-content-center head">
-            <h1><b>DASHBOARD</b></h1>
+            <h1><b>Perfil</b></h1>
         </div>
         <div class="d-flex justify-content-center">
-            <p style="font-style: italic;">Configure a Shadow Slor em seu servidor!</p>
+            <p style="font-style: italic;">Configure seu perfil no bot</p>
         </div>
-        <% if(user && user.id){ %>
-          <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-              <% user.guilds
-              .filter((guild) => {
-                const permsOnGuild = new Permissions(guild.permissions_new);
-                if(permsOnGuild.has(Permissions.FLAGS.MANAGE_GUILD)) return guild;
-              })
-              .sort((a, b) => {
-                return (botClient.guilds.cache.get(a.id) === botClient.guilds.cache.get(b.id)) ? 0 : a ? -1 : 1;
-              })
-              .forEach(guild => {
-              %>
-                <div class="card text-white bg-dark mb-3">
-                <%- guild.icon ? `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}" class="card-img-top" style="max-width: 250px;width: 250px;">` : `<img src="https://i.imgur.com/POGCA7y.png" class="card-img-top" style="max-width: 250px;width: 250px;">` %>
-                  <div class="card-img-overlay text-grey h-100 d-flex flex-column justify-content-end" style="background:#000000b0;max-width: 250px;width: 250px;">
-                    <h5 class="card-title text-primary" style="font-size: 25px;"><%= guild.name %></h5>
-                    <% if (botClient.guilds.cache.get(guild.id)) { %>
-                      <p class="card-text" style="font-size: 12px;font-style: italic;color: #b3b3b3">Edit <b><%= guild.name %></b>'Click no Botão para configurar!</p>
-                      <a style="font-size: 25px;"
-                      href="<%- bot.domain %>/dashboard/<%- guild.id %>" 
-                      class="mt-auto btn btn-lg btn-block btn-success">Edit Settings</a>
-                    <% } else { %>
-                      <p class="card-text" style="font-size: 12px;font-style: italic;color: #b3b3b3">Invite me to <b><%= guild.name %></b> Click no Botão para configurar!</p>
-                      <a style="font-size: 25px;"
-                      href="<%= `https://discordapp.com/oauth2/authorize?client_id=${botClient.user.id}&scope=bot%20applications.commands&guild_id=${guild.id}&response_type=code&redirect_uri=${encodeURIComponent(`${callback}`)}`  %>" 
-                      class="mt-auto btn btn-lg btn-block btn-primary">Invite Bot</a>
-                    <% } %>
-                  </div>
+
                 </div>
-              <%
-                  });
-              %>
           </div>
-        <%
-          } else {
-        %>
-            <p>Please login First!</p>
-        <%
-          } 
-        %>
       </section>
       <!-- FOOTER-->
 
+      <div class="card card-style1 border-0">
+        <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="<%= avata %>" style="border-radius: 50%;">
+                </div>
+                <div class="col-lg-6 px-xl-10">
+                    <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                        <h3 class="h2 text-white mb-0"><%= name %></h3>
+                        
+                    </div>
+                    <ul class="list-unstyled mb-1-9">
+                        <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Dinheiro:</span> <%= economiagrana %></li>
+                        <form method="POST">
+                        <p style="font-style: italic;" class="disabled">Set Wallpaper.</p>
+                        <input style="margin-top: -10px;" type="text" class="form-control" name="wallpaper" value="<%= wall %>" placeholder="Put Link Wallpaper">  
+                    </form>
+                    <br>
+                    <form method="POST">
+                    <button type="submit" class="btn btn-success text-white" style="font-size: 20px;">
+                        <i class="iconify" data-icon="cil:save"></i> Save Settings
+                    </button>   
+                </form>                             
+                
 
+<!-- FOOTER -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
        <!--JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     </body>
 </html>
