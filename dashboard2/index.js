@@ -191,7 +191,7 @@ module.exports = client => {
         id: url, 
         bancy: banco,
         todo: total,
-        wall: userdb.economia.background,
+        wall: teste.economia.background,
         grana: money,
         rea: reput,
         usuario: nome,
