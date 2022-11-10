@@ -59,7 +59,8 @@
     </section>
     <script>
         function back(){
-            document.body.style.background = "url('<%= wall %>')";
+           const set = document.body.style.background = "url('<%= wall %>')";
+           setTimeout(set, 5000);
         }
         back()
     </script>
