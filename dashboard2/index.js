@@ -177,7 +177,8 @@ module.exports = client => {
                   userID: url
               }) || { economia: { banco: 0, money: 0}, color:"36393e",sobremim: { type: String, default: "Para Altera o Texto va no seu servidor onde esta o bot e dige /sobremim" },rep: { type: Number, default: 0 },usuario: { type: String, default: "Usuario Não Registrado" }}
       const banco = teste.economia.banco 
-      const money = teste.economia.money     
+      const money = teste.economia.money   
+      const useid = req.user.id  
       const sobre = teste.economia.sobremim 
       const total = (money + banco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
       const reput = teste.economia.rep
@@ -191,6 +192,7 @@ module.exports = client => {
         id: url, 
         bancy: banco,
         todo: total,
+        id: useid, 
         wall: teste.economia.background,
         grana: money,
         rea: reput,
