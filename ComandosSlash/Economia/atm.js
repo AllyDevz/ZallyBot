@@ -36,7 +36,7 @@ module.exports = {
             ╰━━━━━━━━━━━━━━━━━━━━━━⪨
 `
             interaction.reply({embeds: [new Discord.MessageEmbed()
-            .setTitle(`𝓷𝓸𝓶𝓮:${user.username}`)
+            .setTitle(`𝓷𝓸𝓶𝓮:${user.username}\n𝒶𝓅𝑒𝓁𝒾𝒹𝑜:${userdb.economia.usuario}`)
             .setColor(userdb.economia.color)
             .setDescription(`${atmb}`)
                  ]})  
