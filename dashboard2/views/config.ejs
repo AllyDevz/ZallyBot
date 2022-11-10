@@ -1,67 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!--Meta Tags-->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">        
-        <link rel="stylesheet" href="/index.css">
-        <title>Perfil</title>
-    <body>
-        <!--HEADER-->
-        
-        <!--MAIN BODY-->
-      <section>
-        <div class="d-flex justify-content-center head">
-            <h1><b>Perfil</b></h1>
+<div class="wrapper bg-white mt-sm-5">
+    <h4 class="pb-4 border-bottom">Account settings</h4>
+    <div class="d-flex align-items-start py-3 border-bottom">
+        <img src="https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            class="img" alt="">
+        <div class="pl-sm-4 pl-2" id="img-section">
+            <b><%= name %></b>
+            <p>Dinheiro:</span> <%= economiagrana %></p>
         </div>
-        <div class="d-flex justify-content-center">
-            <p style="font-style: italic;">Configure seu perfil no bot</p>
+    </div>
+    <div class="py-2">
+        <div class="row py-2">
+            <div class="col-md-6">
+                <label for="firstname">Configurar Nome <br>personalizado no site</label><br>
+                <input type="text" class="bg-light form-control" name="nome" value="<%= name %>" placeholder="Nome Personalizado">
+            </div>
         </div>
-
-                <div class="row align-items-center">
-                    <div class="col-lg-6 mb-4 mb-lg-0">
-                        <img src="<%= avata %>" style="border-radius: 50%;">
-                    </div>
-                    <div class="col-lg-6 px-xl-10">
-                        <div class="bg-secondary d-lg-inline-block py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
-                            <h3 class="h2 text-white mb-0"><%= name %></h3>
-                            
-                        </div>
-                        <ul class="list-unstyled mb-1-9">
-                            <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Dinheiro:</span> <%= economiagrana %></li>
-                            <form method="POST">
-                            <p style="font-style: italic;" class="disabled">Setar um Nickname no site.</p>
-                            <input style="margin-top: -10px;" type="text" class="form-control" name="nome" value="<%= name %>" placeholder="Put Link Wallpaper">
-                            </form>
-                            <br>
-                            <br>
-                            <form method="POST">
-                            <p style="font-style: italic;" class="disabled">Set Wallpaper.</p>
-                            <input style="margin-top: -10px;" type="text" class="form-control" name="wallpaper" value="<%= wall %>" placeholder="Put Link Wallpaper"> 
-                        </form>
-                        <br>
-                        <form method="POST">
-                        <button type="submit" class="btn btn-success text-white" style="font-size: 20px;">
-                            <i class="iconify" data-icon="cil:save"></i> Save Settings
-                        </button>  
-                    </form>
-                </div>
-          </div>
-      </section>
-      <!-- FOOTER-->
-
-                              
-                
-
-<!-- FOOTER -->
-                    </ul>
-                </div>
+        <div class="row py-2">
+            <div class="col-md-6">
+                <label for="email">Background Personalizada</label>
+                <input type="text" class="bg-light form-control" name="wallpaper" value="<%= wall %>"  placeholder="so aceita links com png">
+            </div>
+        </div>
+        </div>
+        <div class="py-3 pb-4 border-bottom">
+          <form method="POST">
+            <button class="btn btn-primary mr-3">Save Changes</button>
+          </form>
+        </div>
+        <div class="d-sm-flex align-items-center pt-3" id="deactivate">
+            <div>
+                <b>Deactivate your account</b>
+                <p>Details about your company account and password</p>
+            </div>
+            <div class="ml-auto">
+                <button class="btn danger">Deactivate</button>
             </div>
         </div>
     </div>
-    </section>
-       <!--JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    </body>
-</html>
+  </div>
+  
+  
+  
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  body{
+      font-family: 'Poppins', sans-serif;
+      background-color: aliceblue;
+  }
+  
+  .wrapper{
+      padding: 30px 50px;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      margin: 10px auto;
+      max-width: 600px;
+  }
+  h4{
+      letter-spacing: -1px;
+      font-weight: 400;
+  }
+  .img{
+      width: 70px;
+      height: 70px;
+      border-radius: 6px;
+      object-fit: cover;
+  }
+  #img-section p,#deactivate p{
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 10px;
+      text-align: justify;
+  }
+  #img-section b,#img-section button,#deactivate b{
+      font-size: 14px; 
+  }
+  
+  label{
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: #777;
+      padding-left: 3px;
+  }
+  
+  .form-control{
+      border-radius: 10px;
+  }
+  
+  input[placeholder]{
+      font-weight: 500;
+  }
+  .form-control:focus{
+      box-shadow: none;
+      border: 1.5px solid #0779e4;
+  }
+  select{
+      display: block;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      height: 40px;
+      padding: 5px 10px;
+      /* -webkit-appearance: none; */
+  }
+  
+  select:focus{
+      outline: none;
+  }
+  .button{
+      background-color: #fff;
+      color: #0779e4;
+  }
+  .button:hover{
+      background-color: #0779e4;
+      color: #fff;
+  }
+  .btn-primary{
+      background-color: #0779e4;
+  }
+  .danger{
+      background-color: #fff;
+      color: #e20404;
+      border: 1px solid #ddd;
+  }
+  .danger:hover{
+      background-color: #e20404;
+      color: #fff;
+  }
+  @media(max-width:576px){
+      .wrapper{
+          padding: 25px 20px;
+      }
+      #deactivate{
+          line-height: 18px;
+      }
+  }
+  </style>
