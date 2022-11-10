@@ -329,6 +329,7 @@ module.exports = client => {
           //guild: client.guilds.cache.get(req.params.guildID),
           name: usename,
           id: useid, 
+          apelido: userdb.economia.usuario,
           economiagrana: userdb.economia.money,
           avata: avatar,
           botClient: client,
