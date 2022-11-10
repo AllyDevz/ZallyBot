@@ -4,7 +4,8 @@
         <img src="https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             class="img" alt="">
         <div class="pl-sm-4 pl-2" id="img-section">
-            <b><%= name %></b>
+            <b>Apelido:<%= apelido %></b>
+            <b>Nome:<%= name %></b>
             <p>Dinheiro:</span> <%= economiagrana %></p>
         </div>
     </div>
@@ -12,7 +13,9 @@
         <div class="row py-2">
             <div class="col-md-6">
                 <label for="firstname">Configurar Nome <br>personalizado no site</label><br>
+                <form method="POST"></form>
                 <input type="text" class="bg-light form-control" name="nome" value="<%= name %>" placeholder="Nome Personalizado">
+                </form>
             </div>
         </div>
         <div class="row py-2">

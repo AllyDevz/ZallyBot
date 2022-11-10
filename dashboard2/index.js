@@ -224,6 +224,7 @@ module.exports = client => {
           req: req,
           user: req.isAuthenticated() ? req.user : null,
           //guild: client.guilds.cache.get(req.params.guildID),
+          apelido: userdb.economia.usuario,
           name: usename,
           id: useid, 
           economiagrana: userdb.economia.money,
