@@ -49,10 +49,18 @@
                         <li class="mb-2 mb-xl-3 display-28"><span class="display-26 text-secondary me-2 font-weight-600">Descriçao:</span></span><br> <%= desc %></li>
                         
                         
-                        <p style="font-style: italic;" class="disabled">Set Wallpaper.</p>
-                        <input style="margin-top: -10px;" type="text" class="form-control" name="wallpaper" value="<%= wall %>" placeholder="Put Link Wallpaper">  
+                        <p style="font-style: italic;" class="disabled">Editar Apelido</p>
+                        <input style="margin-top: -10px;" type="text" class="form-control" name="nome" value="<%= apelido %>" placeholder="Coloque seu Apelido no Site">  
                     
                     <br>
+                    <p style="font-style: italic;" class="disabled">Editar Background.</p>
+                    <input style="margin-top: -10px;" type="text" class="form-control" name="wallpaper" value="<%= wall %>" placeholder="Editar Background.">  
+                
+                <br>     
+                <p style="font-style: italic;" class="disabled">Editar Sobremim.</p>
+                <input style="margin-top: -10px;" type="text" class="form-control" name="sobre" value="<%= desc %>" placeholder="Editar seu Sobremim">  
+            
+            <br>                                 
                     <p>
                     <button type="submit" class="btn btn-success text-white" style="font-size: 20px;">
                         <i class="iconify" data-icon="cil:save"></i> Save Settings
