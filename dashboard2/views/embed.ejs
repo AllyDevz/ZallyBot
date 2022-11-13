@@ -195,6 +195,7 @@ max-width: 30rem;
                 <div class="form-holder">
                     <div class="form-content">
                         <div class="form-items">
+                          <form method="POST">
                             <h3 style="color:#6bfc03">Server Settings</h3>
                             <p>Send Embed <%= botClient.user.username %> in <%= guild.name %>.</p>
                             <p style="font-style: italic;" class="disabled">Set Wallpaper.</p>
@@ -214,9 +215,9 @@ max-width: 30rem;
                                 <h1><br><br><h1>
                                 </select>
                                     <button type="submit" class="btn btn-success text-white" style="font-size: 40px;">
-                                        <i class="iconify" data-icon="cil:save"></i> Save Settings
+                                        <i class="iconify" data-icon="cil:save"></i> Send
                                     </button>                                
-                                
+                                  </form>
    
       <!-- FOOTER -->
       <section>
