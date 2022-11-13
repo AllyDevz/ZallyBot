@@ -435,7 +435,7 @@ module.exports = client => {
       if(req.body.djroles) client.settings.set(guild.id, req.body.djroles, "djroles")
       if(req.body.botchannel) client.settings.set(guild.id, req.body.botchannel, "botchannel")
       // We render template using the absolute path of the template and the merged default data with the additional data provided.
-      res.render("settings",  {
+      res.render("embed",  {
         
           req: req,
           user: req.isAuthenticated() ? req.user : null,
