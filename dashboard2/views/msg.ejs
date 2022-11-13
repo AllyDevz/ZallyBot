@@ -202,10 +202,7 @@ max-width: 30rem;
                             <input style="margin-top: -10px;" type="text" class="form-control" name="msg" value="send message" placeholder="message to send">  
 
                                 <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff">Whitelisted Bot-Channels:</h5>
-                                
                                 <p style="font-style: italic;" class="disabled">All Bot Channels which are Whitelisted! | The Bot will only responde to Commands in one of those Channels!</p>
-                                <h1>cor da embed</h1>
-                                <input type="color" name="cor">
                                 <select name="botchannel">
                                     <% guild.channels.cache
                                         .filter(channel=> channel.isText() && channel.permissionsFor(botClient.user).has(["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"]))

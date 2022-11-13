@@ -266,7 +266,7 @@ module.exports = client => {
           BotEmojis: BotEmojis,
         });
     })
-    app.get("/dashboard/:guildID/embed", checkAuth, async (req, res) => {
+    app.get("/dashboard/:guildID/msg", checkAuth, async (req, res) => {
       // We validate the request, check if guild exists, member is in guild and if member has minimum permissions, if not, we redirect it back.
       const guild = client.guilds.cache.get(req.params.guildID);
       if (!guild) return res.redirect("/dashboard?error=" + encodeURIComponent("Can't get Guild Information Data"));
@@ -296,7 +296,7 @@ module.exports = client => {
 
 
       // We render template using the absolute path of the template and the merged default data with the additional data provided.
-      res.render("embed", {
+      res.render("msg", {
           req: req,
           user: req.isAuthenticated() ? req.user : null,
           guild: client.guilds.cache.get(req.params.guildID),
@@ -452,7 +452,7 @@ module.exports = client => {
         }
       );
     });
-    app.post("/dashboard/:guildID/embed", checkAuth, async (req, res) => {
+    app.post("/dashboard/:guildID/msg", checkAuth, async (req, res) => {
       // We validate the request, check if guild exists, member is in guild and if member has minimum permissions, if not, we redirect it back.
       const guild = client.guilds.cache.get(req.params.guildID);
       if (!guild) return res.redirect("/dashboard?error=" + encodeURIComponent("Can't get Guild Information Data!"));
@@ -491,7 +491,7 @@ module.exports = client => {
       }
       if(req.body.botchannel) send(req.body.botchannel, `${req.body.msg}`)
       // We render template using the absolute path of the template and the merged default data with the additional data provided.
-      res.render("embed",  {
+      res.render("msg",  {
         
           req: req,
           user: req.isAuthenticated() ? req.user : null,
@@ -514,6 +514,128 @@ module.exports = client => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    app.get("/dashboard/:guildID/embed", checkAuth, async (req, res) => {
+      // We validate the request, check if guild exists, member is in guild and if member has minimum permissions, if not, we redirect it back.
+      const guild = client.guilds.cache.get(req.params.guildID);
+      if (!guild) return res.redirect("/dashboard?error=" + encodeURIComponent("Can't get Guild Information Data"));
+      let member = guild.members.cache.get(req.user.id);
+      if (!member) {
+        try {
+          member = await guild.members.fetch(req.user.id);
+        } catch (err) {
+          console.error(`Couldn't fetch ${req.user.id} in ${guild.name}: ${err}`);
+        }
+      }
+      const user2 = (`${req.user.id}`)
+      if (!member) return res.redirect("/dashboard?error=" + encodeURIComponent("Unable to fetch you, sorry!"));
+      if (!member.permissions.has(Permissions.FLAGS.MANAGE_GUILD)) {
+        return res.redirect("/dashboard?error=" + encodeURIComponent("You are not allowed to do that!"));
+      }
+      client.settings.ensure(guild.id, {
+        prefix: BotConfig.prefix,      
+        defaultvolume: 50,
+        defaultautoplay: false,
+        defaultfilters: [`bassboost6`, `clear`],
+        djroles: [],
+        nsfw: [],
+        botchannel: [],
+        wallpaper: BotConfig.wallpaper
+      })
+
+
+      // We render template using the absolute path of the template and the merged default data with the additional data provided.
+      res.render("embed", {
+          req: req,
+          user: req.isAuthenticated() ? req.user : null,
+          guild: client.guilds.cache.get(req.params.guildID),
+          botClient: client,
+          test: user2,
+          Permissions: Permissions,
+          bot: settings.website,
+          callback: settings.config.callback,
+          categories: client.categories, 
+          commands: client.commands, 
+          BotConfig: BotConfig,
+          BotFilters: BotFilters,
+          BotEmojis: BotEmojis,
+        }
+      );
+    });
+
+
+    app.post("/dashboard/:guildID/embed", checkAuth, async (req, res) => {
+      // We validate the request, check if guild exists, member is in guild and if member has minimum permissions, if not, we redirect it back.
+      const guild = client.guilds.cache.get(req.params.guildID);
+      if (!guild) return res.redirect("/dashboard?error=" + encodeURIComponent("Can't get Guild Information Data!"));
+      let member = guild.members.cache.get(req.user.id);
+      if (!member) {
+        try {
+          member = await guild.members.fetch(req.user.id);
+        } catch (err) {
+          console.error(`Couldn't fetch ${req.user.id} in ${guild.name}: ${err}`);
+        }
+      }
+      if (!member) return res.redirect("/dashboard?error=" + encodeURIComponent("Can't Information Data about you!"));
+      if (!member.permissions.has("MANAGE_GUILD")) {
+        return res.redirect("/dashboard?error=" + encodeURIComponent("You are not allowed to do that!"));
+      }
+      const user2 = (`${req.user.id}`)
+      if(req.body.prefix) client.settings.set(guild.id, String(req.body.prefix).split(" ")[0], "prefix")
+      if(req.body.wallpaper) client.settings.set(guild.id, String(req.body.wallpaper).split(" ")[0], `${req.user.id}wallpaper`)
+      if(req.body.defaultvolume) client.settings.set(guild.id, Number(req.body.defaultvolume), "defaultvolume")
+      //if autoplay is enabled set it to true
+      if(req.body.defaultautoplay) client.settings.set(guild.id, true, "defaultautoplay")
+      console.log(user2)
+      //otherwise not
+      
+      if(req.body.djroles) client.settings.set(guild.id, req.body.nsfw, "nsfw")   
+      //if there are new defaultfilters, set them
+      if(req.body.defaultfilters) client.settings.set(guild.id, req.body.defaultfilters, "defaultfilters")
+      if(req.body.djroles) client.settings.set(guild.id, req.body.djroles, "djroles")
+      
+      function send(id, msg, cor){
+        if(msg === "@here" || "@everyone"){
+          client.channels.cache.get(id).send("essa messagem foi filtrada por favor não mencione novamente\nmessagem enviada por" + user.username)
+        } else
+
+        client.channels.cache.get(id).send(msg + `\n ${cor}`)
+
+      }
+      if(req.body.botchannel) send(req.body.botchannel, `${req.body.msg}`, req.body.cor)
+      // We render template using the absolute path of the template and the merged default data with the additional data provided.
+      res.render("msg",  {
+        
+          req: req,
+          user: req.isAuthenticated() ? req.user : null,
+          guild: client.guilds.cache.get(req.params.guildID),
+          botClient: client,
+          test: user2,
+          Permissions: Permissions,
+          bot: settings.website,
+          callback: settings.config.callback,
+          categories: client.categories, 
+          commands: client.commands, 
+          BotConfig: BotConfig,
+          BotFilters: BotFilters,
+          BotEmojis: BotEmojis,
+        }
+      );
+    });
 
 
 
