@@ -404,6 +404,55 @@ module.exports = client => {
         }
       );
     });
+    app.post("/dashboard/:guildID/embed", checkAuth, async (req, res) => {
+      // We validate the request, check if guild exists, member is in guild and if member has minimum permissions, if not, we redirect it back.
+      const guild = client.guilds.cache.get(req.params.guildID);
+      if (!guild) return res.redirect("/dashboard?error=" + encodeURIComponent("Can't get Guild Information Data!"));
+      let member = guild.members.cache.get(req.user.id);
+      if (!member) {
+        try {
+          member = await guild.members.fetch(req.user.id);
+        } catch (err) {
+          console.error(`Couldn't fetch ${req.user.id} in ${guild.name}: ${err}`);
+        }
+      }
+      if (!member) return res.redirect("/dashboard?error=" + encodeURIComponent("Can't Information Data about you!"));
+      if (!member.permissions.has("MANAGE_GUILD")) {
+        return res.redirect("/dashboard?error=" + encodeURIComponent("You are not allowed to do that!"));
+      }
+      const user2 = (`${req.user.id}`)
+      if(req.body.prefix) client.settings.set(guild.id, String(req.body.prefix).split(" ")[0], "prefix")
+      if(req.body.wallpaper) client.settings.set(guild.id, String(req.body.wallpaper).split(" ")[0], `${req.user.id}wallpaper`)
+      if(req.body.defaultvolume) client.settings.set(guild.id, Number(req.body.defaultvolume), "defaultvolume")
+      //if autoplay is enabled set it to true
+      if(req.body.defaultautoplay) client.settings.set(guild.id, true, "defaultautoplay")
+      console.log(user2)
+      //otherwise not
+      
+      if(req.body.djroles) client.settings.set(guild.id, req.body.nsfw, "nsfw")   
+      //if there are new defaultfilters, set them
+      if(req.body.defaultfilters) client.settings.set(guild.id, req.body.defaultfilters, "defaultfilters")
+      if(req.body.djroles) client.settings.set(guild.id, req.body.djroles, "djroles")
+      if(req.body.botchannel) client.settings.set(guild.id, req.body.botchannel, "botchannel")
+      // We render template using the absolute path of the template and the merged default data with the additional data provided.
+      res.render("settings",  {
+        
+          req: req,
+          user: req.isAuthenticated() ? req.user : null,
+          guild: client.guilds.cache.get(req.params.guildID),
+          botClient: client,
+          test: user2,
+          Permissions: Permissions,
+          bot: settings.website,
+          callback: settings.config.callback,
+          categories: client.categories, 
+          commands: client.commands, 
+          BotConfig: BotConfig,
+          BotFilters: BotFilters,
+          BotEmojis: BotEmojis,
+        }
+      );
+    });
 
 
 
