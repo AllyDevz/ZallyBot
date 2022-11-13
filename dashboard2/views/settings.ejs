@@ -107,22 +107,14 @@
 
                                 <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff">Whitelisted Bot-Channels:</h5>
                                 <p style="font-style: italic;" class="disabled">All Bot Channels which are Whitelisted! | The Bot will only responde to Commands in one of those Channels!</p>
-                                <select 
-                                class="form-control selectpicker"
-                                    multiple 
-                                    data-width="100%"
-                                    data-height="100%"
-                                    data-live-search="true" 
-                                    aria-label="Dj Roles"
-                                    name="botchannel"
-                                >
+                                <select>
                                     <% guild.channels.cache
                                         .filter(channel=> channel.isText() && channel.permissionsFor(botClient.user).has(["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"]))
                                         .sort((a, b) => a.rawPosition - b.rawPosition)
                                         .forEach((channel, i) => { %>
-                                        <label value="<%= channel.id%>" 
+                                        <option value="<%= channel.id%>" 
                                             <%= botClient.settings.get(guild.id, "botchannel").includes(channel.id) ? "selected" : "" %>> #<%= channel.name%>
-                                        </label>
+                                        </option>
                                     <% }) %>
                                 <h1><br><br><h1>
                                 </select>
