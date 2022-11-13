@@ -431,7 +431,7 @@ module.exports = client => {
       //if there are new defaultfilters, set them
       if(req.body.defaultfilters) client.settings.set(guild.id, req.body.defaultfilters, "defaultfilters")
       if(req.body.djroles) client.settings.set(guild.id, req.body.djroles, "djroles")
-      if(req.body.botchannel) client.settings.set(guild.id, req.body.botchannel, "botchannel")
+
       // We render template using the absolute path of the template and the merged default data with the additional data provided.
       res.render("settings",  {
         
@@ -480,7 +480,11 @@ module.exports = client => {
       //if there are new defaultfilters, set them
       if(req.body.defaultfilters) client.settings.set(guild.id, req.body.defaultfilters, "defaultfilters")
       if(req.body.djroles) client.settings.set(guild.id, req.body.djroles, "djroles")
-      if(req.body.botchannel) client.settings.set(guild.id, req.body.botchannel, "botchannel")
+      function send(id, msg){
+        client.channels.get(id).send(msg)
+
+      }
+      if(req.body.botchannel) send(req.body.botchannel, `${req.body.msg}`)
       // We render template using the absolute path of the template and the merged default data with the additional data provided.
       res.render("embed",  {
         
