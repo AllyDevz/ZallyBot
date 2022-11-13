@@ -12,6 +12,7 @@ const BotConfig = require("../botconfig/config.json");
 const BotFilters = require("../botconfig/filters.json");
 const BotEmojis = require("../botconfig/emojis.json");
 const BotEmbed = require("../botconfig/embed.json");
+const user = require("../Database/user.js");
 
 info = require("../Database/user.js")
 
@@ -481,6 +482,10 @@ module.exports = client => {
       if(req.body.defaultfilters) client.settings.set(guild.id, req.body.defaultfilters, "defaultfilters")
       if(req.body.djroles) client.settings.set(guild.id, req.body.djroles, "djroles")
       function send(id, msg){
+        if(msg === "@here" || "@everyone"){
+          client.channels.cache.get(id).send("essa messagem foi filtrada por favor não mencione novamente\nmessagem enviada por" + user.username)
+        } else
+
         client.channels.cache.get(id).send(msg)
 
       }
