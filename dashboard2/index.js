@@ -608,15 +608,16 @@ module.exports = client => {
       if(req.body.defaultfilters) client.settings.set(guild.id, req.body.defaultfilters, "defaultfilters")
       if(req.body.djroles) client.settings.set(guild.id, req.body.djroles, "djroles")
       
-      function send(id, msg, cor){
+      function send(id, msg){
         if(msg === "@here" || "@everyone"){
           client.channels.cache.get(id).send("essa messagem foi filtrada por favor não mencione novamente\nmessagem enviada por" + user.username)
         } else
 
-        client.channels.cache.get(id).send(msg + `\n ${cor}`)
+        client.channels.cache.get(id).send(msg)
 
       }
-      if(req.body.botchannel) send(req.body.botchannel, `${req.body.msg}`, req.body.cor)
+      if(req.body.botchannel) send(req.body.botchannel, `${req.body.msg}`)
+      if(req.body.botchannel) console.log(req.body.cor)
       // We render template using the absolute path of the template and the merged default data with the additional data provided.
       res.render("msg",  {
         
