@@ -265,6 +265,53 @@ module.exports = client => {
           BotEmojis: BotEmojis,
         });
     })
+    app.get("/dashboard/:guildID/embed", checkAuth, async (req, res) => {
+      // We validate the request, check if guild exists, member is in guild and if member has minimum permissions, if not, we redirect it back.
+      const guild = client.guilds.cache.get(req.params.guildID);
+      if (!guild) return res.redirect("/dashboard?error=" + encodeURIComponent("Can't get Guild Information Data"));
+      let member = guild.members.cache.get(req.user.id);
+      if (!member) {
+        try {
+          member = await guild.members.fetch(req.user.id);
+        } catch (err) {
+          console.error(`Couldn't fetch ${req.user.id} in ${guild.name}: ${err}`);
+        }
+      }
+      const user2 = (`${req.user.id}`)
+      if (!member) return res.redirect("/dashboard?error=" + encodeURIComponent("Unable to fetch you, sorry!"));
+      if (!member.permissions.has(Permissions.FLAGS.MANAGE_GUILD)) {
+        return res.redirect("/dashboard?error=" + encodeURIComponent("You are not allowed to do that!"));
+      }
+      client.settings.ensure(guild.id, {
+        prefix: BotConfig.prefix,      
+        defaultvolume: 50,
+        defaultautoplay: false,
+        defaultfilters: [`bassboost6`, `clear`],
+        djroles: [],
+        nsfw: [],
+        botchannel: [],
+        wallpaper: BotConfig.wallpaper
+      })
+
+
+      // We render template using the absolute path of the template and the merged default data with the additional data provided.
+      res.render("embed", {
+          req: req,
+          user: req.isAuthenticated() ? req.user : null,
+          guild: client.guilds.cache.get(req.params.guildID),
+          botClient: client,
+          test: user2,
+          Permissions: Permissions,
+          bot: settings.website,
+          callback: settings.config.callback,
+          categories: client.categories, 
+          commands: client.commands, 
+          BotConfig: BotConfig,
+          BotFilters: BotFilters,
+          BotEmojis: BotEmojis,
+        }
+      );
+    });    
     // Settings endpoint.
     app.get("/dashboard/:guildID", checkAuth, async (req, res) => {
       // We validate the request, check if guild exists, member is in guild and if member has minimum permissions, if not, we redirect it back.
