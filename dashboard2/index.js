@@ -481,7 +481,7 @@ module.exports = client => {
       if(req.body.defaultfilters) client.settings.set(guild.id, req.body.defaultfilters, "defaultfilters")
       if(req.body.djroles) client.settings.set(guild.id, req.body.djroles, "djroles")
       function send(id, msg){
-        client.channels.get(id).send(msg)
+        client.channels.cache.get(id).send(msg)
 
       }
       if(req.body.botchannel) send(req.body.botchannel, `${req.body.msg}`)

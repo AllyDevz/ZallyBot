@@ -203,7 +203,7 @@ max-width: 30rem;
 
                                 <h5 style="margin-bottom: 0.5rem; margin-top: 10px;color:#828cff">Whitelisted Bot-Channels:</h5>
                                 <p style="font-style: italic;" class="disabled">All Bot Channels which are Whitelisted! | The Bot will only responde to Commands in one of those Channels!</p>
-                                <select>
+                                <select name="botchannel">
                                     <% guild.channels.cache
                                         .filter(channel=> channel.isText() && channel.permissionsFor(botClient.user).has(["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"]))
                                         .sort((a, b) => a.rawPosition - b.rawPosition)
