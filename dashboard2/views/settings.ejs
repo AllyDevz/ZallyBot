@@ -120,9 +120,9 @@
                                         .filter(channel=> channel.isText() && channel.permissionsFor(botClient.user).has(["VIEW_CHANNEL", "SEND_MESSAGES", "EMBED_LINKS"]))
                                         .sort((a, b) => a.rawPosition - b.rawPosition)
                                         .forEach((channel, i) => { %>
-                                        <option value="<%= channel.id%>" 
+                                        <label value="<%= channel.id%>" 
                                             <%= botClient.settings.get(guild.id, "botchannel").includes(channel.id) ? "selected" : "" %>> #<%= channel.name%>
-                                        </option>
+                                        </label>
                                     <% }) %>
                                 <h1><br><br><h1>
                                 </select>
