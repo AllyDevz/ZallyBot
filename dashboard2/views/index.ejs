@@ -105,12 +105,18 @@
 
       <script>
         function updateLatestPrice() {
-  fetch('https://zallybot.herokuapp.com/zallymemory/api').then((result) => {
-    const latestResult = result.memoria
-
-    document.getElementById("memoria").innerHTML = latestResult || 'failed'
-    console.log(latestResult)
-  })
+          fetch('https://zallybot.herokuapp.com/zallymemory/api', {
+    method: 'GET',
+    headers: {
+        'Accept': 'application/json',
+    },
+})
+.then(response => response.json())
+.then(response => {
+  const uo = JSON.stringify(response)
+  console.log(JSON.stringify(response))
+  document.getElementById("memoria").innerHTML = uo || 'falha ao carregar as informaçoes'
+})
 }
 
 setInterval(updateLatestPrice, 1000)
