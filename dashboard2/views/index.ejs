@@ -52,6 +52,7 @@
   
             <div class="sub-heading">
               <p id="memoria">Carregando informaçoes atuais da memoria</p>
+              <p id="memoria1">Carregando informaçoes atuais da memoria</p>
               <p>
                 ZallyBot e um bot de utilizades e diversões
               </p>
@@ -115,7 +116,8 @@
 .then(response => {
   const uo = JSON.stringify(response)
   console.log(JSON.stringify(response))
-  document.getElementById("memoria").innerHTML = uo || 'falha ao carregar as informaçoes'
+  document.getElementById("memoria").innerHTML = "Memória RAM utilizada em GB:" +  uo.m1 || 'falha ao carregar as informaçoes'
+  document.getElementById("memoria1").innerHTML = "Memória RAM utilizada:" + uo.m2 || 'falha ao carregar as informaçoes'
 })
 }
 
