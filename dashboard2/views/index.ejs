@@ -117,8 +117,8 @@
 .then(response => response.json())
 .then(response => {
   const uo = JSON.parse(JSON.stringify(response))
-  document.getElementById("memoria").innerHTML = uo.m1 || 'falha ao carregar as informaçoes'
-  document.getElementById("memoria1").innerHTML = uo.m2 || 'falha ao carregar as informaçoes'
+  document.getElementById("memoria").innerHTML = uo.memoria.m1 || 'falha ao carregar as informaçoes'
+  document.getElementById("memoria1").innerHTML = uo.memoria.m2 || 'falha ao carregar as informaçoes'
 })
 }
 
