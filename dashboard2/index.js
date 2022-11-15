@@ -124,8 +124,6 @@ module.exports = client => {
 
     //When the website is loaded on the main page, render the main page + with those variables
     app.get("/", (req, res) => {
-      if(!req.isAuthenticated() || !req.user) 
-      return res.redirect("/login");
         res.render("index", {
           req: req,
           user: req.isAuthenticated() ? req.user : null,
