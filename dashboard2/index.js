@@ -142,7 +142,18 @@ module.exports = client => {
           Guild: client.guilds.cache.size,
         });
     })
-
+    app.get("/zallymemory/api", (req, res) => {
+      let usedMemory = os.totalmem() -os.freemem(), totalMemory = os.totalmem();
+      let  getpercentage = 
+      ((usedMemory/totalMemory) * 100).toFixed(2) + '%'
+      t = {
+        "memoria": {
+          "m1": `${(usedMemory/ Math.pow(1024, 3)).toFixed(2)}`,
+          "m2": `${getpercentage}`
+        }
+      }
+      res.json(t)
+    })
 
     // When the commands page is loaded, render it with those settings
     app.get("/commands", (req, res) => {
