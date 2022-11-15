@@ -6,6 +6,7 @@ const { Permissions } = require("discord.js");
 const ejs = require("ejs");
 const fs = require("fs")
 const passport = require(`passport`);
+const os = require('os');
 const bodyParser = require("body-parser");
 const Strategy = require(`passport-discord`).Strategy;
 const BotConfig = require("../botconfig/config.json");
