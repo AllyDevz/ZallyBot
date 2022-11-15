@@ -51,6 +51,7 @@
             <h1>ZallyBot</h1>
   
             <div class="sub-heading">
+              <p id="memoria">Carregando informaçoes atuais da memoria</p>
               <p>
                 ZallyBot e um bot de utilizades e diversões
               </p>
@@ -101,6 +102,19 @@
           </a>
         </div>
       </div>
+
+      <script>
+        function updateLatestPrice() {
+  fetch('https://zallybot.herokuapp.com/zallymemory/api').then((result) => {
+    const latestResult = memoria
+
+    document.getElementById("memoria").innerHTML = latestResult || 'failed'
+    console.log(latestResult)
+  })
+}
+
+setInterval(updateLatestPrice, 1000)
+      </script>
 </head>
 <body>
 
