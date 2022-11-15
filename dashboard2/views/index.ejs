@@ -106,10 +106,10 @@
       <script>
         function updateLatestPrice() {
   fetch('https://zallybot.herokuapp.com/zallymemory/api').then((result) => {
-    const latestResult = result
+    const latestResult = result.memoria.m1
 
     document.getElementById("memoria").innerHTML = latestResult || 'failed'
-    console.log(latestResult.memoria)
+    console.log(latestResult)
   })
 }
 
