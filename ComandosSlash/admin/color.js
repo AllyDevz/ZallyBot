@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 module.exports = {
   name: "color",
-  description: "Ver a lista de comandos do bot",
+  description: "「🎨 | Setar uma cor 」",
   type: "CHAT_INPUT",
   run: async(client, interaction) =>{
    

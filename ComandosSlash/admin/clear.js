@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 module.exports = {
     name: 'clear',
-    description: '[♻️ Limpe as mensagens de um chat.]',
+    description: '「♻️ Limpe as mensagens de um chat.」',
     type: 'CHAT_INPUT',
     options: [
         {

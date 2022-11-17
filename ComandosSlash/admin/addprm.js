@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 module.exports = {
   name: "addprm",
-  description: "[🎨 Cores Premium developer add ]",
+  description: "「🎨 Cores Premium developer add 」",
   type: "CHAT_INPUT",
   options: [{
     name: 'usuario',

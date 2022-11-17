@@ -4,7 +4,7 @@ moment.locale('pt-BR')
 
 module.exports = {
     name: 'serverinfo',
-    description: "「🤔 informação」Veja as informaçãoes do servidor",
+    description: "「🤔 informaçãoVeja as informaçãoes do servidor」",
 
     run: async(client, interaction, args) => {
         const user = interaction
@@ -35,7 +35,7 @@ module.exports = {
     .addField('**ID do servidor:**', `\`${server.id}\``, true)
     .addField('**Boost:**', `\`${server.premiumSubscriptionCount} Impulsos\`\n**(${nivel()})**`, true)
     .addField('**Quantidade de membros:**', `\`${server.memberCount} Membros\``, true)
-    .setFooter({ text: 'Cabaré da Shikimori', iconURL: interaction.member.displayAvatarURL({ dynamic: true, size: 1024 }) })
+    .setFooter({ text: 'Cabaré da Zally', iconURL: interaction.member.displayAvatarURL({ dynamic: true, size: 1024 }) })
     .setTimestamp(new Date())
 
     interaction.reply({embeds: [retorno]})

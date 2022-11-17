@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 module.exports = {
   name: "corprm",
-  description: "[🎨 Cores Premium ]",
+  description: "「🎨 Cores Premium 」",
   type: "CHAT_INPUT",
   options: [
         {
@@ -28,7 +28,7 @@ module.exports = {
 
 
   const embed = new Discord.MessageEmbed()
-    .setTitle('[🎨 Sua cor foi setada com sucesso ]')
+    .setTitle('「🎨 Sua cor foi setada com sucesso 」')
     .setColor("a5d7ff")
   if (userdb.economia.premium === "ispremium"){
   const cor = interaction.options.getString("cor")
@@ -36,7 +36,7 @@ module.exports = {
   interaction.reply({ embeds: [embed] })
   } else
   {
-    interaction.reply("[ \🧧 | Voce precisa compra o premium para usar este comando ]")
+    interaction.reply("「 \🧧 | Voce precisa compra o premium para usar este comando 」")
   }
   }
 }
