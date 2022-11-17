@@ -92,7 +92,7 @@ module.exports = {
                       .setColor(userdb.economia.color)
                       .setImage(p.displayAvatarURL({
                           dynamic: true,
-                          size: 1024
+                          size: 2048
                       }))
                       .setDescription(`[Png](${p.avatarURL({ format: 'png', size: 2048 })}) | [Webp](${p.avatarURL({ dynamic: true , size: 2048 })}) | [Jpg](${p.avatarURL({ format: 'jpg', size: 2048 })})`)
                       .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
@@ -120,7 +120,7 @@ module.exports = {
                       .setColor(userdb.economia.color)
                       .setImage(p.displayAvatarURL({
                           dynamic: true,
-                          size: 1024
+                          size: 480
                       }))
                       .setDescription(`[Png](${p.avatarURL({ format: 'png' })}) | [Webp](${p.avatarURL({ dynamic: true, size: 480 })}) | [Jpg](${p.avatarURL({ format: 'jpg', size: 480 })})`)
                       .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ format: 'png', size: 480, dynamic: true }))
