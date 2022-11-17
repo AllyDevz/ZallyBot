@@ -143,9 +143,10 @@ collector.on('collect', async i => {
   if(i.values[0] == "end"){
 
     interaction.editReply({embeds: [new Discord.MessageEmbed()
-     .setTitle('🧧 Encerrando Menu')
+     .setTitle('🧧 Encerrando Menu em 5 segundos')
                ]}).then(msg => {
-                msg.delete({ timeout: 10000 /*time unitl delete in milliseconds*/});
+                const t = msg.delete({ timeout: 10000 /*time unitl delete in milliseconds*/});
+                setTimeout(t, 5000);
             })
    }
   if(i.values[0] == "admin"){
