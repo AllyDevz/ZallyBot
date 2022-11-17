@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 module.exports = {
   name: "painellock",
-  description: "Ver a lista de comandos do bot",
+  description: "[ 🔒 | Fecha o canal atual ]",
   type: "CHAT_INPUT",
   run: async(client, interaction) =>{
    

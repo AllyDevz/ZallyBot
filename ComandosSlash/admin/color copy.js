@@ -9,10 +9,10 @@ module.exports = {
     .setTitle('🛑Ver todas as opçoes')
     .setColor("a5d7ff")
     .setDescription('Selecione uma Cor Para ')
-  message.guild.channels.create('chatbot', {
+  interaction.guild.channels.create('chatbot', {
       type: 'GUILD_TEXT',
         permissionOverwrites: [{
-          id: message.guild.id,
+          id: interaction.guild.id,
             allow: ['VIEW_CHANNEL'],
             deny: ['SEND_MESSAGES'],
       }]
