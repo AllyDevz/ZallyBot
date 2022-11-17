@@ -23,22 +23,16 @@ module.exports = {
             const userdb = await client.userdb.findOne({
                 userID: user.id
             }) || { economia: { banco: 0, money: 0}, color:"36393e"}
-            atmb = `
-            
-            
-            ╭━═[🎫𝓐𝓽𝓶 𝓩𝓪𝓵𝓵𝔂🎫]═━━⪨
-            
-        🎱𝓔𝓶𝓹𝓻𝓮𝓰𝓸𝓼:${userdb.economia.trabalho.trampo} 
-        💸 𝓭𝓲𝓷𝓱𝓮𝓲𝓻𝓸: ${(userdb.economia.money).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-        🏦 𝓓𝓲𝓷𝓱𝓮𝓲𝓻𝓸 𝓷𝓸 𝓫𝓪𝓷𝓬𝓸 ${(userdb.economia.banco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-        💱 𝓓𝓲𝓷𝓱𝓮𝓲𝓻𝓸 𝓽𝓸𝓽𝓪𝓵: ${(userdb.economia.money + userdb.economia.banco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-              
-            ╰━━━━━━━━━━━━━━━━━━━━━━⪨
-`
+
             interaction.reply({embeds: [new Discord.MessageEmbed()
-            .setTitle(`𝓷𝓸𝓶𝓮:${user.username}\n𝒶𝓅𝑒𝓁𝒾𝒹𝑜:${userdb.economia.usuario}`)
-            .setColor(userdb.economia.color)
-            .setDescription(`${atmb}`)
+                .setColor("#6400b6")
+                .setTitle("Saldo na carteira Monetário")
+                .setDescription(`**${user.username}**, veja as informações da sua carteira:` +
+                `\nEmprego:**${userdb.economia.trabalho.trampo}**\n\nDinheiro: **${(userdb.economia.money).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}**` +
+                `\nBanco: **${(userdb.economia.banco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}**`)
+                .setFooter("Informações da sua carteira!")
+                .setTimestamp()
+            
                  ]})  
         }
      }
