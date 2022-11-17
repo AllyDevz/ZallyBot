@@ -371,7 +371,10 @@ module.exports = client => {
         }
       );
     });
-
+    app.use((req, res, next) => {
+      res.status(404).send(
+          "<h1>Page not found on the server</h1>")
+  })
     app.post("/pfstgs", checkAuth, async (req, res) => {
       // We validate the request, check if guild exists, member is in guild and if member has minimum permissions, if not, we redirect it back.
       const useid = req.user.id
