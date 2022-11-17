@@ -50,6 +50,7 @@ module.exports = {
             .setTitle(`${p.username}'s Avatar`)
             .setImage(gay(`${img}`))
             .setColor("BLUE")
+        interaction.reply({embeds: [embed]})
         
         
          //lets try it now 
