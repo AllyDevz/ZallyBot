@@ -46,9 +46,10 @@ module.exports = {
           dynamic: true,
           size: 1024
       })
+      const avatar = `https://cdn.discordapp.com/avatars/${p.user.id}/${p.user.avatar}.png`
         const embed = new MessageEmbed()
-            .setTitle(`${p.username}'s Avatar`)
-            .setImage(gay(`${img}`))
+            .setTitle(`${p.username}'`)
+            .setImage(gay(`${avatar}`))
             .setColor("BLUE")
         interaction.reply({embeds: [embed]})
         
