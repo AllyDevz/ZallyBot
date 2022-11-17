@@ -21,7 +21,7 @@ body {
 }
 .hero-image {
   background-image: url("https://ik.imagekit.io/AllyDev/natal-renas_BTTani_6z_Z.jpg?updatedAt=1638217169151");
-  background-color: #ffffff;
+  background-color: #cccccc;
   height: 500px;
   background-position: center;
   background-repeat: no-repeat;
@@ -66,7 +66,22 @@ body {
     height: 80px;
     font-size: 40px;
 }
-
+.card2 {
+    border: 1px solid #eee;
+    border-radius: 15px;
+    padding: 30px;
+    background-color: #fff;
+    height: 400px;
+    width: 600px;
+    display: flex;
+    column-gap: 20px;
+    max-width: 18rem; 
+    margin: 2rem; 
+    min-width: 10em;
+    box-shadow: 1px 1px 16px -6px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 1px 16px -6px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 16px -6px rgba(0, 0, 0, 0.5);
+  }
 form.d-flex button {
     background-color: #0E1122;
     color: white;
@@ -198,22 +213,7 @@ form.d-flex button:hover {
     min-width: 10em;
     background: rgb(99, 53, 0);
 }
-.card2 {
-    border: 1px solid #eee;
-    border-radius: 15px;
-    padding: 30px;
-    background-color: #fff;
-    height: 400px;
-    width: 600px;
-    display: flex;
-    column-gap: 20px;
-    max-width: 18rem; 
-    margin: 2rem; 
-    min-width: 10em;
-    box-shadow: 1px 1px 16px -6px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 1px 1px 16px -6px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 1px 1px 16px -6px rgba(0, 0, 0, 0.5);
-  }
+
 
 
 
@@ -498,58 +498,3 @@ select {
     transform: rotate(360deg);
   }
 }
-
-
-
-  .flex-container {
-    display: flex;
-    column-gap: 15px;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    margin-top: 60px;
-  }
-  .space-between {
-    justify-content: space-between;
-  }
-  .col {
-    width: 50%;
-  }
-  .card {
-    border: 1px solid #eee;
-    border-radius: 15px;
-    padding: 20px;
-    background-color: #fff;
-    display: flex;
-    column-gap: 20px;
-    box-shadow: 1px 1px 16px -6px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 1px 1px 16px -6px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 1px 1px 16px -6px rgba(0, 0, 0, 0.5);
-  }
-  .card img {
-    max-width: 250px;
-    transform: translateY(-15%);
-  }
-  .img-placeholder {
-    position: relative;
-    max-height: 200px;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 1px 1px 16px -6px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 1px 1px 16px -6px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 1px 1px 16px -6px rgba(0, 0, 0, 0.75);
-  }
-  h3 {
-    font-weight: 400;
-  }
-  p {
-    font-weight: 300;
-  }
-  a {
-    color: #888;
-    text-decoration: none;
-  }
-  a:hover {
-    color: inherit;
-  }
-  
