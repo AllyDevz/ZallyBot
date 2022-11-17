@@ -3,14 +3,12 @@ module.exports = {
   name: "addprm",
   description: "[🎨 Cores Premium developer add ]",
   type: "CHAT_INPUT",
-  options: [
-        {
-         name: "usuario",
-         description: "esse painel e apenas pro desenvolvedor",
-         type: 3,
-         required: true
-        },
-        ],  
+  options: [{
+    name: 'usuario',
+    type: 'USER',
+    description: 'Select a user/id',
+    required: false,
+}], 
   run: async(client, interaction) =>{
     const usuario = interaction.options.getUser('usuario')
     const userId = interaction.member.user.id;
