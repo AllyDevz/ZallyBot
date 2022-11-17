@@ -22,7 +22,7 @@ module.exports = {
             const user = interaction.options.getUser("user") || interaction.user
             const userdb = await client.userdb.findOne({
                 userID: user.id
-            }) || { economia: { banco: 0, money: 0}, color:"36393e"}
+            }) || { economia: { banco: 0, money: 0}, color:"#5234eb"}
 
             interaction.reply({embeds: [new Discord.MessageEmbed()
                 .setColor("#6400b6")
