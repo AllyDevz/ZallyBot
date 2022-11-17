@@ -48,7 +48,30 @@ module.exports = {
             }))
             .setDescription(`[Png](${p.avatarURL({ format: 'png' })}) | [Webp](${p.avatarURL({ dynamic: true })}) | [Jpg](${p.avatarURL({ format: 'jpg' })})`)
             .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ dynamic: true }));
-        
+            const row = new Discord.MessageActionRow()
+            .addComponents(
+            new Discord.MessageSelectMenu()
+              .setCustomId('menu')
+            .setPlaceholder('selecione uma categoria de comandos.')
+            .addOptions([
+              {
+                label: '[👑]Full HD',
+                description: "1080p",
+                value: '1080p',
+              },
+              {
+                  label: '[🎪]HD',
+                  description: "720p",
+                  value: '720p',
+              },
+              {
+                label: '[🎞]SD',
+                description: "480p",
+                value: '480p',
+            },
+            ]),
+                );
+          
         await interaction.reply({
             embeds: [embed]
         });
