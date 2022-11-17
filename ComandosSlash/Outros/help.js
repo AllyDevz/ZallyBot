@@ -28,6 +28,7 @@ const row = new Discord.MessageActionRow()
 	.addOptions([
 		{
 			label: 'Economia',
+      description: "esse apenas um teste",
       emoji: '💫',
 			value: 'economia',
 		},
