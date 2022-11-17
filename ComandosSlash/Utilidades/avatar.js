@@ -1,7 +1,7 @@
 const {
     MessageEmbed
 } = require('discord.js')
-
+const Discord = require("discord.js");
 module.exports = {
     name: 'avatar',
     description: '[🎱 | Mostra o Avatar da Pessoa ]',
@@ -72,9 +72,36 @@ module.exports = {
             ]),
                 );
           
-        await interaction.reply({
-            embeds: [embed]
-        });
+                interaction.reply({embeds: [embed], components: [row], fetchReply: true}).then(msg => {
+
+                  const collector = msg.createMessageComponentCollector({ idle: 1000 * 60 * 10 });
+                
+                collector.on('collect', async i => {
+                
+                  if(i.user.id != interaction.user.id) return i.reply({embeds: [new Discord.MessageEmbed()
+                    .setColor("a5d7ff")
+                    .setDescription(`Só quem solicitou o menu pode usá-lo.`)
+                ], ephemeral: true})
+                
+                   i.deferUpdate()
+                
+                   if(i.values[0] == "1080p"){
+                    interaction.editReply({embeds: [new Discord.MessageEmbed()
+                      .setTitle(`${p.username}'s Avatartest`)
+                      .setColor(userdb.economia.color)
+                      .setImage(p.displayAvatarURL({
+                          dynamic: true,
+                          size: 1024
+                      }))
+                      .setDescription(`[Png](${p.avatarURL({ format: 'png' })}) | [Webp](${p.avatarURL({ dynamic: true })}) | [Jpg](${p.avatarURL({ format: 'jpg' })})`)
+                      .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ dynamic: true }));
+                               ]})
+
+                   }
+     
+                })//collector
+                  
+                })//.thens
         
         
         

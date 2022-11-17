@@ -27,7 +27,7 @@ module.exports = {
             interaction.reply({embeds: [new Discord.MessageEmbed()
                 .setColor("#6400b6")
                 .setTitle("Saldo na carteira Monetário")
-                .setDescription(`**${user.username}**, veja as informações da sua carteira:` +
+                .setDescription(`**${user.username}**, Aqui Está as informações de sua carteira:` +
                 `\n\nEmprego:**${userdb.economia.trabalho.trampo}**\nDinheiro: **${(userdb.economia.money).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}**` +
                 `\nBanco: **${(userdb.economia.banco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}**`)
                 .setFooter("Informações da sua carteira!")
