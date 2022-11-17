@@ -28,7 +28,7 @@ module.exports = {
                 .setColor("#6400b6")
                 .setTitle("Saldo na carteira Monetário")
                 .setDescription(`**${user.username}**, veja as informações da sua carteira:` +
-                `\nEmprego:**${userdb.economia.trabalho.trampo}**\n\nDinheiro: **${(userdb.economia.money).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}**` +
+                `\n\nEmprego:**${userdb.economia.trabalho.trampo}**\nDinheiro: **${(userdb.economia.money).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}**` +
                 `\nBanco: **${(userdb.economia.banco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}**`)
                 .setFooter("Informações da sua carteira!")
                 .setTimestamp()
