@@ -87,18 +87,46 @@ module.exports = {
                 
                    if(i.values[0] == "1080p"){
                     interaction.editReply({embeds: [new Discord.MessageEmbed()
-                      .setTitle(`${p.username}'s Avatartest`)
+                      .setTitle(`${p.username}'s Avatar`)
+                      .setDescription("[👑]Full HD")
                       .setColor(userdb.economia.color)
                       .setImage(p.displayAvatarURL({
                           dynamic: true,
                           size: 1024
                       }))
-                      .setDescription(`[Png](${p.avatarURL({ format: 'png' })}) | [Webp](${p.avatarURL({ dynamic: true })}) | [Jpg](${p.avatarURL({ format: 'jpg' })})`)
-                      .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ dynamic: true }))
+                      .setDescription(`[Png](${p.avatarURL({ format: 'png', size: 2048 })}) | [Webp](${p.avatarURL({ dynamic: true , size: 2048 })}) | [Jpg](${p.avatarURL({ format: 'jpg', size: 2048 })})`)
+                      .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
                                ]})
 
                    }
-     
+                   if(i.values[0] == "720p"){
+                    interaction.editReply({embeds: [new Discord.MessageEmbed()
+                      .setTitle(`${p.username}'s Avatar`)
+                      .setDescription("[🎪]HD")
+                      .setColor(userdb.economia.color)
+                      .setImage(p.displayAvatarURL({
+                          dynamic: true,
+                          size: 1024
+                      }))
+                      .setDescription(`[Png](${p.avatarURL({ format: 'png' })}) | [Webp](${p.avatarURL({ dynamic: true, size: 1024 })}) | [Jpg](${p.avatarURL({ format: 'jpg', size: 1024 })})`)
+                      .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ format: 'png', size: 1024, dynamic: true }))
+                               ]})
+
+                   }
+                   if(i.values[0] == "480p"){
+                    interaction.editReply({embeds: [new Discord.MessageEmbed()
+                      .setTitle(`${p.username}'s Avatar`)
+                      .setDescription("[🎞]SD")
+                      .setColor(userdb.economia.color)
+                      .setImage(p.displayAvatarURL({
+                          dynamic: true,
+                          size: 1024
+                      }))
+                      .setDescription(`[Png](${p.avatarURL({ format: 'png' })}) | [Webp](${p.avatarURL({ dynamic: true, size: 480 })}) | [Jpg](${p.avatarURL({ format: 'jpg', size: 480 })})`)
+                      .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ format: 'png', size: 480, dynamic: true }))
+                               ]})
+
+                   }             
                 })//collector
                   
                 })//.thens
