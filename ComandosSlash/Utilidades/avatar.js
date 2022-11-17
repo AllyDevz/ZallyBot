@@ -98,8 +98,7 @@ module.exports = {
                       .setColor(userdb.economia.color)
                       .setImage(p.displayAvatarURL({
                           dynamic: true,
-                          size: 2048
-                      }))
+                      }) + "?size=4096")
                       .setDescription(`[Png](${p.avatarURL({ format: 'png', size: 2048 })}) | [Webp](${p.avatarURL({ dynamic: true , size: 2048 })}) | [Jpg](${p.avatarURL({ format: 'jpg', size: 2048 })})`)
                       .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
                                ]})
@@ -112,8 +111,7 @@ module.exports = {
                       .setColor(userdb.economia.color)
                       .setImage(p.displayAvatarURL({
                           dynamic: true,
-                          size: 1024
-                      }))
+                      })+ "?size=1024")
                       .setDescription(`[Png](${p.avatarURL({ format: 'png' })}) | [Webp](${p.avatarURL({ dynamic: true, size: 1024 })}) | [Jpg](${p.avatarURL({ format: 'jpg', size: 1024 })})`)
                       .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ format: 'png', size: 1024, dynamic: true }))
                                ]})
@@ -126,8 +124,8 @@ module.exports = {
                       .setColor(userdb.economia.color)
                       .setImage(p.displayAvatarURL({
                           dynamic: true,
-                          size: 100
-                      }))
+
+                      })+ "?size=100")
                       .setDescription(`[Png](${p.avatarURL({ format: 'png' })}) | [Webp](${p.avatarURL({ dynamic: true, size: 100 })}) | [Jpg](${p.avatarURL({ format: 'jpg', size: 100 })})`)
                       .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ format: 'png', size: 100, dynamic: true }))
                                ]})
