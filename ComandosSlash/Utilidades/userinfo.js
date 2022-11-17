@@ -2,8 +2,8 @@ const { MessageAttachment } = require("discord.js");
 const { profileImage } = require("discord-arts");
 
 module.exports = {
-    name: "userinfo",
-    description: "userinfo",
+    name: "usuario",
+    description: "[🎇| mostra uma imagem do usuario ]",
     type: 'CHAT_INPUT',
   options: [
     {

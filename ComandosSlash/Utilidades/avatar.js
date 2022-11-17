@@ -4,15 +4,15 @@ const {
 
 module.exports = {
     name: 'avatar',
-    description: 'Shows users avatar',
+    description: '[🎱 | Mostra o Avatar da Pessoa ]',
     options: [{
-        name: 'target',
+        name: 'usuario',
         type: 'USER',
         description: 'Select a user/id',
         required: false,
     }],
     run: async (client, interaction, options) => {
-        const usuario = interaction.options.getUser('target')
+        const usuario = interaction.options.getUser('usuario')
         const userId = interaction.member.user.id;
       
         const user = client.users.cache.find(user => user.id === userId)
