@@ -667,11 +667,11 @@ module.exports = client => {
 
 
     //Queue Dashes
-    app.get("/loginpage", checkAuth, async (req,res, message) => {
+    app.get("/loginpage", async (req,res, message) => {
       if(!req.isAuthenticated() || !req.user) 
       return res.redirect("/loginpage");
       if(!req.user.guilds)
-      res.render("loginpage", {
+      res.render("login", {
         req: req,
         user: req.isAuthenticated() ? req.user : null,
         //guild: client.guilds.cache.get(req.params.guildID),
