@@ -353,7 +353,10 @@ select {
 
 
 
-
+.card img {
+    max-width: 250px;
+    transform: translateY(-15%);
+  }
 
 
 
