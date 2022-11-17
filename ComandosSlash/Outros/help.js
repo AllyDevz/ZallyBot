@@ -27,34 +27,33 @@ const row = new Discord.MessageActionRow()
 	.setPlaceholder('selecione uma categoria de comandos.')
 	.addOptions([
 		{
-			label: 'Economia',
-      description: "esse apenas um teste",
-      emoji: '💫',
+			label: '[🧶] Economia',
+      description: "[🧶] Veja os comandos da economia",
 			value: 'economia',
 		},
 		{
-	    	label: 'Comandos',
-        emoji: '💤',
+	    	label: '[💤] Comandos',
+        description: "[💤] Veja a informações dos comandos",
 		    value: 'outros',
 		},
 		{
-      label: 'Ping',
-      emoji: '🌐',
+      label: '[🌐] Ping',
+      description: "[🌐] Veja o ping atual do bot",
       value: 'Ping',
   },
   {
-    label: 'Admin',
-    emoji: '🛑',
+    label: '[🛑] Admin',
+    description: "[🛑] Informações dos comandos admin",
     value: 'admin',
 },
 		{
-			label: 'Avatar',
-      emoji: '🖤',
+			label: '[🖤] Avatar',
+      description: "[🖤] Veja sua Foto do discord",
 			value: 'avatar',
 		},
   {
-    label: 'Exit',
-    emoji: '🧧',
+    label: '[🧧] Exit',
+    description: "[🧧] Fechar Menu",
     value: 'end',
 },
 	]),
