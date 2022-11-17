@@ -46,7 +46,7 @@ module.exports = {
           dynamic: true,
           size: 1024
       })
-      const avatar = `https://cdn.discordapp.com/avatars/${p.user.id}/${p.user.avatar}.png`
+      const avatar = `https://cdn.discordapp.com/avatars/${p.id}/${p.avatar}.png`
         const embed = new MessageEmbed()
             .setTitle(`${p.username}'`)
             .setImage(gay(`${avatar}`))
