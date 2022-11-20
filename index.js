@@ -69,15 +69,15 @@ const humans = member.guild.members.cache.filter((m) => !m.user.bot).size
             }
 
             if(guildMongoDb.description){
-             welcome.setDescription(`${guildMongoDb.description}`)
+             welcome.setDescription(guildMongoDb.description)
             } else {
-             welcome.setDescription(`<@${member.user.id}> Joined the server!\nNow we have **${humans}** members!`)}
+             welcome.setDescription(`<@${member.user.id}> Entrou no servidor!\nAgora temos **${humans}** membros!`)}
 
 
             if(guildMongoDb.title){
              welcome.setTitle(guildMongoDb.title)
             } else {
-             welcome.setTitle(`Welcome to ${member.guild.name}`)}
+             welcome.setTitle(`Bem-vindo ao ${member.guild.name}`)}
 
 
             if(guildMongoDb.footer){

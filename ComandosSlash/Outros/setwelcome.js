@@ -46,7 +46,7 @@ module.exports = {
 
         if (!interaction.member.permissions.has("MANAGE_GUILD")) {
 
-            interaction.channel.send({
+            interaction.reply({
                 embeds: [new Discord.MessageEmbed()
                     .setDescription(`> :x: | You need \`MANAGE_GUILD\` permission to use this command!`)
                     .setColor('RANDOM')
