@@ -36,7 +36,7 @@ module.exports = {
     ctx.drawImage(layout, 0, 0, canvas.width, canvas.height)
 
 ctx.font = '30px Uniform';
-ctx.fillStyle = '#F8F8F8';
+ctx.fillStyle = '#000000';
 function fil(){
   if(user.id === "919678294947950643"){
     return `Owner:`
@@ -50,7 +50,7 @@ ctx.fillText(`${user.username.slice(0, 8)}`, 120, 300)
 
 ctx.font = '22px Uniform';
 ctx.fillStyle = '#F8F8F8';      
-ctx.fillText(`${userdb.economia.sobremim.slice(0,21)}\n${userdb.economia.sobremim.slice(21,42)}\n${userdb.economia.sobremim.slice(42,60)}`, 400, 450)
+ctx.fillText(`${userdb.economia.sobremim.slice(0,21)}\n${userdb.economia.sobremim.slice(21,42)}\n${userdb.economia.sobremim.slice(42,63)}`, 400, 450)
       
 ctx.font = '23px Uniform';
 ctx.fillStyle = '#F8F8F8';
