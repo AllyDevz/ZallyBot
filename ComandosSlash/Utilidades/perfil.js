@@ -46,7 +46,7 @@ function fil(){
 }
 console.log(fil())
 ctx.fillText(`${fil()}`, 10, 37, 80)
-ctx.fillText(`${user.username}`, 149 - user.username.length * 7, 37)
+ctx.fillText(`${user.username}`, 149 - user.username.length * 120, 300)
 
 ctx.font = '22px Uniform';
 ctx.fillStyle = '#F8F8F8';      
