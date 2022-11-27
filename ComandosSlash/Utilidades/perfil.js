@@ -50,7 +50,7 @@ ctx.fillText(`${user.username}`, 149 - user.username.length * 7, 37)
 
 ctx.font = '22px Uniform';
 ctx.fillStyle = '#F8F8F8';      
-ctx.fillText(`${userdb.economia.sobremim.slice(0,64)}\n${userdb.economia.sobremim.slice(64,128)}\n${userdb.economia.sobremim.slice(128,192)}`, 400, 495)
+ctx.fillText(`${userdb.economia.sobremim.slice(0,64)}\n${userdb.economia.sobremim.slice(64,128)}`, 400, 495)
       
 ctx.font = '23px Uniform';
 ctx.fillStyle = '#F8F8F8';
