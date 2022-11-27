@@ -55,7 +55,7 @@ ctx.fillText(`${userdb.economia.sobremim.slice(0,64)}\n${userdb.economia.sobremi
 ctx.font = '23px Uniform';
 ctx.fillStyle = '#F8F8F8';
 ctx.fillText(`: ${abreviar(userdb.economia.rep)}`, 652, 201)
-ctx.fillText(`${abreviar(userdb.economia.money)}`, 633, 340)
+ctx.fillText(`${abreviar(userdb.economia.money)}`, 717, 229)
 ctx.fillText(`${abreviar(userdb.economia.banco)}`, 690, 268)
 ctx.fillText(`${abreviar(userdb.economia.banco + userdb.economia.money)}`, 672, 312)
 
@@ -94,7 +94,7 @@ ctx.beginPath();
 const avatar = user.avatarURL({ dynamic: true, format: "png", size: 1024 });
 
     const userAvatar = await Canvas.loadImage(`${avatar}`)
-    ctx.drawImage(userAvatar, 25, 25, 150, 150)
+    ctx.drawImage(userAvatar, 25, 25, 200, 200)
       
     const attach = new MessageAttachment(
         canvas.toBuffer(),
