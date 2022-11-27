@@ -32,7 +32,7 @@ module.exports = {
     const background = await Canvas.loadImage(userdb.economia.background)
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
 
-    const layout = await Canvas.loadImage("./NPR3ALW.png")
+    const layout = await Canvas.loadImage("./layout2.png")
     ctx.drawImage(layout, 0, 0, canvas.width, canvas.height)
 
 ctx.font = '30px Uniform';
@@ -86,10 +86,7 @@ ctx.beginPath();
 ctx.restore()
       
 ctx.beginPath();
-      ctx.arc(206, 100, 53, 4.7, Math.PI * 0);
-      ctx.arc(206, 205, 53, 6.35, Math.PI * 0.52);
-      ctx.arc(101, 205, 53, 1.65, Math.PI * 1);
-      ctx.arc(101, 100, 53, 3.3, Math.PI * 1.5);
+      ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
       ctx.closePath();
       ctx.clip();
 
