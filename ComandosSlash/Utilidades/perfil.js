@@ -57,7 +57,7 @@ ctx.fillStyle = '#F8F8F8';
 //ctx.fillText(`: ${abreviar(userdb.economia.rep)}`, 652, 201)
 ctx.fillText(`${abreviar(userdb.economia.money)}`, 575, 130)
 ctx.fillText(`${abreviar(userdb.economia.banco)}`, 520, 190)
-ctx.fillText(`${abreviar(userdb.economia.banco + userdb.economia.money)}`, 510, 250)
+ctx.fillText(`${abreviar(userdb.economia.banco + userdb.economia.money)}`, 510, 255)
 
 ctx.save()
       
