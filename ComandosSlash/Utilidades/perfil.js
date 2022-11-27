@@ -86,6 +86,7 @@ ctx.beginPath();
 ctx.restore()
       
 ctx.beginPath();
+
       ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
       ctx.closePath();
       ctx.clip();
@@ -93,7 +94,7 @@ ctx.beginPath();
 const avatar = user.avatarURL({ dynamic: true, format: "png", size: 1024 });
 
     const userAvatar = await Canvas.loadImage(`${avatar}`)
-    ctx.drawImage(userAvatar, 45, 45, 218, 218)
+    ctx.drawImage(userAvatar, 25, 25, 200, 200)
       
     const attach = new MessageAttachment(
         canvas.toBuffer(),
