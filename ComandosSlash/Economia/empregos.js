@@ -164,6 +164,7 @@ collector.on('collect', async i => {
   },{ $set: {
           "cooldowns.trabalho": Date.now() + 604800000,
           "economia.registro": "true",
+          "economia.background": "https://media.discordapp.net/attachments/1037851726864207942/1046878244303032330/629544.jpg?width=841&height=473",
           "economia.usuario": interaction.user.tag,
           "economia.trabalho":{
             maxmoney: maxmoney,
