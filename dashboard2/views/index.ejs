@@ -13,21 +13,10 @@
 		<nav class="nav__mobile"></nav>
 		<div class="container">
 			<div class="navbar__inner">
-				<a href='/' class="navbar__logo">ZallyBot</a>
-                    <% if(user && user.id) { %>
-                    
-            
-              <button class="btn" 
-              style="letter-spacing: 0.1em;font-weight: 500;width: 20%;"
-              onclick="location.href='/logout'" type="button">• <%= user.username %> • LOGOUT!</button></a>
-          <% }else { %>
-              <button class="btn" 
-              style="letter-spacing: 0.1em;font-weight: 500;width: 20%;"
-              onclick="location.href='/login'" type="button"><span class="iconify" data-icon="simple-icons:discord"></span> Login</button>
-          <% }%>  
+				<a href='/' class="navbar__logo">ZallyBot</a>  
 				<nav class="navbar__menu">
 <ul>
-  <li><a href="#">Option</a></li>
+  <li><a href="Dashboard">Dashboard</a></li>
   <li><a href="#">Option 2</a></li>
 </ul>
 				</nav>
