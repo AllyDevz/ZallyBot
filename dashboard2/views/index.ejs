@@ -15,22 +15,21 @@
 			<div class="navbar__inner">
 				<a href='/' class="navbar__logo">ZallyBot</a>
 				<nav class="navbar__menu">
-          <% if(user && user.id) { %>
-            <a>
-                <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png", style="width: 50px;margin-bottom:3%; border-radius: 50%;"alt="LOGO">
-            </a>
-                    
-                <button class="btn" 
-                style="letter-spacing: 0.1em;font-weight: 800;width: 60%;"
-                onclick="location.href='/logout'" type="button">• <%= user.username %> • LOGOUT!</button>
-            <% }else { %>
-                <button class="btn" 
-                style="letter-spacing: 0.1em;font-weight: 750;width: 100%;"
-                onclick="location.href='/login'" type="button"><span class="iconify" data-icon="simple-icons:discord"></span> Login</button>
-            <% }%>
+
 					<ul>
 						<li><a href="#">Option</a></li>
 						<li><a href="#">Option 2</a></li>
+            <% if(user && user.id) { %>
+                    
+            
+              <button class="btn" 
+              style="letter-spacing: 0.1em;font-weight: 800;width: 60%;"
+              onclick="location.href='/logout'" type="button">• <%= user.username %> • LOGOUT!</button></a>
+          <% }else { %>
+              <button class="btn" 
+              style="letter-spacing: 0.1em;font-weight: 750;width: 100%;"
+              onclick="location.href='/login'" type="button"><span class="iconify" data-icon="simple-icons:discord"></span> Login</button>
+          <% }%>            
 					</ul>
 				</nav>
 				<div class="navbar__menu-mob"><a href="" id='toggle'><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" class=""></path></svg></a></div>
