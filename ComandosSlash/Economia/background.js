@@ -14,7 +14,7 @@ module.exports = {
         ],
     run: async (client, interaction) => {
         
-     const sobremim = interaction.options.getAttachment('attach')
+     const sobremim = interaction.options.getAttachment('background')
      
      let userdb = await client.userdb.findOne({
          userID: interaction.user.id
