@@ -1,33 +1,59 @@
-<%- include('header'); -%>
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!--Meta Tags-->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">        
-        <link rel="stylesheet" href="/index.css">
-        <title>Dashboard</title>
-        <meta name="description" content="Sh  adow Slortez Dashboard">
-            <meta property="og:title" content="Slortez Dashboard">
-            <meta property="og:type" content="article">
-            <meta property="og:url" content="https://noice.allysonluiz1.repl.co/">
-            <meta property="og:image" content="https://cdn.discordapp.com/attachments/885348891820707871/909593147535945818/unknown.png">
-            <meta property="og:site_name" content="Shadow Slortez Dashboard">
-            <meta property="fb:admins" content="100001589384006">
-            <meta property="fb:app_id" content="1778569572376490">
-            <meta property="og:description" content="Shadow Slortez">
-            <meta name="twitter:card" content="summary_large_image">
-            <meta name="twitter:site" content="@Allyson.S16#5586">
-            <meta name="twitter:creator" content="@Allyson.S16#5586">
-            <meta name="twitter:title" content="Check out this T-Rex dinosaur game Gihz do quadro branco">
-            <meta name="twitter:description" content="Criador AllyStudiokkk">
-            <meta name="twitter:image:src" content="https://cdn.discordapp.com/attachments/885348891820707871/909593147535945818/unknown.png">                
-    </head>
-    <body>
-        <!--HEADER-->
-        
-        <!--MAIN BODY-->
+<html lang='en'>
+<head>
+	<meta class="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>ZallyBot</title>
+	<!-- Don't forget to add your metadata here -->
+	<link rel="stylesheet" href="/style.min.css">
+</head>
+<body>
+	<!-- Hero(extended) navbar -->
+	<div class="navbar navbar--extended">
+		<nav class="nav__mobile"></nav>
+		<div class="container">
+			<div class="navbar__inner">
+				<a href='/' class="navbar__logo">ZallyBot</a>
+				<nav class="navbar__menu">
+
+					<ul>
+						<li><a href="Dashboard">Dashboard</a></li>
+						<li><a href="#">Option 2</a></li>            
+					</ul>
+				</nav>
+				<div class="navbar__menu-mob"><a href="" id='toggle'><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" class=""></path></svg></a></div>
+			</div>
+		</div>
+	</div>
+	<!-- Hero unit -->
+	<div class="hero">
+		<div class="hero__overlay hero__overlay--gradient"></div>
+		<div class="hero__mask"></div>
+		<div class="hero__inner">
+			<div class="container">
+				<div class="hero__content">
+					<div class="hero__content__inner" id='navConverter'>
+						<h1 class="hero__title">ZallyBot</h1>
+						<p> e uma bot desenvolvida para: <br>diversão,utilidades,e moderaçao </p>
+						<a href="#" class="button button__accent">Convite</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="hero__sub">
+		<span id="scrollToNext" class="scroll">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" class='hero__sub__down' fill="currentColor" width="512px" height="512px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><path d="M256,298.3L256,298.3L256,298.3l174.2-167.2c4.3-4.2,11.4-4.1,15.8,0.2l30.6,29.9c4.4,4.3,4.5,11.3,0.2,15.5L264.1,380.9c-2.2,2.2-5.2,3.2-8.1,3c-3,0.1-5.9-0.9-8.1-3L35.2,176.7c-4.3-4.2-4.2-11.2,0.2-15.5L66,131.3c4.4-4.3,11.5-4.4,15.8-0.2L256,298.3z"/></svg>
+		</span>
+	</div>
+	<!-- Steps -->
+	<div class="steps landing__section">
+		<div class="container">
+			<h2>Como posso usar a ZallyBot?</h2>
+			<p>Simples use o comando /menu</p>
+		</div>
+		<div class="container">
+
       <section>
         <div class="d-flex justify-content-center head">
             <h1><b>DASHBOARD</b></h1>
@@ -76,10 +102,20 @@
           } 
         %>
       </section>
-      <!-- FOOTER-->
 
+	</div>
 
-       <!--JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    </body>
+	<!-- Call To Action -->
+	<!-- Footer -->
+	<div class="footer footer--dark">
+		<div class="container">
+			<div class="footer__inner">
+				<a class="footer__textLogo">By AllyDevz</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script src='/app.min.js'></script>
+</body>
 </html>
