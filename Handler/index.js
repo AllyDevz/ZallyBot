@@ -29,7 +29,7 @@ const SlashsArray = []
      
 
   if(!arquivo?.name) return;
-
+  console.log(arquivo?.name)
     
 
   client.slashCommands.set(arquivo?.name, arquivo);
