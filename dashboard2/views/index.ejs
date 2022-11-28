@@ -15,6 +15,19 @@
 			<div class="navbar__inner">
 				<a href='/' class="navbar__logo">ZallyBot</a>
 				<nav class="navbar__menu">
+          <% if(user && user.id) { %>
+            <a>
+                <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png", style="width: 50px;margin-bottom:3%; border-radius: 50%;"alt="LOGO">
+            </a>
+                    
+                <button class="btn" 
+                style="letter-spacing: 0.1em;font-weight: 800;width: 60%;"
+                onclick="location.href='/logout'" type="button">• <%= user.username %> • LOGOUT!</button>
+            <% }else { %>
+                <button class="btn" 
+                style="letter-spacing: 0.1em;font-weight: 750;width: 100%;"
+                onclick="location.href='/login'" type="button"><span class="iconify" data-icon="simple-icons:discord"></span> Login</button>
+            <% }%>
 					<ul>
 						<li><a href="#">Option</a></li>
 						<li><a href="#">Option 2</a></li>
