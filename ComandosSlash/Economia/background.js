@@ -32,7 +32,7 @@ userdb.economia.background = sobremim.url; userdb.save()
      interaction.reply({embeds: [new Discord.MessageEmbed()
     .setTitle(`Wallapaper Trocado`)
      .setColor("a5d7ff")
-     .setImage(e(sobremim))
+     .setImage(sobremim.url)
      
      
           ]})
