@@ -8,7 +8,7 @@ module.exports = {
         {
             name: 'avatar',
             description: '[👥 Utilidades] Veja o avatar de um usuário',
-            type: "SUBCOMMAND",
+            type: "SUB_COMMAND",
             options: [{
                 name: 'user',
                 description: 'Selecione um usuário, ou envie um ID',
