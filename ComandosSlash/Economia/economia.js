@@ -24,18 +24,11 @@ module.exports = {
                 let userAvatar = interaction.options.getUser('user') || interaction.user;
                 let AvatarUser = userAvatar.displayAvatarURL({ size: 4096, dynamic: true, format: "png" })
 
-                let EmbedAvatar = new EmbedBuilder()
+                let EmbedAvatar = new Discord.MessageEmbed()
                     .setColor('#2f3136')
                     .setTitle(`🖼 ${userAvatar.username}`)
                     .setFooter({ text: 'Apesar de tudo, ainda é você.'})
                     .setImage(AvatarUser);
-
-                let ButtonAvatar = new ActionRowBuilder().addComponents(
-                    new ButtonBuilder()
-                    .setStyle(ButtonStyle.Link)
-                    .setLabel('Abrir imagem no navegador')
-                    .setURL(AvatarUser)
-                );
 
                 interaction.reply({ embeds: [EmbedAvatar] });
 
