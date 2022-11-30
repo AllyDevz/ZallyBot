@@ -2,7 +2,7 @@ const { EmbedBuilder, ApplicationCommand, ApplicationCommandOptionType, ActionRo
 const axios = require('axios');
 
 module.exports = {
-    name: 'user',
+    name: 'usuariot',
     description: 'subcommand de user',
     options: [
             {
