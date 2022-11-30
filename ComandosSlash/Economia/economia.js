@@ -27,110 +27,144 @@ module.exports = {
                     required: false
                 }]
             },
-            {
-                name: 'banner',
-                description: '[👥 Utilidades] Veja o banner de um usuário',
-                type: ApplicationCommandOptionType.Subcommand,
-                options: [{
-                    name: 'user',
-                    description: 'Selecione um usuário, ou envie um ID',
-                    type: ApplicationCommandOptionType.User,
-                    required: false
-                }]
-            }
+
     ],
     run: async(client, interaction) => {
         switch (interaction.options.getSubcommand()) {
             case 'info': {
-                let userInfo = interaction.options.getUser('user') || interaction.user;
-                let InfoAvatar = userInfo.displayAvatarURL({ size: 4096, dynamic: true, format: "png" })
-                let data = userInfo.createdAt.toLocaleDateString("pt-br");
 
-                let embedInfo = new EmbedBuilder()
-                    .setColor('#2f3136')
-                    .setAuthor({ name: `${userInfo.username}`, iconURL: userInfo.displayAvatarURL({ dynamic: true }) })
-                    .setThumbnail(InfoAvatar)
-                    .setFields(
-                        {
-                            name: '<:Icon_ChannelText:1022780308145307670> Tag',
-                            value: `\`${userInfo.tag}\``,
-                            inline: true
-                        },
-                        {
-                            name: '<:IconID:996654966867513406> ID',
-                            value: `\`${userInfo.id}\``,
-                            inline: true
-                        },
-                        {
-                            name: '<:Date:1022780283512172614> Data de criação da conta',
-                            value: `\`${data}\``,
-                            inline: false
-                        }
-                    );
-
-                    interaction.reply({ embeds: [embedInfo] });
-
-                
+                interaction.reply("hi")
 
                 break;
             }
             case 'avatar': {
+                const usuario = interaction.options.getUser('user')
+                const userId = interaction.member.user.id;
+              
+                const user = client.users.cache.find(user => user.id === userId)
+        
+                function getUserFromMention(usuario) {
+                    if (!usuario){
+                      return user
+                    }
+            
+                    if (usuario.toString().startsWith('<@') && usuario.toString().endsWith('>')) {
+                      usuario = usuario.toString().slice(2, -1);
+            
+                      if (usuario.toString().startsWith('!')) {
+                        usuario = usuario.toString().slice(1);
+                      }
+            
+                      return client.users.cache.get(usuario);
+                    }
+                  }
+            
+            
+                  const p = getUserFromMention(usuario)
+                  const userdb = await client.userdb.findOne({
+                    userID: p.id
+                }) || { economia: { marry: { casado: false }, banco: 0, money: 0, sobremim: "Use /sobremim para alterar este texto.", background:"./vFqyhnK.png", color:"#5234eb"}}
+                
+                const embed = new MessageEmbed()
+                    .setTitle(`${p.username}'s Avatar`)
+                    .setColor(userdb.economia.color)
+                    .setImage(p.displayAvatarURL({
+                        dynamic: true,
+                        size: 1024
+                    }))
+                    .setDescription(`[Png](${p.avatarURL({ format: 'png' })}) | [Webp](${p.avatarURL({ dynamic: true })}) | [Jpg](${p.avatarURL({ format: 'jpg' })})`)
+                    .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ dynamic: true }));
+                    const row = new Discord.MessageActionRow()
+                    .addComponents(
+                    new Discord.MessageSelectMenu()
+                      .setCustomId('menu')
+                    .setPlaceholder('selecione uma categoria de comandos.')
+                    .addOptions([
+                      {
+                        label: '[👑]Full HD',
+                        description: "1080p",
+                        value: '1080p',
+                      },
+                      {
+                          label: '[🎪]HD',
+                          description: "720p",
+                          value: '720p',
+                      },
+                      {
+                        label: '[🎞]SD',
+                        description: "480p",
+                        value: '480p',
+                    },
+                    ,
+                      {
+                        label: '[🎯]SD',
+                        description: "120p",
+                        value: '120p',
+                    },
+                    ]),
+                        );
+                  
+                        interaction.reply({embeds: [embed], components: [row], fetchReply: true}).then(msg => {
+        
+                          const collector = msg.createMessageComponentCollector({ idle: 1000 * 60 * 10 });
+                        
+                        collector.on('collect', async i => {
+                        
+                          if(i.user.id != interaction.user.id) return i.reply({embeds: [new Discord.MessageEmbed()
+                            .setColor("a5d7ff")
+                            .setDescription(`Só quem solicitou o menu pode usá-lo.`)
+                        ], ephemeral: true})
+                        
+                           i.deferUpdate()
+                        
+                           if(i.values[0] == "1080p"){
+                            interaction.editReply({embeds: [new Discord.MessageEmbed()
+                              .setTitle(`${p.username}'s Avatar`)
+                              .setDescription("[👑]Full HD")
+                              .setColor(userdb.economia.color)
+                              .setImage(p.displayAvatarURL({
+                                  dynamic: true,
+                              }) + "?size=4096")
+                              .setDescription(`[Png](${p.avatarURL({ format: 'png', size: 2048 })}) | [Webp](${p.avatarURL({ dynamic: true , size: 2048 })}) | [Jpg](${p.avatarURL({ format: 'jpg', size: 2048 })})`)
+                              .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ format: 'png', size: 2048, dynamic: true }))
+                                       ]})
+        
+                           }
+                           if(i.values[0] == "720p"){
+                            interaction.editReply({embeds: [new Discord.MessageEmbed()
+                              .setTitle(`${p.username}'s Avatar`)
+                              .setDescription("[🎪]HD")
+                              .setColor(userdb.economia.color)
+                              .setImage(p.displayAvatarURL({
+                                  dynamic: true,
+                              })+ "?size=1024")
+                              .setDescription(`[Png](${p.avatarURL({ format: 'png' })}) | [Webp](${p.avatarURL({ dynamic: true, size: 1024 })}) | [Jpg](${p.avatarURL({ format: 'jpg', size: 1024 })})`)
+                              .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ format: 'png', size: 1024, dynamic: true }))
+                                       ]})
+        
+                           }
+                           if(i.values[0] == "120p"){
+                            interaction.editReply({embeds: [new Discord.MessageEmbed()
+                              .setTitle(`${p.username}'s Avatar`)
+                              .setDescription("[🎞]SD")
+                              .setColor(userdb.economia.color)
+                              .setImage(p.displayAvatarURL({
+                                  dynamic: true,
+        
+                              })+ "?size=100")
+                              .setDescription(`[Png](${p.avatarURL({ format: 'png' })}) | [Webp](${p.avatarURL({ dynamic: true, size: 100 })}) | [Jpg](${p.avatarURL({ format: 'jpg', size: 100 })})`)
+                              .setFooter(`Requested by: ${interaction.user.username}`, interaction.user.displayAvatarURL({ format: 'png', size: 100, dynamic: true }))
+                                       ]})
+        
+                           }             
+                        })//collector
+                          
+                        })//.thens
 
-                let userAvatar = interaction.options.getUser('user') || interaction.user;
-                let AvatarUser = userAvatar.displayAvatarURL({ size: 4096, dynamic: true, format: "png" })
-
-                let EmbedAvatar = new EmbedBuilder()
-                    .setColor('#2f3136')
-                    .setTitle(`🖼 ${userAvatar.username}`)
-                    .setFooter({ text: 'Apesar de tudo, ainda é você.'})
-                    .setImage(AvatarUser);
-
-                let ButtonAvatar = new ActionRowBuilder().addComponents(
-                    new ButtonBuilder()
-                    .setStyle(ButtonStyle.Link)
-                    .setLabel('Abrir imagem no navegador')
-                    .setURL(AvatarUser)
-                );
-
-                interaction.reply({ embeds: [EmbedAvatar] });
-
-                break;
             }
-            case 'banner': {
 
-                let userBanner = interaction.options.getUser('user') || interaction.user;
-
-                axios
-                    .get(`https://discord.com/api/users/${userBanner.id}`, {
-                        headers: {
-                            Authorization: `Bot ${client.token}`,
-                        },
-                    })
-                    .then((res) => {
-                        const { banner } = res.data;
-
-                        if (banner) {
-                            const extension = banner.startsWith("a_") ? '.gif?size=4096' : '.png?size=4096';
-                            const url = `https://cdn.discordapp.com/banners/${userBanner.id}/${banner}${extension}`;
-
-                            let embedBanner = new EmbedBuilder()
-                            .setColor('Red')
-                            .setTitle(`🖼 ${userBanner.username}`)
-                            .setImage(url);
-
-                            const buttonBanner = new ActionRowBuilder()
-                            .addComponents(
-                                new ButtonBuilder()
-                                .setStyle(ButtonStyle.Link)
-                                .setURL(url)
-                                .setLabel('Abrir no navegador')
-                            )
-
-                            interaction.reply({ embeds: [embedBanner], components: [buttonBanner] })
-                        } else { interaction.reply({ content: `<:CircleError:1022536388266168320> ‣ ${userBanner} não tem um banner no perfil! Talvez ele não tenha Discord Nitro... Ou talvez ele só teve muita preguiça de colocar um banner bonitinho.`, ephemeral: true }) }
-                    })
+            
             }
         }
 
     }
-}
