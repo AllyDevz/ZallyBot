@@ -12,7 +12,7 @@ module.exports = {
             options: [{
                 name: 'user',
                 description: 'Selecione um usuário, ou envie um ID',
-                type: 6,
+                type: 'USER',
                 required: false
             }]
         },
