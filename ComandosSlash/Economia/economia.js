@@ -19,7 +19,7 @@ module.exports = {
         {
             name: "serverinfo",
             description: "ver as informaçoes do servidor",
-            type:"CHAT_INPUT",
+            type: "SUB_COMMAND",
         }
         ],
     run: async (client, interaction) => {
