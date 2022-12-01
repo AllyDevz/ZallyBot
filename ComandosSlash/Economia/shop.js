@@ -29,22 +29,22 @@ module.exports = {
                     .setPlaceholder(`💲 Clique aqui para comprar algum item.`)
                     .addOptions([
                         {
-                            label: 'Waifu',
-                            description: 'Clique aqui para comprar uma Waifu',
-                            emoji: '👩‍💼',
+                            label: 'Moeda de Ouro',
+                            description: 'Clique aqui para comprar uma Moeda de ouro',
+                            emoji: '🪙',
                             value: 'waifu',
                         },
                         {
-                            label: 'Ilulu',
-                            description: 'Clique aqui para comprar uma Ilulu',
-                            emoji: '👩',
+                            label: 'Moeda de Diamante',
+                            description: 'Clique aqui para comprar uma Moeda de diamante',
+                            emoji: '💎',
                             value: 'Ilulu',
                         }
                         ,
                         {
-                            label: 'Fafnir',
-                            description: 'Clique aqui para comprar um Fanfnir',
-                            emoji: '🕵🏻',
+                            label: 'Moeda de Ametista',
+                            description: 'Clique aqui para comprar uma Moeda de Ametista',
+                            emoji: '🧊',
                             value: 'fafnir',
                         },
                         {
@@ -100,7 +100,7 @@ module.exports = {
                         await c.reply(`${interaction.user} Você não possui \`5000 moedas\` para comprar roupa.`)
                     } else {
 
-                        c.reply(`${interaction.user} Você comprou um Fafnir por 10 Ilulus!\nVeja seu inventário com \`/inventário\`.`);
+                        c.reply(`${interaction.user} Você comprou um Camaro por 10 Moedas de diamante!\nVeja seu inventário com \`/inventário\`.`);
                         await client.userdb.updateOne({
                             userID: interaction.user.id
                         }, { $set: {
