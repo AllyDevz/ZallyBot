@@ -18,7 +18,8 @@ module.exports = {
         },
         {
             name: "serverinfo",
-            description: "ver as informaçoes do servidor"
+            description: "ver as informaçoes do servidor",
+            type:"CHAT_INPUT",
         }
         ],
     run: async (client, interaction) => {

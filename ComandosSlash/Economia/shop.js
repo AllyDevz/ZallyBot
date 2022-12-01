@@ -12,14 +12,14 @@ module.exports = {
 
         let embed = new Discord.MessageEmbed()
             .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
-            .setTitle("ShikiShop 🛒")
+            .setTitle("Shop 🛒")
             .setColor("RANDOM")
             .setDescription(`Olá ${interaction.user}, veja abaixo os itens disponíveis para compra no ShikiShop:\n
 > 👩‍💼 **Waifu**
-\`6500 Shikicoins\`
+\`6500 Moedas\`
 
 > 👩 **Ilulu**
-\`5 Waifus\`
+\`5 Moedas de Diamante\`
 `);
 
         let ops = new Discord.MessageActionRow()
@@ -79,7 +79,12 @@ module.exports = {
                         interaction.channel.send(`${interaction.user} Você ja possui o premium`)
                     } else {
                     if (fafnir < 6) {
-                        c.reply(`${interaction.user} Você não possui 6 Fafnis para comprar o premium`)
+                        let embed = new Discord.MessageEmbed()
+                        .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
+                        .setTitle("Compra Rejeitada! 🛒")
+                        .setColor("RED")
+                        .setDescription(`${interaction.user} Você não possui 6 Fafnis para comprar o premium.`)                 
+                        c.reply({embeds: [embed]})
                     } else {
                         
 
@@ -97,7 +102,13 @@ module.exports = {
                 } else if (valor === "fafnir") {
 
                     if (ilulu < 10) {
-                        await c.reply(`${interaction.user} Você não possui \`5000 moedas\` para comprar roupa.`)
+                        let embed = new Discord.MessageEmbed()
+                        .setThumbnail(interaction.guild.iconURL({ dynamic: true }))
+                        .setTitle("Compra Rejeitada! 🛒")
+                        .setColor("RED")
+                        .setDescription(`${interaction.user} Você não possui 10 Fafnis para comprar o premium.`)                 
+                        c.reply({embeds: [embed]})                        
+                        await c.reply(`${interaction.user} Você não possui \`5000 moedas\` para comprar uma Moeda de Ametista`)
                     } else {
 
                         c.reply(`${interaction.user} Você comprou um Camaro por 10 Moedas de diamante!\nVeja seu inventário com \`/inventário\`.`);
@@ -128,7 +139,7 @@ module.exports = {
                 } else if (valor === "waifu") {
 
                     if (carteira < 6500) {
-                        c.reply(`${interaction.user} Você não possui \`6500 moedas\` para comprar uma Waifu`)
+                        c.reply(`${interaction.user} Você não possui \`6500 moedas\` para comprar uma Moeda de Diamante`)
                     } else {
                         
 
