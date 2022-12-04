@@ -1,0 +1,6 @@
+app = "zallybot"
+
+  builder = "heroku/buildpacks:20"
+
+  internal_port = 3000
+  protocol = "tcp"
