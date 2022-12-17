@@ -20,7 +20,7 @@ client.on("ready", () => {
   })
 require("./Handler")(client);
 
-mongo.connect("mongodb+srv://AllyDevz:all150913a@cluster0.i8sgi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+mongo.connect("URL DA DATABASE DA MONGODB", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
@@ -29,7 +29,7 @@ mongo.connect("mongodb+srv://AllyDevz:all150913a@cluster0.i8sgi.mongodb.net/myFi
     console.log('Unable to connect to MongoDB Database.\nError: ' + err)
 })
 
-client.login("OTI1MDQwMzI2MDA2MTU3Mzgz.GrhY5W.yYRgdgwSSjFWc-G3OQOb3yqh4-hUjOuK0-vDdI");
+client.login("O TOKEN");
 
 
 client.on("disconnect", () => client.logger.log("Bot is disconnecting...", "warn"))
